@@ -6,7 +6,7 @@ Julia,Julia, and CJ
 
 Plan:
 
-PlayGame.java
+GamePlayer.java
 -the controller class
 -Tasks:
 1.initialize the board
@@ -28,6 +28,8 @@ Vertex.java
 Edge.java
 -one object for each edge
 
+Player.java
+- a class for each participant that has their ID (used by vertex and edge to determine who owns the spot)
 
 
 
