@@ -13,7 +13,7 @@ public class GamePlayer {
 	public GamePlayer(int numPlayers){
 		//create stats table for players
 		//create Player classes for each player and store in players[]
-		int[][] board= new Board().getBoard();
+		int[][][][] board= new Board().getBoard();
 		createGraph(board);
 		Visualizer GUI = new Visualizer(board);
 		//add event listeners to gUI and figure out how GamePlayer will capture the click events 
@@ -21,7 +21,7 @@ public class GamePlayer {
 	
 	
 	//Go through the board and create verticies where appropriate
-	private static void createGraph(int[][] board){
+	private static void createGraph(int[][][][] board){
 		//board[0][i]= the resource type of tile i
 		//board[1][i] = the probability of tile i
 		

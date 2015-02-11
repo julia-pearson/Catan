@@ -3,7 +3,7 @@ public class Board {
 //creates the random map and tile allocation
 int[] probabilities;
 int[] resources;
-int[][] completeBoard;
+int[][][][] completeBoard;
 Vertex head;
 
 	public Board() {
@@ -31,7 +31,7 @@ Vertex head;
 	
 	
 	//method that will give the GamePlayer access to the graph
-	public int[][] getBoard(){
+	public Vertex getBoard(){
 		return completeBoard;
 	}
 }
