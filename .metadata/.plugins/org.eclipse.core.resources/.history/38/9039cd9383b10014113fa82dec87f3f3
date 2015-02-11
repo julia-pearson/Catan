@@ -2,7 +2,7 @@
 public class Visualizer {
 
 	
-	public Visualizer(int[][][][] board){
+	public Visualizer(Vertex head){
 	//draw GUI !!! (use paint() and event listner, etc...)
 	}
 }

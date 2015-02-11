@@ -12,8 +12,8 @@ public class GamePlayer {
 	public GamePlayer(int numPlayers){
 		//create stats table for players
 		//create Player classes for each player and store in players[]
-		int[][][][] board= new Board().getBoard();
-		Visualizer GUI = new Visualizer(board);
+		Vertex boardStart= new Board().getStartVertex();
+		Visualizer GUI = new Visualizer(boardStart);
 		//add event listeners to gUI and figure out how GamePlayer will capture the click events 
 	}
 

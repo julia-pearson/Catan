@@ -31,7 +31,7 @@ Vertex head;
 	
 	
 	//method that will give the GamePlayer access to the graph
-	public int[][][][] getBoard(){
+	public Vertex getBoard(){
 		return completeBoard;
 	}
 }
