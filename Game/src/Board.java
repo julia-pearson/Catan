@@ -145,4 +145,60 @@ int[][] theBoard;
 	public int[][] getBoard(){
 		return theBoard;
 	}
+
+	//method that will return a test board
+	public int[][] getTestBoard(){
+		board[0][0] = 4;
+		board[0][1] = 5;
+		board[0][2] = 2;
+		board[0][3] = 3;
+		board[0][4] = 1;
+		board[0][5] = 3;
+		board[0][6] = 5;
+		board[0][7] = 0;
+		board[0][8] = 4;
+		board[0][9] = 2;
+		board[0][10] = 4;
+		board[0][11] = 2;
+		board[0][12] = 3;
+		board[0][13] = 5;
+		board[0][14] = 5;
+		board[0][15] = 1;
+		board[0][16] = 1;
+		board[0][17] = 2;
+		board[0][18] = 4;
+
+		board[1][0] = 11;
+		board[1][1] = 12;
+		board[1][2] = 9;
+		board[1][3] = 4;
+		board[1][4] = 6;
+		board[1][5] = 5;
+		board[1][6] = 10;
+		board[1][7] = 0;
+		board[1][8] = 3;
+		board[1][9] = 11;
+		board[1][10] = 4;
+		board[1][11] = 8;
+		board[1][12] = 8;
+		board[1][13] = 10;
+		board[1][14] = 9;
+		board[1][15] = 3;
+		board[1][16] = 5;
+		board[1][17] = 2;
+		board[1][18] = 6;
+
+		board[2][0] = 1;
+		board[2][1] = 0;
+		board[2][2] = 5;
+		board[2][3] = 0;
+		board[2][4] = 0;
+		board[2][5] = 3;
+		board[2][6] = 4;
+		board[2][7] = 0;
+		board[2][8] = 2;
+
+		board[3][7] = 1;
+
+	}
 }
