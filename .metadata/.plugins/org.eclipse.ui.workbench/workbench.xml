@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="25" version="2.0">
+<workbench progressCount="35" version="2.0">
 <workbenchAdvisor/>
-<window height="768" width="1024" x="379" y="40">
+<window height="748" width="1118" x="234" y="87">
 <fastViewData fastViewLocation="1024"/>
-<intro standby="false"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
@@ -31,18 +30,53 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" partName="Vertex.java" title="Vertex.java" tooltip="/Users/juliaedholm/Documents/Catan/Vertex.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Vertex.java"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" partName="Vertex.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Vertex.java" title="Vertex.java" tooltip="Game/src/Vertex.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Vertex.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="250" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GamePlayer.java" partName="GamePlayer.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GamePlayer.java" title="GamePlayer.java" tooltip="Game/src/GamePlayer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GamePlayer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="223" selectionTopPixel="83"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" partName="Board.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Board.java" title="Board.java" tooltip="Game/src/Board.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Board.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="654" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Edge.java" partName="Edge.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Edge.java" title="Edge.java" tooltip="Game/src/Edge.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Edge.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="235" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Player.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Visualizer.java" partName="Visualizer.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Visualizer.java" title="Visualizer.java" tooltip="Game/src/Visualizer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Visualizer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="124" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" partName="GraphMaker.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphMaker.java" title="GraphMaker.java" tooltip="Game/src/GraphMaker.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphMaker.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="472" selectionTopPixel="202"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors (1 item)"/>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -80,36 +114,10 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.ui.internal.introview" partName="Welcome">
-<viewState>
-<presentation currentPage="root" restore="true"/>
-<standbyPart/>
-</viewState>
-</view>
-<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
-<viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
-<sorter groupBy="CATEGORY_QUERY">
-<sorter>
-<sort0 sortDirection="1" sortKey="PRIORITY"/>
-<sort1 sortDirection="1" sortKey="RANK"/>
-<sort2 sortDirection="1" sortKey="DATE_CREATED"/>
-<sort3 sortDirection="1" sortKey="NONE"/>
-<sort4 sortDirection="1" sortKey="NONE"/>
-<sort5 sortDirection="1" sortKey="NONE"/>
-<sort6 sortDirection="1" sortKey="NONE"/>
-<sort7 sortDirection="1" sortKey="NONE"/>
-</sorter>
-</sorter>
-<filteredTreeFindHistory/>
-</viewState>
-</view>
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
-<viewState/>
-</view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.ui.internal.introview" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -171,9 +179,6 @@
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
-<view id="org.eclipse.ui.views.ContentOutline"/>
-<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
-<view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -192,16 +197,14 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@625db8ff" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="left">
-<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">
-<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="254" ratioRight="762" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.19060524" ratioLeft="211" ratioRight="896" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74963397" ratioLeft="512" ratioRight="171" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -219,21 +222,17 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@4a05e593" ratio="0.7493438" ratioLeft="571" ratioRight="191" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.mylyn.tasks.ui.views.tasks" appearance="2" expanded="2">
-<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.5" ratioLeft="256" ratioRight="256" relationship="4" relative="org.eclipse.ui.internal.ViewStack@4a05e593">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.egit.ui.RepositoriesView" ratio="0.5988287" ratioLeft="409" ratioRight="274" relationship="4" relative="left"/>
@@ -244,10 +243,161 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Vertex.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GamePlayer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Board.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Visualizer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Vertex.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphMaker.java"/>
 </editors>
-<item active="true" historyLabel="Vertex.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="9" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="348" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="393" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="294" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="Board.java" index="1">
+<position info="not_deleted" x="654" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="250" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="182" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="182" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="425" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="427" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="407" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="250" y="0"/>
+</item>
+<item historyLabel="Board.java" index="1">
+<position info="not_deleted" x="654" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="543" y="0"/>
+</item>
+<item historyLabel="Board.java" index="1">
+<position info="not_deleted" x="654" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="3">
+<position info="not_deleted" x="250" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="566" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="127" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="191" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="394" y="0"/>
+</item>
+<item historyLabel="Visualizer.java" index="2">
+<position info="not_deleted" x="124" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="394" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position/>
+</item>
+<item historyLabel="Board.java" index="1">
+<position info="not_deleted" x="654" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="350" y="49"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="652" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="350" y="49"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="475" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="166" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="168" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="911" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="4">
+<position info="not_deleted" x="472" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="709" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="262" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="264" y="0"/>
+</item>
+<item active="true" historyLabel="GamePlayer.java" index="0">
+<position info="not_deleted" x="272" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -255,14 +405,49 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="bottom"/>
+<trimItem IMemento.internal.id="right"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@4a05e593"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.intro.impl.presentations.IntroLaunchBar"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" tooltip="Game/src/GraphMaker.java">
+<persistable path="/Game/src/GraphMaker.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Visualizer.java" tooltip="Game/src/Visualizer.java">
+<persistable path="/Game/src/Visualizer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" tooltip="Game/src/Player.java">
+<persistable path="/Game/src/Player.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Edge.java" tooltip="Game/src/Edge.java">
+<persistable path="/Game/src/Edge.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" tooltip="Game/src/Board.java">
+<persistable path="/Game/src/Board.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GamePlayer.java" tooltip="Game/src/GamePlayer.java">
+<persistable path="/Game/src/GamePlayer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" tooltip="Game/src/Vertex.java">
+<persistable path="/Game/src/Vertex.java"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" tooltip="/Users/juliaedholm/Documents/Catan/Vertex.java">
 <persistable uri="file:/Users/juliaedholm/Documents/Catan/Vertex.java"/>
 </file>

@@ -1,0 +1,30 @@
+/* JE
+ * 
+ */
+
+//Use Resource class to go from int value of resource to the string
+public class Vertex {
+	private int[][] adjacentTiles; //adjacentTiles[0][x] = the resource type of tile x, adjacentTiles[1][x]= roll #
+	private Player owner;
+	private boolean	isOccupied; 
+	private int 	settlementType; //1= settlement, 2= city
+	
+	public Vertex(int totalNumTiles){
+		adjacentTiles = new int[2][totalNumTiles];
+		isOccupied = false;
+	}
+	
+	public void addTile(int[] toAdd){
+		//toAdd[0]= resource, toAdd[1]= roll
+		
+	}
+	
+	public void setOwner(Player p){
+		owner = p;
+		isOccupied = true;
+	}
+	
+	public int[][] getAdjacentTiles(){
+		return adjacentTiles;
+	}
+}

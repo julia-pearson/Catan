@@ -1,0 +1,50 @@
+/*JE
+ * Class that will take the int[][] board and create a graph containing vertices and edges according to a fixed order.
+ */
+public class GraphMaker {
+	static int[][] board;
+	
+	static int[][] adjacentSpots = {
+			{ 0 },
+			{ 0 },
+			{ 0},
+		  { 0, 1 },
+		  { 1 },
+		  { 1,2},
+		  {2},
+		  {2},
+		  {2,6},
+		  {2,6,5},
+		  {2,5,1},
+		  {5,4,1},
+		  {1,4,0},
+		  {4,3,0},
+		  {3,0},
+		  {0,0},
+		};
+	
+	
+	public GraphMaker(int[][] board){
+		board = board;
+	}
+	//Go through the board and create verticies where appropriate
+	
+	private static void createGraph(){
+		boolean debugCG = true;
+		//board[0][i]= the resource type of tile i
+		//board[1][i] = the probability of tile i
+		
+		//adjacentTiles[0] = the resource type of tile x, adjacentTiles[1]= roll #
+		
+		//the first vertex will be on the upper left tile and we are assuming no port (only one resource)
+		
+		for (int i= 0; i < adjacentSpots.length; i++){
+			//looking at first vertex
+			int[] tile = {board[0][0],board[1][0]};
+			Vertex top = new Vertex(tile);
+			if (debugCG){
+				System.out.println("Created vertex on tile with resource type" + tile[0]+" and prob "+tile[2]);
+			}
+		}
+	}
+}

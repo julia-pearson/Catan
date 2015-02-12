@@ -1,0 +1,30 @@
+/*JE
+ * This class refers to a specific tile on the board and contains information about the tile's:
+ *  resource type 
+ *  roll
+ *  robber status
+ */
+public class Tile {
+	int resource;
+	int roll;
+	boolean hasRobber = false;
+	int[] array;
+	
+	public Tile(int[] tileInfo){
+		//tileInfo[0]= resource, tileInfo[1] = roll
+		resource = tileInfo[0];
+		roll = tileInfo[1];
+	}
+	
+	public int getResource(){
+		return resource;
+	}
+	
+	public void printTile(){
+		System.out.println(Resource.getType(resource)+"("+roll+")");
+	}
+	
+	public String getString(){
+		return Resource.getType(resource)+"("+roll+")";
+	}
+}
