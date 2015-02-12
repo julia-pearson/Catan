@@ -16,8 +16,9 @@ GamePlayer.java
 
 
 Board.java
--Initialize(): randomly assign tile location and probabilities
--BuildMap(): returns the pointer to a vertex of the graph
+-constrcutor: randomly assign tile location and probabilities
+-getBoard(): returns randomly constructed board
+-getTestBoard(): returns known board
 
 Visualize.java
 -DrawMap(): will take the verticies from PlayGame.java and create a visual interface
