@@ -1,4 +1,6 @@
 //CJ
+//Feb 12: This is working code. It will produce a 4x19 array with all the necessary info to produce a board. See Board Interpretation Key for details
+
 import java.util.Random;
 
 public class Board {
@@ -21,8 +23,8 @@ int[][] theBoard;
 		Random rand = new Random();
 
 		//Randomize resource placements first (4 sheep/wheat/wood and 3 brick/ore and 1 desert)
-		int [] tracker = new int {0, 0, 0, 0, 0, 0};
-		int [] trackerMax = {1, 3, 4, 3, 4, 4};
+		int [] tracker = {0,0,0,0,0,0};
+		int [] trackerMax = {1,3,4,3,4,4};
 		for (int i=0; i<19; i++){
 			boolean keepgoing = true;
 			while(keepgoing){
@@ -48,8 +50,8 @@ int[][] theBoard;
 		}
 
 		//Randomize the ports. (4 three-for-ones and 1 of each other type)
-		tracker = new int{0, 0, 0, 0, 0, 0};
-		trackerMax = new int {4, 1, 1, 1, 1, 1};
+		tracker = new int[]{0,0,0,0,0,0};
+		trackerMax = new int[]{4,1,1,1,1,1};
 		for (int k=0; k<9; k++){
 			boolean keepgoing = true;
 			while(keepgoing){
@@ -74,10 +76,11 @@ int[][] theBoard;
 	}
 
 	private void setProbs(){
-		int [] tracker = new int {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		int [] trackerMax = new int {1, 2, 2, 2, 2, 0, 2, 2, 2, 2, 1};
+		Random rand = new Random();
+		int [] tracker = new int[]{0,0,0,0,0,0,0,0,0,0,0};
+		int [] trackerMax = new int[]{1,2,2,2,2,0,2,2,2,2,1};
 		for (int i=0; i<19; i++){
-			if(theBoard[1][i]=!0){
+			if(theBoard[1][i]!=0){
 				boolean keepgoing = true;
 				while(keepgoing){
 					int selection = rand.nextInt(11);
