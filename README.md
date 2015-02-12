@@ -2,7 +2,7 @@
 
 This is our special topics COSC-390 course!
 
-Julia,Julia, and CJ 
+Julia, Julia, and CJ 
 
 Plan:
 
@@ -30,6 +30,4 @@ Edge.java
 
 Player.java
 - a class for each participant that has their ID (used by vertex and edge to determine who owns the spot)
-
-
 
