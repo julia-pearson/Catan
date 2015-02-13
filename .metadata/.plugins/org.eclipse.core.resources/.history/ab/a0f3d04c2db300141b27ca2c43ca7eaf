@@ -31,7 +31,10 @@ public class GamePlayer {
 				  {1,11},
 		};
 		*/
-		int[][] testBoard = new Board().getTestBoard();
+		int[][] testBoard = {
+				{3,2,5,1,4,2,4},//resource
+				{6,8,11,2,5,6,11},//roll 
+		};
 		
 		new GraphMaker(testBoard);
 		//Visualizer GUI = new Visualizer(board);

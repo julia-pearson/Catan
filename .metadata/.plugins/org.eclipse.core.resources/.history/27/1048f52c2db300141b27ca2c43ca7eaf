@@ -199,6 +199,6 @@ int[][] theBoard;
 		theBoard[2][8] = 2;
 
 		theBoard[3][7] = 1;
-		return theBoard;
+
 	}
 }

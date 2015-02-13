@@ -72,7 +72,7 @@ public class GraphMaker {
 	
 	//method will decode the int[][]board into a single Tiles[]
 	private static void convertBoardToTiles(){
-		boolean debugCB = false;
+		boolean debugCB = true;
 		
 		tilesInBoard = new Tile[board[0].length];
 		//board[0][i]= the resource type of tile i
@@ -108,7 +108,8 @@ public class GraphMaker {
 			//indices of the tiles, now create tiles[]
 			Tile[] adjTiles = new Tile[indices.length];
 			for (int j=0; j<indices.length; j++){
-				adjTiles[j] = tilesInBoard[indices[j]];
+				adjTiles[j] = tilesInBoard[j];
+				tilesInBoard[j].printTile();
 			}
 			Vertex toAdd = new Vertex(adjTiles);
 			if (debugCG){

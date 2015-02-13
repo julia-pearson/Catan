@@ -108,7 +108,7 @@ public class GraphMaker {
 			//indices of the tiles, now create tiles[]
 			Tile[] adjTiles = new Tile[indices.length];
 			for (int j=0; j<indices.length; j++){
-				adjTiles[j] = tilesInBoard[indices[j]];
+				adjTiles[j] = tilesInBoard[j];
 			}
 			Vertex toAdd = new Vertex(adjTiles);
 			if (debugCG){
