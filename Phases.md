@@ -27,7 +27,11 @@ PHASE 2 (2/12): Achieve human-to-human usability
 
 
 **the position of the robber needs to change
-**development cards
+
+
+
+Notes on Development Cards
+**be sure to only allow one d card per turn
 14 Knights 
 5 Victory Points
 2 Road Building Cards
