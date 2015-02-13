@@ -69,7 +69,7 @@ public class GraphMaker {
 		board = boardFromGamePlayer;
 		vertices = new Vertex[adjacentSpots.length];
 		convertBoardToTiles();
-		createVertices();
+		createGraph();
 	}
 	
 	//method will decode the int[][]board into a single Tiles[]
@@ -91,12 +91,14 @@ public class GraphMaker {
 	
 	
 	//Go through the board and create vertices 
-	private static void createVertices(){
+	private static void createGraph(){
 		boolean debugCG = true;		
 		//adjacentTiles[0] = the resource type of tile x, adjacentTiles[1]= roll #
 		
 		//the first vertex will be on the upper left tile and we are assuming no port (only one resource)
 
+		Vertex top = new Vertex(new Tile[1]);
+		
 	
 		for (int i= 0; i < adjacentSpots.length; i++){
 			//looking at first vertex
@@ -113,12 +115,7 @@ public class GraphMaker {
 				toAdd.printResources();
 			}
 			//put toAdd in graph
-			vertices[i] = toAdd;
 		}
 		
-	}
-	
-	private static void addEdges(){
-		//create the edge objects and link the 
 	}
 }

@@ -1,6 +1,0 @@
-/*JE
- * Class that will take the int[][] board and create a graph containing vertecies and edges according to a fixed order.
- */
-public class GraphMaker {
-
-}

@@ -21,6 +21,16 @@ public class GamePlayer {
 		//create Player classes for each player and store in players[]
 	//	int[][] board= new Board().getBoard();
 		
+	/*	int[][] testBoard =  {
+				{2,6},
+				  {3,8},
+				  {4, 11},
+				  {5,2},
+				  {1,5},
+				  {3,6},
+				  {1,11},
+		};
+		*/
 		int[][] testBoard = new Board().getTestBoard();
 		
 		new GraphMaker(testBoard);
@@ -28,21 +38,7 @@ public class GamePlayer {
 		//add event listeners to gUI and figure out how GamePlayer will capture the click events 
 
 	}
-	
-	public void buildSettlement(Player p, int VertexNumber){
-		//check that the player has resource to build
-		//check that it is a legal move
-	}
 
-	public void buildCity(Player p, int VertexNumber){
-		//check that the player has resource to build
-		//check that it is a legal move
-	}
-	
-	public void buildRoad(Player p, int roadNum){
-		//check that the player has resource to build
-		//check that it is a legal move
-	}
 	
 	private static void playGame(){
 		//method that will enable users to roll dice and interact
