@@ -39,5 +39,6 @@ public class Vertex {
 		for (int i=0; i<adjacentTiles.length; i++){
 			adjacentTiles[i].printTile();
 		}
+		System.out.println("Done printing resources in vertex");
 	}
 }

@@ -9,60 +9,59 @@ public class GraphMaker {
 	
 	//each list in adjacentSpots contains the index within tilesInBoard that a given vertex lies between
 	static int[][] adjacentSpots = {
-			{ 0 },//0
+			{ 0 },//1
 			{ 0 },
 		  { 0, 1 },
 		  { 1 },
-		  { 1,2},
+		  { 1,2},//5
 		  {2},
-		  {2},//6
-		  {3},
+		  {2},
+		  {3},//8
 		  {3,0},
-		  {3,0,4},
-		  {0,4,1},//10
-		  {1,4,5},
+		  {3,0,4},//10
+		  {0,4,1},
+		  {1,4,0},
+		  {4,1,5},
 		  {1,5,2},
 		  {5,2,6},
-		  {2,6},
-		  {6},//15
+		  {2,6},//15
+		  {6},
 		  {7},
 		  {7,3},
 		  {7,3,8},
-		  {3,8,4},
-		  {8,4,9},//20
+		  {3,8,4},//20
+		  {8,4,9},
 		  {4,9,5},
 		  {9,5,10},
 		  {5,10,6},
-		  {10,6,11},
-		  {6,11},//25
-		  {11},//26
+		  {10,6,11},//25
+		  {6,11},
+		  {11},
 		  {7},
-		  {7,12}, 
+		  {7,12}, //30
 		  {7,12,8},
-		  {12,8,13}, //30
+		  {12,8,13},
 		  {8,13,9},
 		  {13,9,14},
-		  {9,14,10}, 
+		  {9,14,10}, //35
 		  {14,10,15},
-		  {10,15,11},//35
+		  {10,15,11},
 		  {15,11},
-		  {11},//37
-		  {12},
+		  {11},
+		  {12},//40
 		  {12,16},
-		  {12,16,13},//40
-		  {16,13,17},
+		  {12,16,13},
 		  {13,17,14},
-		  {17,14,18}, 
-		  {14,18,15},
-		  {15,18},
-		  {15},//46
+		  {17,14,18}, //45
+		  {14,15,18},
+		  {15},
 		  {16},
-		  {16},
+		  {16},//50
 		  {16,17},
-		  {17},//50
+		  {17},
 		  {17,18},
 		  {18},
-		  {18}, //53
+		  {18},
 		};
 	
 	
@@ -94,8 +93,12 @@ public class GraphMaker {
 	
 	//Go through the board and create vertices 
 	private static void createVertices(){
-		boolean debugCG = false;		
+		boolean debugCG = true;		
+		//adjacentTiles[0] = the resource type of tile x, adjacentTiles[1]= roll #
 		
+		//the first vertex will be on the upper left tile and we are assuming no port (only one resource)
+
+	
 		for (int i= 0; i < adjacentSpots.length; i++){
 			//looking at first vertex
 			int[] indices = adjacentSpots[i];
@@ -118,14 +121,14 @@ public class GraphMaker {
 	
 	//create the edge objects and link the vertices with correct edges
 	private static void addEdges(){
-		boolean debugE = false;
-
+		boolean debugE = true;
+		
 		for (int i=0; i<vertices.length; i++){
 			if (debugE){
 				System.out.println("Starting loop:" +i);
 			}
 			//first create the links between each vertex and v+1
-			if (i != 6 && i !=15 && i!=26 && i !=37 && i!= 45 && i!=53){
+			if (i != 6 && i !=15 && i!=26 && i !=37 && i!= 45){
 				Edge horiz= new Edge(vertices[i],vertices[i+1]);
 				vertices[i].addEdge(horiz);
 				vertices[i+1].addEdge(horiz);
@@ -141,19 +144,14 @@ public class GraphMaker {
 			int verticalIncriment=0;
 			if (i<7 && i%2==0){
 				verticalIncriment = 8;
-			} else if (i>=7 && i<16 && i%2==1){
+			} else if (i<16 && i%2==1){
 				verticalIncriment = 10;
-			} else if (i>=16 && i<27 && i%2==0){
+			} else if (i<27 && i%2==0){
 				verticalIncriment = 11;
-			} else if (i>=27 && i<38 && i%2==0){
-				verticalIncriment = 10;
-			} else if (i>=38 && i<46 && i%2==1){
-				verticalIncriment = 8;
+			} else if (i<38 && i%2==0){
+				verticalIncriment = 9;
 			}
 			if (verticalIncriment>0){
-				if (debugE){
-					System.out.println("Vertical incriment: "+verticalIncriment);
-				}
 				Edge vert= new Edge(vertices[i],vertices[i+verticalIncriment]);
 				vertices[i].addEdge(vert);
 				vertices[i+1].addEdge(vert);

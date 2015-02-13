@@ -95,6 +95,7 @@ public class GraphMaker {
 	//Go through the board and create vertices 
 	private static void createVertices(){
 		boolean debugCG = false;		
+		//adjacentTiles[0] = the resource type of tile x, adjacentTiles[1]= roll #
 		
 		for (int i= 0; i < adjacentSpots.length; i++){
 			//looking at first vertex
@@ -118,7 +119,8 @@ public class GraphMaker {
 	
 	//create the edge objects and link the vertices with correct edges
 	private static void addEdges(){
-		boolean debugE = false;
+		boolean debugE = true;
+		System.out.println(vertices.length);
 
 		for (int i=0; i<vertices.length; i++){
 			if (debugE){

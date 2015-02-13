@@ -20,7 +20,8 @@ public class GraphMaker {
 		  {3,0},
 		  {3,0,4},
 		  {0,4,1},//10
-		  {1,4,5},
+		  {1,4,0},
+		  {4,1,5},
 		  {1,5,2},
 		  {5,2,6},
 		  {2,6},
@@ -50,11 +51,9 @@ public class GraphMaker {
 		  {12},
 		  {12,16},
 		  {12,16,13},//40
-		  {16,13,17},
 		  {13,17,14},
 		  {17,14,18}, 
-		  {14,18,15},
-		  {15,18},
+		  {14,15,18},
 		  {15},//46
 		  {16},
 		  {16},
@@ -95,6 +94,7 @@ public class GraphMaker {
 	//Go through the board and create vertices 
 	private static void createVertices(){
 		boolean debugCG = false;		
+		//adjacentTiles[0] = the resource type of tile x, adjacentTiles[1]= roll #
 		
 		for (int i= 0; i < adjacentSpots.length; i++){
 			//looking at first vertex
@@ -118,14 +118,15 @@ public class GraphMaker {
 	
 	//create the edge objects and link the vertices with correct edges
 	private static void addEdges(){
-		boolean debugE = false;
+		boolean debugE = true;
+		System.out.println(vertices.length);
 
 		for (int i=0; i<vertices.length; i++){
 			if (debugE){
 				System.out.println("Starting loop:" +i);
 			}
 			//first create the links between each vertex and v+1
-			if (i != 6 && i !=15 && i!=26 && i !=37 && i!= 45 && i!=53){
+			if (i != 6 && i !=15 && i!=26 && i !=37 && i!= 45 && i!=52){
 				Edge horiz= new Edge(vertices[i],vertices[i+1]);
 				vertices[i].addEdge(horiz);
 				vertices[i+1].addEdge(horiz);
