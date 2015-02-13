@@ -5,7 +5,6 @@
 public class Player {
 
 	private int playerID;
-	private int [] dCards;
 	private int victoryPoints;
 	private boolean largestArmy;
 	private boolean longestRoad;
@@ -14,8 +13,9 @@ public class Player {
 
 	private ResourceCards resourceTracker;
 
+	private DevCards dCardTracker;
 
-	//settlements and cities and roads!
+	//settlements and cities and roads are pointed to from the graph
 
 	Player(int id){
 		playerID = id;
@@ -26,10 +26,11 @@ public class Player {
 
 		resourceTracker = new ResourceCards();
 
-		//each index stores the number of dcards the player holds of the type of dcard the index corresponds to (there are 5 types)
-		dCards = new int {0,0,0,0,0};
+		dCardTracker = new DevCards();
 
 		portTracker = new Ports();
+
+
 
 	}
 
