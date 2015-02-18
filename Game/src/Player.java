@@ -1,13 +1,13 @@
 //CJ
 
-//CJ do what you did with ports with other things!
-
 public class Player {
 
 	private int playerID;
 	private int victoryPoints;
-	private boolean largestArmy;
-	private boolean longestRoad;
+
+	private int numberOfSettlements; //max 5
+	private int numberOfCities; //max 4
+	private int numberOfRoads; //max 15
 	
 	private Ports portTracker;
 
@@ -17,29 +17,77 @@ public class Player {
 
 	//settlements and cities and roads are pointed to from the graph
 
-	Player(int id){
+	public Player(int id){
 		playerID = id;
 		victoryPoints = 0;
 
-		largestArmy = false;
-		longestRoad = false;
+		numberOfSettlements=0;
+		numberOfRoads=0;
+		numberOfCities=0;
 
 		resourceTracker = new ResourceCards();
 
 		dCardTracker = new DevCards();
 
 		portTracker = new Ports();
+	}
 
+	public boolean buildSetCheck(){
+		if(resourceTracker.getSheep()<1 || resourceTracker.getWheat()<1 || resourceTracker.getWood()<1 || resourceTracker.getBrick()<1)
+			return false;
+		if(numberOfSettlements==5)
+			return false;
+		return true;
+	}
 
+	public void buildSettlement(){
+		resourceTracker.useSheep(1);
+		resourceTracker.useWheat(1);
+		resourceTracker.useWood(1);
+		resourceTracker.useBrick(1);
+		numberOfSettlements++;
+		victoryPoints++;
+
+		//add port if we get one
 
 	}
 
-	//Port handling!
+	public void sevenRoll(){
+		int total = resourceTracker.getNumber();
+		if (total>7){
+			for (int i=0; i<(total/2); i++)
+				resourceTracker.randomDelete();
+		}
+	}
 
-	//if someone builds on a port, add port
+	public boolean buildCityCheck(){
+		if(resourceTracker.getWheat()<2 || resourceTracker.getRock()<3)
+			return false;
+		if(numberOfSettlements==4)
+			return false;
+		return true;
+	}
 
-	//if someone tries to use the port, check to make sure they have it
+	public void buildCity(){
+		resourceTracker.useRock(3);
+		resourceTracker.useWheat(2);
+		numberOfCities++;
+		victoryPoints++;
+	}
 
+	public boolean buildRoadCheck(){
+		if(resourceTracker.getBrick()<1 || resourceTracker.getWood()<1)
+			return false;
+		if(numberOfRoads==15)
+			return false;
+		return true;
+	}
+
+	public void buildRoad(){
+		resourceTracker.useBrick(1);
+		resourceTracker.useWood(1);
+		numberOfRoads++;
+	}
 
 
 }

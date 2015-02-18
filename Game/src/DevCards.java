@@ -1,9 +1,17 @@
 public class DevCards{
 	
-	private int [] cardKey;
+	private int[] cardKey;
 
-	DevCards(){
-		cardKey = {0, 0, 0, 0, 0, 0};
+	public DevCards(){
+		cardKey = new int[6];
+
+		cardKey[0]=0;
+		cardKey[1]=0;
+		cardKey[2]=0;
+		cardKey[3]=0;
+		cardKey[4]=0;
+		cardKey[5]=0;
+
 	}
 
 	// 0 = 14 Knights UNUSED
@@ -18,7 +26,7 @@ public class DevCards{
 	}
 
 	public boolean useKnight(){
-		if(cardKey[0]==true){
+		if(cardKey[0]>0){
 			cardKey[0]--;
 			cardKey[1]++;
 			return true;
@@ -32,6 +40,7 @@ public class DevCards{
 
 	public void addVictory(){
 		cardKey[2]++;
+		//this is kind of useless as victory point d cards are automatically added to your total
 	}
 
 	public void addRoadBuilder(){

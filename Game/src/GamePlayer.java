@@ -11,7 +11,7 @@ public class GamePlayer {
 	*/
 
 	private static Scanner sc = new Scanner(System.in);
-	private Player[] players;
+	private static Player[] players;
 
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 	public static void main (String[] args){
@@ -31,52 +31,119 @@ public class GamePlayer {
 		//new GraphMaker(testBoard);
 		//Visualizer GUI = new Visualizer(board);
 
-
-		//add event listeners to gUI and figure out how GamePlayer will capture the click events 
-
 		//play da game
 
 	}
 	
-	public void buildSettlement(Player p, int vertexNumber){
-		//CJ: check that the player has resources to build a settlement and has settlements left
-		//Julia E: check that it is a legal move on the graph (ie roads built to there, no one else build there, 2 away)
-		//CJ: update resource cards and victory points
-		//Julia P: update graphics
+	public void diceRoll(int numRoll){
+		//call a method in Julia's graph that will check who gets what resources and return a structure handling them
+		//add the resources for each player to their player class
+		//send updated resource stats for display in the GUI
+
+		//if the number rolled was a 7, initiate the robber movement sequence
+
+		//also if 7 was rolled players with more than 7 cards must lose half their cards!
+		for(int i=0; i<players.length; i++)
+			players[i].sevenRoll();
+		//update GUI
+		
 	}
 
-	public void buildCity(Player p, int vertexNumber){
-		//CJ: check that the player has resources to build a city and has cities left
-		//Julia E: check that it is a legal move on the graph (ie settlement already there)
-		//CJ: update resource cards and victory points
-		//Julia P: update graphics
+	//int p is the player id!
+	public void buildSettlement(int p, int vertexNumber){
+		//check that the player has resources to build a settlement and has settlements left
+		boolean build = players[p].buildSetCheck();
+
+		if (build == true){
+			//call a method in the graph that checks if the spot is valid. return build = true if yes, false if no. also return something about if we add a port
+			
+			if (build == true){
+				//update stats in player class
+				//add parameter for the port
+				players[p].buildSettlement();
+
+				//tell the GUI to put the settlement in that spot and update the resources and victory points for that player
+			}
+			else
+				;//tell GUI that the player cannot build on that location
+		}
+		else
+			;//tell GUI that the player does not have valid cards or has already built 5 settlements
+	}
+
+	public void buildCity(int p, int vertexNumber){
+		//check that the player has resources to build a city and has cities left
+		boolean build = players[p].buildCityCheck();
+
+		if (build == true){
+			//call a method in the graph that checks if the spot is valid. return build = true if yes, false if no
+			
+			if (build == true){
+				//update stats in player class
+				players[p].buildCity();
+
+				//tell the GUI to put the city in that spot and update the resources and victory points for that player
+			}
+			else
+				;//tell GUI that the player cannot build on that location
+		}
+		else
+			;//tell GUI that the player does not have valid cards or has already built 4 cities
 	}
 	
-	public void buildRoad(Player p, int roadNum){
-		//CJ: check that the player has resources to build a road and has roads left
-		//Julia E: check that it is a legal move on the graph (ie no other road there, road connected. if first road, make sure one of each settlement)
-		//CJ: update resource cards and longest road stuff
-		//Julia P: update graphics
+	public void buildRoad(int p, int roadNum){
+		//check that the player has resources to build a road and has roads left
+		boolean build = players[p].buildRoadCheck();
+
+		if (build == true){
+			//call a method in the graph that checks if the spot is valid. return build = true if yes, false if no
+			
+			if (build == true){
+				//update stats in player class
+				players[p].buildRoad();
+
+				//tell the GUI to put the road in that spot and update the resources and victory points for that player (and longest road indicator?)
+			}
+			else
+				;//tell GUI that the player cannot build on that location
+		}
+		else
+			;//tell GUI that the player does not have valid cards or has already built 15 roads
+
+
+//Q how do we do longest road?????
 	}
 
-	public void buildDevCard(Player p){
+
+
+
+
+
+
+	public void buildDevCard(int p){
 		//CJ: check that the player has resources to build a d card. update shit.
 		//Julia P: update graphics
+
+		//IF VP UPDATE PLAYER STAT
 	}
 
-	public void useDevCard(Player p){
+	public void useDevCard(int p){
 		//CJ: ask which one and see if the player has that dev card
 		//Julia P: update graphics
 	}
 
-	public void usePort(Player p){
+	public void usePort(int p){
 		//CJ: check that the player has the port and update stats
 		//Julia P: update graphics
 	}
 
-	public void trade(Player p){
+	public void trade(int p){
 		//meep
 	}
+
+	public void moveRobber(){
+		//this is going to need to be used for 7 rolls and knights
+	} 
 	
 	
 }
