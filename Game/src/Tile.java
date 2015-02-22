@@ -14,10 +14,6 @@ public class Tile {
 		roll = rollNum;
 	}
 	
-	public int getResource(){
-		return resource;
-	}
-	
 	public void printTile(){
 		System.out.println(Resource.getType(resource)+"("+roll+")");
 	}

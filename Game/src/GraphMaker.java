@@ -1,11 +1,11 @@
 /*JE
- * Class that will take the int[][] board (the resource tiles)and create a graph containing vertices and edges according to a fixed order.
- * 
+ * Class that will take the int[][] board (the resource tiles)and create a graph containing 
+ * vertices and edges according to a fixed order.
  */
 public class GraphMaker {
-	static int[][] board;
-	static Tile[] tilesInBoard;
-	static Vertex[] vertices;
+	 int[][] board;
+	 Tile[] tilesInBoard;
+	 Vertex[] vertices;
 	
 	//each list in adjacentSpots contains the index within tilesInBoard that a given vertex lies between
 	static int[][] adjacentSpots = {
@@ -75,7 +75,7 @@ public class GraphMaker {
 	}
 	
 	//method will decode the int[][]board into a single Tiles[]
-	private static void convertBoardToTiles(){
+	private void convertBoardToTiles(){
 		boolean debugCB = false;
 		
 		tilesInBoard = new Tile[board[0].length];
@@ -93,7 +93,7 @@ public class GraphMaker {
 	
 	
 	//Go through the board and create vertices 
-	private static void createVertices(){
+	private void createVertices(){
 		boolean debugCG = false;		
 		
 		for (int i= 0; i < adjacentSpots.length; i++){
@@ -117,7 +117,7 @@ public class GraphMaker {
 	}
 	
 	//create the edge objects and link the vertices with correct edges
-	private static void addEdges(){
+	private  void addEdges(){
 		boolean debugE = false;
 
 		for (int i=0; i<vertices.length; i++){
@@ -167,5 +167,9 @@ public class GraphMaker {
 			
 		}
 		
+	}
+	
+	public Vertex[] getVertexArray(){
+		return vertices;
 	}
 }
