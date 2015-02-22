@@ -1,11 +1,18 @@
 //CJ
+import java.util.Random;
 
 public class ResourceCards{
 	
 	private int [] cardKey;
 
-	ResourceCards(){
-		cardKey = {0,0,0,0,0}
+	public ResourceCards(){
+		cardKey = new int[5];
+
+		cardKey[0]=0;
+		cardKey[1]=0;
+		cardKey[2]=0;
+		cardKey[3]=0;
+		cardKey[4]=0;
 	}
 
 	//0=sheep
@@ -19,6 +26,25 @@ public class ResourceCards{
 		for (int i=0; i<5; i++)
 			num=num+cardKey[i];
 		return num;
+	}
+
+	public int randomDelete(){
+		//returns the int of the resource deleted as referenced in the Resource class dictionary
+
+		//this is not really random because it is not based on the players hand but it is random enough
+		Random rand = new Random();
+
+		while(true){
+			int x = rand.nextInt(5);
+			if (cardKey[x]>0){
+				cardKey[x]--;
+				//this is because the numbering is different here since there is not a desert
+				if (x>0)
+					return x;
+				else
+					return 5;
+			}
+		}
 	}
 
 	public int getSheep(){
@@ -94,7 +120,7 @@ public class ResourceCards{
 	}
 
 	public void addWood(int n){
-		cardKey[4]++ = cardKey[4] + n;
+		cardKey[4] = cardKey[4] + n;
 	}
 
 	public boolean useWood(int n){

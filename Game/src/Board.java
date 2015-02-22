@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Board {
 //creates the random map and tile allocation
-int[][] theBoard;
+	private int[][] theBoard;
 
 	public Board() {
 		theBoard = new int[4][19];
