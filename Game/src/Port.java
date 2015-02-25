@@ -1,4 +1,4 @@
-/* class that will extend the tile class and demonstrate existence of a port*/
+/* class that will be stored in a vertex to represent a port*/
 
 public class Port {
 
