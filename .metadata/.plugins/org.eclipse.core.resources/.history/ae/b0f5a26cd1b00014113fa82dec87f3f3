@@ -1,5 +1,0 @@
-//class that represents the connection between verticies
-public class Edge {
-boolean hasRoad;
-Player 	owner;
-}

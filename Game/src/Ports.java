@@ -4,8 +4,15 @@ public class Ports{
 	
 	private boolean [] portKey;
 
-	Ports(){
-		portKey = {false, false, false, false, false};
+	public Ports(){
+		portKey = new boolean[6];
+
+		portKey[0] = false;
+		portKey[1] = false;
+		portKey[2] = false;
+		portKey[3] = false;
+		portKey[4] = false;
+		portKey[5] = false;
 	}
 
 	//0 = 3 for 1
@@ -16,63 +23,51 @@ public class Ports{
 	//5 = sheep port
 
 	public boolean getSheepPort(){
-		if (portKey[5] == true)
-			return true;
-		return false;
+		return portKey[5];
 	}
 
 	public boolean getRockPort(){
-		if (portKey[1] == true)
-			return true;
-		return false;
+		return portKey[1];
 	}
 
 	public boolean getWheatPort(){
-		if (portKey[2] == true)
-			return true;
-		return false;
+		return portKey[2];
 	}
 
 	public boolean getBrickPort(){
-		if (portKey[3] == true)
-			return true;
-		return false;
+		return portKey[3];
 	}
 
 	public boolean getWoodPort(){
-		if (portKey[4] == true)
-			return true;
-		return false;
+		return portKey[4];
 	}
 
 	public boolean getThreePort(){
-		if (portKey[0] == true)
-			return true;
-		return false;
+		return portKey[0];
 	}
 
-	public boolean addSheepPort(){
-		portKey[5] == true;
+	public void addSheepPort(){
+		portKey[5] = true;
 	}
 
-	public boolean addRockPort(){
-		portKey[1] == true;
+	public void addRockPort(){
+		portKey[1] = true;
 	}
 
-	public boolean addWheatPort(){
-		portKey[2] == true;
+	public void addWheatPort(){
+		portKey[2] = true;
 	}
 
-	public boolean addBrickPort(){
-		portKey[3] == true;
+	public void addBrickPort(){
+		portKey[3] = true;
 	}
 
-	public boolean addWoodPort(){
-		portKey[4] == true;
+	public void addWoodPort(){
+		portKey[4] = true;
 	}
 
-	public boolean addThreePort(){
-		portKey[0] == true;
+	public void addThreePort(){
+		portKey[0] = true;
 	}
 
 
