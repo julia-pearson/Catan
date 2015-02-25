@@ -1,0 +1,138 @@
+//Graphics Library
+import java.awt.Graphics;
+//Color Library
+import java.awt.Color;
+//Background window?
+import javax.swing.JFrame;
+
+public class Hexanew extends JFrame{
+
+   public Hexanew(){
+      setTitle("Hexanew");
+      //What size do we want?
+      setSize(1500, 1000);
+      //Can we later make cards invisible to some players?
+      setVisible(true);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+   }
+
+   public void paint(Graphics g){
+      //ratio of polygol, side=2a, size random
+      int a = 36;
+      //center coordinates, chosen for asthetics
+      int x = 300;
+      int y = 650;
+
+      /*
+      //shifts border bellow starting tile of bottom row
+      double xstart=x-a/3;
+      int x1= (int) xstart;
+      double ystart=y+2*1.155*a/3;
+      int y1= (int) ystart;
+
+      //drawing board
+      drawFlatHex(g, a, x1, y1);
+
+      //small Hexagon side, in ratio to large one
+      double smallside= 1.155*a/6;
+      //converting into int for draw command
+      int smside= (int) smallside;
+      */
+
+      //distance between starting points of hexagons
+      double distance=2*a/3;
+      //converting into int for draw command
+      int dist= (int) distance;
+
+      //first row
+      //maybe I can add clause where it looks in array and then fills in 
+      for(int i=0;i<3;i++){
+         drawHexalex(g, a, x+i*dist, y); 
+      }
+      //second row
+      for(int i=0;i<4;i++){
+         //draws new row, offset from first by (a/3) and then repeated every i*dist, raised by 3*a (the -3 is to space it out, horizontal spacing happens from rounding)
+         drawHexalex(g, a, x-a/3+i*dist, y-3*a); 
+      }
+      //third row
+      for(int i=0;i<5;i++){
+         drawHexalex(g, a, x-2*a/3+i*dist, y-6*a); 
+      }
+      //fourth row
+      for(int i=0;i<4;i++){
+         drawHexalex(g, a, x-a/3+i*dist, y-9*a); 
+      }
+      for(int i=0;i<3;i++){
+         drawHexalex(g, a, x+i*dist, y-12*a); 
+      }
+   }
+
+   public void drawHexalex(Graphics g, int a, int x, int y){
+
+      int x1=x;
+      int y1=y;
+
+      int x2=x;
+      int y2=y-2*a;
+
+      double xthree=x+2*a/1.155;
+      int x3= (int) xthree;
+      int y3=y-3*a;
+
+      double xfour=x+4*a/1.155;
+      int x4= (int) xfour;
+      int y4=y2;
+
+      int x5=x4;
+      int y5=y;
+
+      int x6=x3;
+      int y6=y+a;
+
+      int x7=x;
+      int y7=y;
+
+      g.drawLine(x1,y1,x2,y2);
+      g.drawLine(x2,y2,x3,y3);
+      g.drawLine(x3,y3,x4,y4);
+      g.drawLine(x4,y4,x5,y5);
+      g.drawLine(x5,y5,x6,y6);
+      g.drawLine(x6,y6,x7,y7);
+   }
+   public void drawFlatHex(Graphics g, int a, int x, int y){
+
+      int x1=x;
+      int y1=y;
+
+      int x2=x-a;
+      double ytwo=y-2*a/1.155;
+      int y2= (int) ytwo;
+
+      int x3=x1;
+      double ythree=y-4*a/1.155;
+      int y3= (int) ythree;
+
+      double xfour=x+4*a/1.155;
+      int x4= (int) xfour;
+      int y4=y2;
+
+      int x5=x4;
+      int y5=y;
+
+      int x6=x3;
+      int y6=y+a;
+
+      int x7=x;
+      int y7=y;
+
+      g.drawLine(x1,y1,x2,y2);
+      g.drawLine(x2,y2,x3,y3);
+      /*g.drawLine(x3,y3,x4,y4);
+      g.drawLine(x4,y4,x5,y5);
+      g.drawLine(x5,y5,x6,y6);
+      g.drawLine(x6,y6,x7,y7);*/
+   }
+   public static void main(String[] args){
+      Hexanew h = new Hexanew();
+   }
+}

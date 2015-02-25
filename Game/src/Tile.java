@@ -8,12 +8,24 @@ public class Tile {
 	int resource;
 	int roll;
 	boolean hasRobber = false;
+	boolean isPort = false;
+	int portType; //{0= 3 to 1, 1 = rock, 2 = wheat, 3 = brick,  4= wood, 5 = sheep}
 	
 	public Tile(int resourceNum, int rollNum){
 		resource = resourceNum;
 		roll = rollNum;
 	}
 	
+<<<<<<< HEAD
+	public Tile(int resourceNum, boolean port, int type){
+		resource = resourceNum;
+		roll = 0;
+		isPort = port;
+		portType = type;
+	}
+	
+=======
+>>>>>>> pr/14
 	public void printTile(){
 		System.out.println(Resource.getType(resource)+"("+roll+")");
 	}
