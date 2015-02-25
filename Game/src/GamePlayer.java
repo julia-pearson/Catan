@@ -16,7 +16,6 @@ public class GamePlayer {
 
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 	public static void main (String[] args){
-
 		//creates Player classes for each player and stores in players[]
 		int numPlayers = sc.nextInt();
 		players = new Player[3];
