@@ -9,23 +9,12 @@ public class GamePlayer {
 	3. control user input
 	4. update tables/board when user gives input 
 	*/
-<<<<<<< HEAD
 	
-	static Player[] players;
 	static GraphController graph;
-	
-	
-	public GamePlayer(int numPlayers){
-		//initialize and fill the Player[]
-	}
-	
-=======
-
 	private static Scanner sc = new Scanner(System.in);
 	private static Player[] players;
 
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
->>>>>>> 941216f2a7e2f5b3d0710118e26c63cc146af1ab
 	public static void main (String[] args){
 
 		//creates Player classes for each player and stores in players[]
@@ -38,23 +27,19 @@ public class GamePlayer {
 		//testboard gives a predetermined board
 		int[][] testBoard = new Board().getTestBoard();
 		//int[][] board= new Board().getBoard();
-		
-<<<<<<< HEAD
 		GraphMaker gm = new GraphMaker(testBoard);
 		graph = new GraphController(gm.getVertexArray());
 		testGraphFeatures();
-		
-=======
+
 		//create graph and GUI from the board
 		//new GraphMaker(testBoard);
->>>>>>> 941216f2a7e2f5b3d0710118e26c63cc146af1ab
+
 		//Visualizer GUI = new Visualizer(board);
 
 		//play da game
 
 	}
 	
-<<<<<<< HEAD
 	private static void testGraphFeatures(){
 		System.out.println("Testing Graph Features");
 		Player test = new Player(0);
@@ -87,7 +72,7 @@ public class GamePlayer {
 	public void buildSettlement(Player p, int VertexNumber){
 		//check that the player has resource to build
 		//check that it is a legal move
-=======
+	}
 	public void diceRoll(int numRoll){
 		//call a method in Julia's graph that will check who gets what resources and return a structure handling them
 		//add the resources for each player to their player class
@@ -100,7 +85,6 @@ public class GamePlayer {
 			players[i].sevenRoll();
 		//update GUI
 		
->>>>>>> 941216f2a7e2f5b3d0710118e26c63cc146af1ab
 	}
 
 	//int p is the player id!

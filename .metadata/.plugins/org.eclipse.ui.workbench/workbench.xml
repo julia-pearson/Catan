@@ -36,6 +36,7 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
@@ -60,7 +61,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphController.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4087" selectionTopPixel="1802"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Player.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="306" selectionTopPixel="0"/>
 </editor>
@@ -68,13 +69,14 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Tile.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="27" selectionOffset="451" selectionTopPixel="0"/>
 </editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" partName="DevCards.java" title="DevCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="191" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (6 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -252,10 +254,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Tile.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
 </editors>
-<item historyLabel="GraphController.java" index="2">
-<position info="not_deleted" x="4011" y="0"/>
-</item>
 <item historyLabel="GraphController.java" index="2">
 <position/>
 </item>
@@ -400,8 +400,11 @@
 <item historyLabel="Player.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="Player.java" index="5">
+<item historyLabel="Player.java" index="5">
 <position info="not_deleted" x="306" y="0"/>
+</item>
+<item active="true" historyLabel="DevCards.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -421,6 +424,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java">
+<persistable uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tile.java" tooltip="Game/src/Tile.java">
 <persistable path="/Game/src/Tile.java"/>
 </file>
