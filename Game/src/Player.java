@@ -18,6 +18,7 @@ public class Player {
 	private DevCards dCardTracker;
 	//settlements and cities and roads are pointed to from the graph
 
+
 	public Player(int id){
 		playerID = id;
 		victoryPoints = 0;
