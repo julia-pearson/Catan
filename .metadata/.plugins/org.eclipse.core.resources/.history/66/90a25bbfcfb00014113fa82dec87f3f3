@@ -1,0 +1,15 @@
+
+public class GamePlayer {
+	/*	-Tasks:
+	1.initialize the board
+	2. create GUI
+	3. control user input
+	4. update tables/board when user gives input 
+	*/
+	
+	public GamePlayer(int numPlayers){
+		//create stats table for players
+		
+	}
+
+}
