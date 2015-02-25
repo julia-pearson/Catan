@@ -6,6 +6,7 @@
 
 public class Vertex {
 	private Tile[] adjacentTiles; //the list of Tiles that this vertex touches
+	private Tile port; //the port associated with this spot, if there is one
 	private Player owner;
 	private int 	settlementType; //0= empty, 1= settlement, 2= city
 	private Edge[] edges;
@@ -21,6 +22,10 @@ public class Vertex {
 	public void addEdge(Edge e){
 		edges[numEdgesSet] = e;
 		numEdgesSet ++;
+	}
+	
+	public void addPort (Tile p){
+		port = p;
 	}
 	
 	public Tile[] getAdjacentTiles(){
