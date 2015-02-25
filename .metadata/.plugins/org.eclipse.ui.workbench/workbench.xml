@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="33" version="2.0">
+<workbench progressCount="29" version="2.0">
 <workbenchAdvisor/>
-<window height="810" width="1440" x="12" y="24">
+<window height="810" maximized="true" width="1440" x="12" y="24">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -36,43 +36,33 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
-<part id="7"/>
-<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" partName="Vertex.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Vertex.java" title="Vertex.java" tooltip="Game/src/Vertex.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" partName="Vertex.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Vertex.java" title="Vertex.java" tooltip="Game/src/Vertex.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Vertex.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="774" selectionTopPixel="44"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="510" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Edge.java" partName="Edge.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Edge.java" title="Edge.java" tooltip="Game/src/Edge.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Edge.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="235" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" partName="GraphMaker.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphMaker.java" title="GraphMaker.java" tooltip="Game/src/GraphMaker.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" partName="GraphMaker.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphMaker.java" title="GraphMaker.java" tooltip="Game/src/GraphMaker.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphMaker.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4448" selectionTopPixel="2448"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4193" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GamePlayer.java" partName="GamePlayer.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GamePlayer.java" title="GamePlayer.java" tooltip="Game/src/GamePlayer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GamePlayer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="611" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphController.java" partName="GraphController.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphController.java" title="GraphController.java" tooltip="Game/src/GraphController.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4087" selectionTopPixel="1802"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Player.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="306" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tile.java" partName="Tile.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Tile.java" title="Tile.java" tooltip="Game/src/Tile.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Tile.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="555" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4087" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" partName="DevCards.java" title="DevCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="191" selectionTopPixel="104"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="191" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" partName="ResourceCards.java" title="ResourceCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
@@ -225,9 +215,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GamePlayer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Port.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
@@ -236,156 +223,167 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphMaker.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Vertex.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Port.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Tile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GamePlayer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Port.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphMaker.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Vertex.java"/>
 </editors>
-<item historyLabel="GamePlayer.java" index="0">
-<position info="not_deleted" x="1780" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="2118" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="0">
-<position info="not_deleted" x="1778" y="4"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="2104" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="0">
-<position info="not_deleted" x="1778" y="4"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="2104" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="1386" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="1479" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="3435" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="3238" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="1475" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="0">
-<position info="not_deleted" x="1663" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="1475" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="4087" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="0">
-<position info="not_deleted" x="1663" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1908" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
+<item historyLabel="ResourceCards.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="Player.java" index="2">
 <position info="not_deleted" x="306" y="0"/>
 </item>
-<item historyLabel="DevCards.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Port.java" index="4">
-<position info="not_deleted" x="79" y="0"/>
-</item>
-<item historyLabel="Player.java" index="5">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="ResourceCards.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Player.java" index="5">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="Tile.java" index="7">
+<item historyLabel="Tile.java" index="4">
 <position info="not_deleted" x="331" y="0"/>
 </item>
-<item historyLabel="Port.java" index="4">
+<item historyLabel="Port.java" index="1">
 <position info="not_deleted" x="102" y="0"/>
 </item>
-<item historyLabel="Port.java" index="4">
+<item historyLabel="Port.java" index="1">
 <position/>
 </item>
-<item historyLabel="Tile.java" index="7">
+<item historyLabel="Tile.java" index="4">
 <position info="not_deleted" x="555" y="0"/>
 </item>
-<item historyLabel="Player.java" index="5">
+<item historyLabel="Player.java" index="2">
 <position info="not_deleted" x="306" y="0"/>
 </item>
-<item historyLabel="ResourceCards.java" index="6">
+<item historyLabel="ResourceCards.java" index="3">
 <position info="not_deleted" x="501" y="0"/>
 </item>
-<item historyLabel="DevCards.java" index="3">
+<item historyLabel="DevCards.java" index="0">
 <position info="not_deleted" x="191" y="0"/>
 </item>
-<item historyLabel="Tile.java" index="7">
+<item historyLabel="Tile.java" index="4">
 <position info="not_deleted" x="555" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="8">
+<item historyLabel="GraphController.java" index="5">
 <position info="not_deleted" x="4087" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4512" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="1499" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="1297" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="1125" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4499" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4495" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4473" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4410" y="0"/>
 </item>
-<item historyLabel="Player.java" index="5">
+<item historyLabel="Player.java" index="2">
 <position info="not_deleted" x="306" y="0"/>
 </item>
-<item historyLabel="Tile.java" index="7">
+<item historyLabel="Tile.java" index="4">
 <position info="not_deleted" x="555" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4410" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="10">
+<item historyLabel="Vertex.java" index="7">
 <position info="not_deleted" x="1058" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="10">
+<item historyLabel="Vertex.java" index="7">
 <position info="not_deleted" x="399" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="10">
+<item historyLabel="Vertex.java" index="7">
 <position info="not_deleted" x="774" y="0"/>
 </item>
-<item historyLabel="Tile.java" index="7">
+<item historyLabel="Tile.java" index="4">
 <position info="not_deleted" x="555" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="8">
+<item historyLabel="GraphController.java" index="5">
 <position info="not_deleted" x="4087" y="0"/>
 </item>
-<item active="true" historyLabel="GraphMaker.java" index="9">
+<item historyLabel="GraphMaker.java" index="6">
 <position info="not_deleted" x="4490" y="0"/>
+</item>
+<item historyLabel="Port.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="DevCards.java" index="9">
+<position info="not_deleted" x="191" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="10">
+<position info="not_deleted" x="421" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="11">
+<position info="not_deleted" x="10763" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GraphController.java" index="12">
+<position info="not_deleted" x="4087" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="11">
+<position info="not_deleted" x="611" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="10">
+<position info="not_deleted" x="532" y="0"/>
+</item>
+<item historyLabel="GamePlayer.java" index="11">
+<position info="not_deleted" x="611" y="0"/>
+</item>
+<item historyLabel="DevCards.java" index="13">
+<position info="not_deleted" x="191" y="0"/>
+</item>
+<item historyLabel="ResourceCards.java" index="14">
+<position info="not_deleted" x="501" y="0"/>
+</item>
+<item historyLabel="Port.java" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ResourceCards.java" index="14">
+<position info="not_deleted" x="501" y="0"/>
+</item>
+<item historyLabel="Player.java" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ResourceCards.java" index="14">
+<position info="not_deleted" x="501" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="17">
+<position info="not_deleted" x="4564" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="17">
+<position info="not_deleted" x="4193" y="0"/>
+</item>
+<item historyLabel="GraphController.java" index="12">
+<position info="not_deleted" x="4087" y="0"/>
+</item>
+<item historyLabel="DevCards.java" index="13">
+<position info="not_deleted" x="191" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="18">
+<position info="not_deleted" x="1422" y="0"/>
+</item>
+<item active="true" historyLabel="Vertex.java" index="18">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -393,12 +391,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="left"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -411,11 +403,11 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java">
-<persistable uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Port.java" tooltip="Game/src/Port.java">
 <persistable path="/Game/src/Port.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java">
+<persistable uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java">
 <persistable uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
