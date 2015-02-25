@@ -29,7 +29,8 @@ public class GamePlayer {
 		//int[][] board= new Board().getBoard();
 		GraphMaker gm = new GraphMaker(testBoard);
 		graph = new GraphController(gm.getVertexArray());
-		testGraphFeatures();
+		//testGraphFeatures();
+		testCombinedFeatures();
 
 		//create graph and GUI from the board
 		//new GraphMaker(testBoard);
@@ -66,13 +67,13 @@ public class GamePlayer {
 		int v1 = 17;
 		int v2 = 18;
 		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb) );
-			
-		
 	}
-	public void buildSettlement(Player p, int VertexNumber){
-		//check that the player has resource to build
-		//check that it is a legal move
+
+	private static void testCombinedFeatures(){
+		System.out.println("Testing Build Settlement");
+		buildSettlement(0, 17);
 	}
+
 	public void diceRoll(int numRoll){
 		//call a method in Julia's graph that will check who gets what resources and return a structure handling them
 		//add the resources for each player to their player class
@@ -88,13 +89,13 @@ public class GamePlayer {
 	}
 
 	//int p is the player id!
-	public void buildSettlement(int p, int vertexNumber){
+	public static void buildSettlement(int p, int vertexNumber){
 		//check that the player has resources to build a settlement and has settlements left
 		boolean build = players[p].buildSetCheck();
 
 		if (build == true){
 			//call a method in the graph that checks if the spot is valid. return build = true if yes, false if no. also return something about if we add a port
-			
+			graph.buildSettlement(vertexNumber, players[p]);
 			if (build == true){
 				//update stats in player class
 				//add parameter for the port

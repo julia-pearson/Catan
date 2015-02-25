@@ -187,7 +187,7 @@ public class GraphMaker {
 			for (int j=0; j<2; j++){
 				int vertexIndex = VertexPorts[i][j];
 				int portType = board[2][i];
-				Tile toAdd = new Tile(0, true, portType); //TODO, create a unique port class!
+				Tile toAdd = new Tile(0, true, portType);
 				vertices[vertexIndex].addPort(toAdd);
 			}
 		}
