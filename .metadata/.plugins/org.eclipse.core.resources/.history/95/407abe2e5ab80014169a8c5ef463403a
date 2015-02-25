@@ -1,0 +1,113 @@
+/*JE
+ * The GraphController class will mantian the state of the graph as game play progresses.
+ * Actions like: build settlement, build road, and build city will all be validated and carried out in this class.  
+ */
+public class GraphController {
+	static Vertex[] vertices; //pointers to the vertex objects in graph (connected by edge objects)
+	
+	public GraphController (Vertex[] v){
+		vertices = v;
+	}
+	
+	/*check if it is legal to build a settlement here (ie- no other settlements at a neighbor vertex 
+	 * and player P owns roads leading to it (SOMEHOW MUST DISTINGUISH BETWEEN FIRST ROUND AND LATER GAMEPLAY)
+	 * If so, place settlement and return true
+	 * if not, make no change to the graph and return false
+	 */
+	public boolean buildSettlement(int v, Player p){
+		Vertex vert = vertices[v];
+		if (vert.getSettlementType() != 0) { 
+			//ensure vertex is empty
+			return false;
+		} else {
+			//check that position is legal
+			Edge[] es = vert.getEdges();
+			for (int i=0; i< es.length; i++){
+				if (es[i].v1.getSettlementType() != 0  || es[i].v2.getSettlementType() != 0){
+					//there is another settlement one edge away(neighbor vertex)
+					return false;
+				}
+			}
+			//position is legal, so build settlement
+			vert.buildSettlement(p);
+			return true;
+		}
+	}
+	
+	/*check if it is legal to build a city here (ie- Player p already has a settlement at this vertex)
+	 * If so, place city and return true
+	 * if not, make no change to the graph and return false
+	 */
+	public boolean buildCity(int v, Player p){
+		Vertex settlement = vertices[v];
+		if (settlement.getSettlementType() == 1 && settlement.getOwner() == p){
+			settlement.buildCity();
+			return true;
+		} else{
+			return false;
+		}
+	}
+	
+	/*check if it is legal to place a road between given vertices
+	 * If so, place road and return true
+	 * if not, make no change to the graph and return false	
+	*/
+	public boolean buildRaod(int v1, int v2, Player p){
+		//find edge object that links v1 and v2, then check if edge is free
+		Edge toConsider = null;
+		Edge[] e1 = vertices[v1].getEdges();
+		Edge[] e2 = vertices[v2].getEdges();
+		for (int i = 0; i<e1.length; i++ ){
+			if (e1[i].v1 == vertices[v1] && e1[i].v2 == vertices[v2] || 
+					e1[i].v1 == vertices[v2] && e1[i].v2 == vertices[v1]){
+				toConsider = e1[i];
+			}
+		}
+		if (toConsider == null){
+			return false;
+		} else {
+			 if (toConsider.hasRoad){
+				 //there is already a road here!
+				 return false;
+			 } else {
+				 //check that player p has road on an adjacent edge
+				 for (int i = 0; i<e1.length; i++){
+					 if (e1[i].owner == p || e2[i].owner == p){
+						 toConsider.buildRoad(p);
+						 return true;
+					 }
+				 }
+				 return false; //this will be reached if player did not have a connecting road
+			 }
+		}
+		
+		
+	}
+	
+	/*
+	 * Go through tile array (OR THRU VERTECIES?) and determine which players should recieve resources
+	 * for the given roll. 
+	 * Allocate those resources using methods in the player class.
+	 */
+	public void distributeResources(int roll){
+		boolean debug = true;
+		for (int i =0; i<vertices.length; i++){
+			Vertex v = vertices[i];
+			if (v.getSettlementType() != 0){
+				// this vertex contains either a settlement or a city
+				Tile[] tiles = v.getAdjacentTiles();
+				Player owner = v.getOwner();
+				for (int j = 0; j<tiles.length; j++){
+					if (tiles[j].roll == roll && !tiles[j].hasRobber){
+						//owner.addResource(tiles[j].resource);
+						if (debug) {
+							System.out.println("resource of type: "+Resource.getType(tiles[j].resource)+
+									" given on roll"+ roll+ "to owner");
+						}
+					}
+				}
+			}
+			
+		}
+	}
+}
