@@ -1,3 +1,5 @@
+import java.util.Random;
+
 //CJ
 
 public class DevCardDeck{

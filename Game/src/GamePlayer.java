@@ -17,6 +17,7 @@ public class GamePlayer {
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 	public static void main (String[] args){
 		//creates Player classes for each player and stores in players[]
+		System.out.println("Enter number of players: ");
 		int numPlayers = sc.nextInt();
 		players = new Player[3];
 		for(int i=1; i<(numPlayers+1); i++)
@@ -47,16 +48,16 @@ public class GamePlayer {
 		
 		System.out.println("Testing Place Settlement");
 		int i = 30;
-		System.out.println("Place settlement at "+i+graph.placeSettlement(i, test));
+		System.out.println("Place settlement at "+i+graph.placeSettlement(i, test, true));
 		i = 19;
-		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test));
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true));
 		i = 18;
-		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test) );
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true) );
 	
 		System.out.println("Testing Build City");
 		i = 17;
-		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test) );
-		System.out.println("Build city for testb at "+i+ graph.buildCity(i, test) );
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true) );
+		System.out.println("Build city for testb at "+i+ graph.buildCity(i, test, true) );
 		
 		System.out.println("Testing Resource Distribution:");
 		int roll = 4;
@@ -69,8 +70,17 @@ public class GamePlayer {
 	}
 
 	private static void testCombinedFeatures(){
-		System.out.println("Testing Build Settlement");
-		buildSettlement(0, 17);
+		System.out.println("Testing Place Settlement");
+		int i = 1;
+		int v= 17;
+		placeSettlement(i, v);
+		players[i].printStats();
+		v = 19;
+		placeSettlement(i, v);
+		players[i].printStats();
+		v = 18;
+		placeSettlement(i, v);
+		players[i].printStats();
 	}
 
 	public void diceRoll(int numRoll){
@@ -86,15 +96,36 @@ public class GamePlayer {
 		//update GUI
 		
 	}
-
-	//int p is the player id!
+	
+//method to be called at start of game. will not check that player has enough resources
+	public static void placeSettlement(int p, int vertexNumber){
+		boolean debugSet = true;
+		boolean build = graph.placeSettlement(vertexNumber, players[p], debugSet);
+		if (debugSet){
+			System.out.println("Place settlement at "+vertexNumber+" " + build);
+		}
+		if (build == true){
+			//update stats in player class
+			//add parameter for the port
+			players[p].buildSettlement();
+			//tell the GUI to put the settlement in that spot and update the resources and victory points for that player
+		}
+		else
+			;//tell GUI that the player cannot build on that location
+	}
+	
+	//method to be called during game play when player wants to build settlement
 	public static void buildSettlement(int p, int vertexNumber){
+		boolean debugSet = true;
 		//check that the player has resources to build a settlement and has settlements left
 		boolean build = players[p].buildSetCheck();
 
 		if (build == true){
 			//call a method in the graph that checks if the spot is valid. return build = true if yes, false if no. also return something about if we add a port
-			graph.buildSettlement(vertexNumber, players[p]);
+			build = graph.buildSettlement(vertexNumber, players[p],debugSet);
+			if (debugSet){
+				System.out.println("Build settlement at "+vertexNumber+ " "+build);
+			}
 			if (build == true){
 				//update stats in player class
 				//add parameter for the port
