@@ -16,7 +16,6 @@ public class Tile {
 		roll = rollNum;
 	}
 	
-<<<<<<< HEAD
 	public Tile(int resourceNum, boolean port, int type){
 		resource = resourceNum;
 		roll = 0;
@@ -24,8 +23,6 @@ public class Tile {
 		portType = type;
 	}
 	
-=======
->>>>>>> pr/14
 	public void printTile(){
 		System.out.println(Resource.getType(resource)+"("+roll+")");
 	}
