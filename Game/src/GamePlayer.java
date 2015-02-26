@@ -6,8 +6,7 @@ public class GamePlayer {
 	/*	-Tasks:
 	1.initialize the board
 	2. create GUI
-	3. control user input
-	4. update tables/board when user gives input 
+	3. create FrontEndInterface to communicate with GUI and pass instructions
 	*/
 	
 	static GraphController graph;
