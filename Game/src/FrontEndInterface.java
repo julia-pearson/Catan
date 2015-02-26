@@ -9,13 +9,17 @@
  */
 public class FrontEndInterface {
 
-	GamePlayer gp;
+	static GameLogic gl;
 	
-	public FrontEndInterface (GamePlayer player){
-		gp= player;
+	public FrontEndInterface (GameLogic l){
+		gl= l;
 	}
 	
-	
+	public static void buildSettlement (int p, int v){
+		gl.buildSettlement(p, v);
+		//gui draw settlement
+		
+	}
 	
 	
 }
