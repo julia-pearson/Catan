@@ -14,6 +14,7 @@ public class Player {
 	private Ports portTracker;
 
 	private ResourceCards resourceTracker;
+
 	private DevCards dCardTracker;
 	//settlements and cities and roads are pointed to from the graph
 
