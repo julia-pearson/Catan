@@ -10,7 +10,7 @@ public class GameLogic {
 	private static Player[] players;
 
 	public GameLogic(int numPlayers) {
-		players = new Player[numPlayers+1];
+		players = new Player[numPlayers];
 		for(int i=1; i<(numPlayers+1); i++)
 			players[i] = new Player(i);
 		
