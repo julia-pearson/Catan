@@ -14,7 +14,6 @@ public class Player {
 	private Ports portTracker;
 
 	private ResourceCards resourceTracker;
-
 	private DevCards dCardTracker;
 	//settlements and cities and roads are pointed to from the graph
 
@@ -42,13 +41,17 @@ public class Player {
 		return true;
 	}
 
+	public void placeSettlement(){
+		numberOfSettlements ++;
+		victoryPoints++;
+	}
+	
 	public void buildSettlement(){
 		resourceTracker.useSheep(1);
 		resourceTracker.useWheat(1);
 		resourceTracker.useWood(1);
 		resourceTracker.useBrick(1);
-		numberOfSettlements++;
-		victoryPoints++;
+		placeSettlement();
 
 		//add port if we get one
 
@@ -84,11 +87,23 @@ public class Player {
 			return false;
 		return true;
 	}
-
+	
+	public void placeRoad(){
+		numberOfRoads++;
+	}
+	
 	public void buildRoad(){
 		resourceTracker.useBrick(1);
 		resourceTracker.useWood(1);
-		numberOfRoads++;
+		placeRoad();
+	}
+	
+	public void printStats(){
+		System.out.println("Stats for player: "+playerID);
+		System.out.println("Number of Settlements: " +numberOfSettlements);
+		System.out.println("Number of Cities: " +numberOfCities);
+		System.out.println("Number of Roads: " +numberOfRoads);
+		System.out.println("Victory Points: " +victoryPoints);
 	}
 
 
