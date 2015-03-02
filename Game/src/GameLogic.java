@@ -6,21 +6,22 @@ public class GameLogic {
 	2. create GUI
 	3. create FrontEndInterface to communicate with GUI and pass instructions
 	*/
-	static GraphController graph;
-	private static Player[] players;
+	private GraphController graph;
+	private Player[] players;
 
-	public GameLogic(int numPlayers) {
-		players = new Player[numPlayers];
-		for(int i=1; i<(numPlayers+1); i++)
-			players[i] = new Player(i);
+	public GameLogic(int[][] board) {
+	//julia should be taking this
+	//	players = new Player[numPlayers];
+	//	for(int i=1; i<(numPlayers+1); i++)
+	//		players[i] = new Player(i);
 		//testboard gives a predetermined board
-		int[][] testBoard = new Board().getTestBoard();
+	//	int[][] testBoard = new Board().getTestBoard();
 		//int[][] board= new Board().getBoard();
-		GraphMaker gm = new GraphMaker(testBoard);
+		GraphMaker gm = new GraphMaker(board);
 		graph = new GraphController(gm.getVertexArray());
 	}
 	
-	public static void testGraphFeatures(){
+	public void testGraphFeatures(){
 		System.out.println("Testing Graph Features");
 		Player test = new Player(0);
 		Player testb = new Player(1);
@@ -48,7 +49,7 @@ public class GameLogic {
 		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb) );
 	}
 
-	public static void testCombinedFeatures(){
+	public void testCombinedFeatures(){
 		System.out.println("Testing Place Settlement");
 		int i = 1;
 		int v= 17;
@@ -77,7 +78,7 @@ public class GameLogic {
 	}
 	
 //method to be called at start of game. will not check that player has enough resources
-	public static void placeSettlement(int p, int vertexNumber){
+	public void placeSettlement(int p, int vertexNumber){
 		boolean debugSet = true;
 		boolean build = graph.placeSettlement(vertexNumber, players[p], debugSet);
 		if (debugSet){
@@ -94,7 +95,7 @@ public class GameLogic {
 	}
 	
 	//method to be called during game play when player wants to build settlement
-	public static void buildSettlement(int p, int vertexNumber){
+	public void buildSettlement(int p, int vertexNumber){
 		boolean debugSet = true;
 		//check that the player has resources to build a settlement and has settlements left
 		boolean build = players[p].buildSetCheck();
