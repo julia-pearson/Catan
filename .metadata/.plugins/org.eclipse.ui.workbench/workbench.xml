@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="26" version="2.0">
+<workbench progressCount="28" version="2.0">
 <workbenchAdvisor/>
-<window height="803" maximized="true" width="1440" x="12" y="23">
+<window height="805" maximized="true" width="1440" x="64" y="49">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -32,68 +32,28 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Vertex.java" partName="Vertex.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Vertex.java" title="Vertex.java" tooltip="Game/src/Vertex.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Vertex.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="774" selectionTopPixel="44"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameLogic.java" partName="GameLogic.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GameLogic.java" title="GameLogic.java" tooltip="Game/src/GameLogic.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GameLogic.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="302" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Edge.java" partName="Edge.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Edge.java" title="Edge.java" tooltip="Game/src/Edge.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Edge.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="235" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" partName="Board.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Board.java" title="Board.java" tooltip="Game/src/Board.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Board.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" partName="GraphMaker.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphMaker.java" title="GraphMaker.java" tooltip="Game/src/GraphMaker.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphMaker.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4448" selectionTopPixel="2448"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GamePlayer.java" partName="GamePlayer.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GamePlayer.java" title="GamePlayer.java" tooltip="Game/src/GamePlayer.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GamePlayer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="182" selectionTopPixel="35"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphController.java" partName="GraphController.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphController.java" title="GraphController.java" tooltip="Game/src/GraphController.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2421" selectionTopPixel="709"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Player.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1545" selectionTopPixel="1090"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tile.java" partName="Tile.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Tile.java" title="Tile.java" tooltip="Game/src/Tile.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Tile.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="555" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" partName="DevCards.java" title="DevCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="191" selectionTopPixel="104"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" partName="ResourceCards.java" title="ResourceCards.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="501" selectionTopPixel="574"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BackendInterface.java" partName="BackendInterface.java" path="/Users/juliaedholm/Documents/Catan/Game/src/BackendInterface.java" title="BackendInterface.java" tooltip="Game/src/BackendInterface.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/BackendInterface.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FrontEndInterface.java" partName="FrontEndInterface.java" path="/Users/juliaedholm/Documents/Catan/Game/src/FrontEndInterface.java" title="FrontEndInterface.java" tooltip="Game/src/FrontEndInterface.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/FrontEndInterface.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="430" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RunGame.java" partName="RunGame.java" path="/Users/juliaedholm/Documents/Catan/Game/src/RunGame.java" title="RunGame.java" tooltip="Game/src/RunGame.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/RunGame.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1364" selectionTopPixel="473"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (14 items)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -238,167 +198,169 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Tile.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphMaker.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Vertex.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GamePlayer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/DevCardDeck.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/BackendInterface.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/FrontEndInterface.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GamePlayer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/BackendInterface.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/RunGame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GameLogic.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Vertex.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Edge.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphMaker.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GameLogic.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Board.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/RunGame.java"/>
 </editors>
-<item historyLabel="Tile.java" index="0">
-<position info="not_deleted" x="555" y="0"/>
+<item historyLabel="GamePlayer.java" index="2">
+<position info="not_deleted" x="682" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="2">
-<position info="not_deleted" x="4410" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="302" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="3">
-<position info="not_deleted" x="1058" y="0"/>
+<item historyLabel="BackendInterface.java" index="3">
+<position info="not_deleted" x="229" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="3">
-<position info="not_deleted" x="399" y="0"/>
+<item historyLabel="FrontEndInterface.java" index="0">
+<position info="not_deleted" x="356" y="0"/>
 </item>
-<item historyLabel="Vertex.java" index="3">
-<position info="not_deleted" x="774" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="601" y="0"/>
 </item>
-<item historyLabel="Tile.java" index="0">
-<position info="not_deleted" x="555" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="9" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="598" y="0"/>
 </item>
 <item historyLabel="GraphController.java" index="1">
-<position info="not_deleted" x="4087" y="0"/>
+<position info="not_deleted" x="1695" y="0"/>
 </item>
-<item historyLabel="GraphMaker.java" index="2">
-<position info="not_deleted" x="4490" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="196" y="0"/>
 </item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="306" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="598" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="943" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="3663" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="917" y="25"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="4623" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="914" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="3663" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="196" y="33"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="522" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="360" y="0"/>
 </item>
-<item historyLabel="DevCards.java" index="7">
-<position info="not_deleted" x="191" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="268" y="103"/>
 </item>
-<item historyLabel="DevCardDeck.java" index="8">
-<position info="not_deleted" x="112" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="360" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="2246" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1410" y="13"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="4623" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="372" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="911" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="868" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="1286" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="371" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="2246" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1227" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="1296" y="0"/>
+<item historyLabel="GameLogic.java" index="5">
+<position info="not_deleted" x="1766" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="1815" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1227" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="1296" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="2419" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="6">
-<position info="not_deleted" x="2421" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="1815" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="1894" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="4217" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="4219" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="3270" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="327" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="938" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="1164" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="1877" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="2003" y="0"/>
-</item>
-<item historyLabel="Player.java" index="4">
-<position info="not_deleted" x="1545" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="3270" y="0"/>
-</item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="2387" y="0"/>
-</item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="116" y="0"/>
-</item>
-<item historyLabel="FrontEndInterface.java" index="10">
-<position info="not_deleted" x="299" y="0"/>
-</item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="116" y="0"/>
-</item>
-<item historyLabel="FrontEndInterface.java" index="10">
-<position info="not_deleted" x="427" y="0"/>
-</item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="116" y="0"/>
-</item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="476" y="0"/>
-</item>
-<item historyLabel="BackendInterface.java" index="9">
+<item historyLabel="RunGame.java" index="4">
 <position/>
 </item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="388" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1093" y="0"/>
 </item>
-<item historyLabel="GamePlayer.java" index="5">
-<position info="not_deleted" x="182" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1311" y="0"/>
 </item>
-<item historyLabel="BackendInterface.java" index="9">
-<position info="not_deleted" x="2" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1244" y="0"/>
 </item>
-<item active="true" historyLabel="FrontEndInterface.java" index="10">
-<position info="not_deleted" x="427" y="0"/>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1311" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1144" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="974" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="282" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="763" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="6">
+<position info="not_deleted" x="774" y="0"/>
+</item>
+<item historyLabel="ResourceCards.java" index="7">
+<position info="not_deleted" x="501" y="0"/>
+</item>
+<item historyLabel="Vertex.java" index="6">
+<position info="not_deleted" x="774" y="0"/>
+</item>
+<item historyLabel="Edge.java" index="8">
+<position info="not_deleted" x="235" y="0"/>
+</item>
+<item historyLabel="GraphMaker.java" index="9">
+<position info="not_deleted" x="4448" y="0"/>
+</item>
+<item historyLabel="GameLogic.java" index="10">
+<position info="not_deleted" x="1766" y="0"/>
+</item>
+<item historyLabel="Board.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="1165" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="1224" y="0"/>
+</item>
+<item historyLabel="GameLogic.java" index="10">
+<position info="not_deleted" x="374" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="787" y="51"/>
+</item>
+<item historyLabel="GameLogic.java" index="10">
+<position info="not_deleted" x="374" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="787" y="51"/>
+</item>
+<item historyLabel="GameLogic.java" index="10">
+<position info="not_deleted" x="302" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="12">
+<position info="not_deleted" x="787" y="51"/>
+</item>
+<item active="true" historyLabel="RunGame.java" index="12">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -418,6 +380,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RunGame.java" tooltip="Game/src/RunGame.java">
+<persistable path="/Game/src/RunGame.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" tooltip="Game/src/Board.java">
+<persistable path="/Game/src/Board.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FrontEndInterface.java" tooltip="Game/src/FrontEndInterface.java">
 <persistable path="/Game/src/FrontEndInterface.java"/>
 </file>
@@ -456,12 +424,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Visualizer.java" tooltip="Game/src/Visualizer.java">
 <persistable path="/Game/src/Visualizer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Edge.java" tooltip="Game/src/Edge.java">
-<persistable path="/Game/src/Edge.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" tooltip="Game/src/Board.java">
-<persistable path="/Game/src/Board.java"/>
 </file>
 </mruList>
 </workbench>

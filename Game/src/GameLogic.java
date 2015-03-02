@@ -21,6 +21,7 @@ public class GameLogic {
 	//	int[][] testBoard = new Board().getTestBoard();
 		//int[][] board= new Board().getBoard();
 		GraphMaker gm = new GraphMaker(board);
+
 		graph = new GraphController(gm.getVertexArray());
 		devDeck = new DevCardDeck();
 	}
