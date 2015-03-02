@@ -147,14 +147,14 @@ public class GraphController {
 								System.out.println("resource of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ "to owner");
 							}
-							//owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
 						} else if (v.getSettlementType() == 2){
 							if (debug) {
 								System.out.println("2 resources of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ "to owner");
 							}
-							//owner.addResource(tiles[j].resource);
-							//owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
 						}
 						
 					
