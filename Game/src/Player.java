@@ -137,6 +137,10 @@ public class Player {
 		placeRoad();
 	}
 	
+	public int getID(){
+		return playerID;
+	}
+	
 	public void printStats(){
 		System.out.println("Stats for player: "+playerID);
 		System.out.println("Number of Settlements: " +numberOfSettlements);

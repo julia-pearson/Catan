@@ -26,6 +26,7 @@ public class GraphController {
 			//check that position is legal
 			Edge[] es = vert.getEdges();
 			for (int i=0; i< es.length; i++){
+				System.out.println(es);
 				if (es[i].v1.getSettlementType() != 0  || es[i].v2.getSettlementType() != 0){
 					//there is another settlement one edge away(neighbor vertex)
 					if(printError){
