@@ -38,11 +38,6 @@ public class RunGame {
 		
 	//	gl.testCombinedFeatures();
 		startGame();
-		for (int i=0; i<4; i++){
-			currentPlayerID = turnOrder[turnCounter];
-			turn();
-			nextPlayer();
-		}
 
 		//Visualizer GUI = new Visualizer(board);
 	}
@@ -65,11 +60,9 @@ public class RunGame {
 	}
 	
 	private static void turn(){
+		System.out.println("Roll");
 		int r = roll();
 		System.out.println("roll was "+r);
-		gl.diceRoll(r);
-		System.out.println("New turn for");
-		players[currentPlayerID].printStats();
 	}
 	
 	private static int roll(){
@@ -120,7 +113,5 @@ public class RunGame {
 		System.out.println("What are vertexes you would ilke to place your road between?");
 		int v1= sc.nextInt();
 		int v2 = sc.nextInt();
-		//gl.buildRoad();
 	}
-	
 }

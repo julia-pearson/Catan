@@ -120,7 +120,5 @@ public class RunGame {
 		System.out.println("What are vertexes you would ilke to place your road between?");
 		int v1= sc.nextInt();
 		int v2 = sc.nextInt();
-		//gl.buildRoad();
 	}
-	
 }

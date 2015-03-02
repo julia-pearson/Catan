@@ -38,11 +38,6 @@ public class RunGame {
 		
 	//	gl.testCombinedFeatures();
 		startGame();
-		for (int i=0; i<4; i++){
-			currentPlayerID = turnOrder[turnCounter];
-			turn();
-			nextPlayer();
-		}
 
 		//Visualizer GUI = new Visualizer(board);
 	}
@@ -65,11 +60,9 @@ public class RunGame {
 	}
 	
 	private static void turn(){
+		System.out.println("Roll");
 		int r = roll();
 		System.out.println("roll was "+r);
-		gl.diceRoll(r);
-		System.out.println("New turn for");
-		players[currentPlayerID].printStats();
 	}
 	
 	private static int roll(){
@@ -114,13 +107,8 @@ public class RunGame {
 	
 	private static void firstRound(Player p){
 		System.out.println("Player "+ currentPlayerID + "'s turn");
-		System.out.println("Where would you like to place your settlement?");
+		System.out.println("Where woudl you like to place your first settlement?");
 		int vertexNum = sc.nextInt();
-		gl.placeSettlement(p.getID(),vertexNum);
-		System.out.println("What are vertexes you would ilke to place your road between?");
-		int v1= sc.nextInt();
-		int v2 = sc.nextInt();
-		//gl.buildRoad();
+		gl.placeSettlement(p,vertexNum);
 	}
-	
 }
