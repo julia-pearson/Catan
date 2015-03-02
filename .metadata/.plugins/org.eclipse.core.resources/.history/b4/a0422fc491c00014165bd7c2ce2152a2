@@ -17,7 +17,6 @@ public class RunGame {
 	//turnOrder[4] = the id of the last;
 	private static int turnCounter;
 	private static int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
-	private static int vertexToAct;
 	
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 	public static void main (String[] args){
@@ -78,8 +77,8 @@ public class RunGame {
 		int actionType = sc.nextInt();
 		if (actionType == 1){
 			System.out.println("Where would you like to place your settlement?");
-			vertexToAct = sc.nextInt();
-			gl.placeSettlement(currentPlayerID, vertexToAct);
+			int vertexNum = sc.nextInt();
+			gl.placeSettlement(currentPlayerID,vertexNum);
 		} else if(actionType == 2){
 			System.out.println("What are vertexes you would ilke to place your road between?");
 			int v1= sc.nextInt();
@@ -144,11 +143,8 @@ public class RunGame {
 			//initiate robber movement stealing sequence (same as for knight)
 	}
 	
-	public static void setActionType (int t){
+	public static setActionType (int t){
 		actionType = t;
 	}
 	
-	public static void setVertex (int v){
-		vertexToAct = v;
-	}
 }

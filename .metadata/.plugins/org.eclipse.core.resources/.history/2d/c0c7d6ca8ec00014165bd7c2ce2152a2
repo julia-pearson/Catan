@@ -77,7 +77,7 @@ public class GameLogic {
 		}
 
 		else{
-			graph.distributeResources(numRoll);
+			graph.distributeResources(roll);
 		}
 
 	}

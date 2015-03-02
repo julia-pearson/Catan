@@ -9,22 +9,17 @@
  */
 public class FrontEndInterface {
 
-	static RunGame rg;
+	static GameLogic gl;
 	
-	public FrontEndInterface (RunGame r){
-		rg = r;
+	public FrontEndInterface (GameLogic l){
+		gl= l;
 	}
 	
-	public static void settyClicked (){
-		rg.setActionType(1);
+	public static void buildSettlement (int p, int v){
+		gl.buildSettlement(p, v);
+		//gui draw settlement
+		
 	}
 	
-	public static void cityClicked (){
-		rg.setActionType(2);
-	}
-	
-	public static void vertexClicked (int v){
-		rg.setVertex(v);
-	}
 	
 }
