@@ -70,20 +70,12 @@ public class RunGame {
 		gl.diceRoll(r);
 		System.out.println("New turn for");
 		players[currentPlayerID].printStats();
-		System.out.println("Do you want to build settlement?");
+		System.out.println("Do you want to build settlemen?");
 		int answer = sc.nextInt();
 		if (answer == 1){
 			System.out.println("Where would you like to place your settlement?");
 			int vertexNum = sc.nextInt();
-			gl.placeSettlement(currentPlayerID,vertexNum);
-		}
-		System.out.println("Do you want to build raod?");
-		 answer = sc.nextInt();
-		if (answer == 1){
-			System.out.println("What are vertexes you would ilke to place your road between?");
-			int v1= sc.nextInt();
-			int v2 = sc.nextInt();
-			//gl.buildRoad();
+			gl.placeSettlement(p.getID(),vertexNum);
 		}
 	}
 	

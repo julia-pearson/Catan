@@ -75,7 +75,7 @@ public class RunGame {
 		if (answer == 1){
 			System.out.println("Where would you like to place your settlement?");
 			int vertexNum = sc.nextInt();
-			gl.placeSettlement(currentPlayerID,vertexNum);
+			gl.placeSettlement(p.getID(),vertexNum);
 		}
 		System.out.println("Do you want to build raod?");
 		 answer = sc.nextInt();
