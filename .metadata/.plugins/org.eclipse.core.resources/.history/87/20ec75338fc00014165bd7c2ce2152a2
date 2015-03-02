@@ -16,8 +16,6 @@ public class RunGame {
 	private static int[] turnOrder; //turn order contains the ids of the players turnOrder[0] = the id of the first player; 
 	//turnOrder[4] = the id of the last;
 	private static int turnCounter;
-	private static int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
-	private static int vertexToAct;
 	
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 	public static void main (String[] args){
@@ -66,21 +64,19 @@ public class RunGame {
 	private static void turn(){
 		int r = roll();
 		System.out.println("roll was "+r);
-		if(r == 7){
-			sevenRolled();
-		} else {
-			gl.diceRoll(r);
-		}
+		gl.diceRoll(r);
 		System.out.println("New turn for");
 		players[currentPlayerID].printStats();
-		actionType = 0;
-		System.out.println("Enter your action Type");
-		int actionType = sc.nextInt();
-		if (actionType == 1){
+		System.out.println("Do you want to build settlement?");
+		int answer = sc.nextInt();
+		if (answer == 1){
 			System.out.println("Where would you like to place your settlement?");
-			vertexToAct = sc.nextInt();
-			gl.placeSettlement(currentPlayerID, vertexToAct);
-		} else if(actionType == 2){
+			int vertexNum = sc.nextInt();
+			gl.placeSettlement(currentPlayerID,vertexNum);
+		}
+		System.out.println("Do you want to build raod?");
+		 answer = sc.nextInt();
+		if (answer == 1){
 			System.out.println("What are vertexes you would ilke to place your road between?");
 			int v1= sc.nextInt();
 			int v2 = sc.nextInt();
@@ -127,6 +123,7 @@ public class RunGame {
 		}
 	}
 	
+	
 	private static void firstRound(Player p){
 		System.out.println("Player "+ currentPlayerID + "'s turn");
 		System.out.println("Where would you like to place your settlement?");
@@ -138,17 +135,4 @@ public class RunGame {
 		//gl.buildRoad();
 	}
 	
-	private static void sevenRolled(){
-		for(int i=1; i<=players.length; i++)
-			players[i].sevenRoll();
-			//initiate robber movement stealing sequence (same as for knight)
-	}
-	
-	public static void setActionType (int t){
-		actionType = t;
-	}
-	
-	public static void setVertex (int v){
-		vertexToAct = v;
-	}
 }

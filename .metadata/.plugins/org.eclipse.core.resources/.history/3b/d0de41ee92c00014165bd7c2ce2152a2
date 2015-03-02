@@ -133,7 +133,6 @@ public class GraphController {
 	 * Go through vertices and determine which players should receive resources for the given roll. 
 	 * Allocate those resources using methods in the player class.
 	 */
-
 	public void distributeResources(int roll){
 		boolean debug = true;
 		for (int i =0; i<vertices.length; i++){

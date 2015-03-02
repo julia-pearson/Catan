@@ -24,7 +24,7 @@ public class FrontEndInterface {
 	}
 	
 	public static void vertexClicked (int v){
-		rg.setVertex(v);
+		
 	}
 	
 }
