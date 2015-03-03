@@ -14,9 +14,9 @@ public class Player {
 	private Ports portTracker;
 
 	private ResourceCards resourceTracker;
-
 	private DevCards dCardTracker;
 	//settlements and cities and roads are pointed to from the graph
+
 
 	public Player(int id){
 		playerID = id;
@@ -33,24 +33,59 @@ public class Player {
 		portTracker = new Ports();
 	}
 
+	public void addResource(int i){
+		if(i==1)
+			resourceTracker.addRock();
+		if(i==2)
+			resourceTracker.addWheat();
+		if(i==3)
+			resourceTracker.addBrick();
+		if(i==4)
+			resourceTracker.addWood();
+		if(i==5)
+			resourceTracker.addSheep();
+	}
+
 	public boolean buildSetCheck(){
-		if(resourceTracker.getSheep()<1 || resourceTracker.getWheat()<1 || resourceTracker.getWood()<1 || resourceTracker.getBrick()<1)
+		if(resourceTracker.getSheep()<1 || resourceTracker.getWheat()<1 || resourceTracker.getWood()<1 || resourceTracker.getBrick()<1){
+			System.out.println("You do not have enough resources to build a settlement.")
 			return false;
-		if(numberOfSettlements==5)
+		}
+		if(numberOfSettlements==5){
+			System.out.println("You have already built the maximum number of settlements.");
 			return false;
+		}
 		return true;
 	}
 
+	public void placeSettlement(){
+		numberOfSettlements ++;
+		victoryPoints++;
+	}
+	
 	public void buildSettlement(){
 		resourceTracker.useSheep(1);
 		resourceTracker.useWheat(1);
 		resourceTracker.useWood(1);
 		resourceTracker.useBrick(1);
-		numberOfSettlements++;
-		victoryPoints++;
+		placeSettlement();
 
 		//add port if we get one
 
+	}
+
+	public boolean buildDevCheck(){
+		if(resourceTracker.getSheep()<1 || resourceTracker.getWheat()<1 || resourceTracker.getRock()<1){
+			System.out.println("You do not have enough resources to build a development card.")
+			return false;
+		}
+		return true;
+	}
+
+	public boolean buildDev(int i){
+		resourceTracker.useSheep(1);
+		resourceTracker.useRock(1);
+		resourceTracker.useWheat(1);
 	}
 
 	public void sevenRoll(){
@@ -62,10 +97,14 @@ public class Player {
 	}
 
 	public boolean buildCityCheck(){
-		if(resourceTracker.getWheat()<2 || resourceTracker.getRock()<3)
+		if(resourceTracker.getWheat()<2 || resourceTracker.getRock()<3){
+			System.out.println("You do not have enough resources to build a city.")
 			return false;
-		if(numberOfSettlements==4)
+		}
+		if(numberOfSettlements==4){
+			System.out.println("You have already built the maximum number of cities.")
 			return false;
+		}
 		return true;
 	}
 
@@ -77,17 +116,37 @@ public class Player {
 	}
 
 	public boolean buildRoadCheck(){
-		if(resourceTracker.getBrick()<1 || resourceTracker.getWood()<1)
+		if(resourceTracker.getBrick()<1 || resourceTracker.getWood()<1){
+			System.out.println("You do not have enough resources to build a road.")
 			return false;
-		if(numberOfRoads==15)
+		}
+		if(numberOfRoads==15){
+			System.out.println("You have already built the maximum number of roads.")
 			return false;
+		}
 		return true;
 	}
-
+	
+	public void placeRoad(){
+		numberOfRoads++;
+	}
+	
 	public void buildRoad(){
 		resourceTracker.useBrick(1);
 		resourceTracker.useWood(1);
-		numberOfRoads++;
+		placeRoad();
+	}
+	
+	public int getID(){
+		return playerID;
+	}
+	
+	public void printStats(){
+		System.out.println("Stats for player: "+playerID);
+		System.out.println("Number of Settlements: " +numberOfSettlements);
+		System.out.println("Number of Cities: " +numberOfCities);
+		System.out.println("Number of Roads: " +numberOfRoads);
+		System.out.println("Victory Points: " +victoryPoints);
 	}
 
 

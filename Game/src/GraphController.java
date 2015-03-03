@@ -14,17 +14,24 @@ public class GraphController {
 	 * If so, place settlement and return true
 	 * if not, make no change to the graph and return false
 	 */
-	public boolean placeSettlement(int v, Player p){
+	public boolean placeSettlement(int v, Player p, boolean printError){
 		Vertex vert = vertices[v];
 		if (vert.getSettlementType() != 0) { 
 			//ensure vertex is empty
+			if(printError){
+				System.out.println("There is already a settlement on this vertex");
+			}
 			return false;
 		} else {
 			//check that position is legal
 			Edge[] es = vert.getEdges();
 			for (int i=0; i< es.length; i++){
+				System.out.println(es);
 				if (es[i].v1.getSettlementType() != 0  || es[i].v2.getSettlementType() != 0){
 					//there is another settlement one edge away(neighbor vertex)
+					if(printError){
+						System.out.println("There is a settlement next to this vertex");
+					}
 					return false;
 				}
 			}
@@ -38,10 +45,13 @@ public class GraphController {
 	 * will first check that the player has roads on an edge leading to this settlement,
 	 * then will call placeSettlement
 	 */
-	public boolean buildSettlement(int v, Player p){
+	public boolean buildSettlement(int v, Player p, boolean printError){
 		if (connectedRoads(v,p)){
-			return placeSettlement(v,p);
+			return placeSettlement(v,p, printError);
 		} else{
+			if(printError){
+				System.out.println("You need roads connected to thsi vertex");
+			}
 			return false;
 		}
 	}
@@ -50,12 +60,15 @@ public class GraphController {
 	 * If so, place city and return true
 	 * if not, make no change to the graph and return false
 	 */
-	public boolean buildCity(int v, Player p){
+	public boolean buildCity(int v, Player p, boolean printError){
 		Vertex settlement = vertices[v];
 		if (settlement.getSettlementType() == 1 && settlement.getOwner() == p){
 			settlement.buildCity();
 			return true;
 		} else{
+			if(printError){
+				System.out.println("Cannot build city at vertex with settlement type: "+settlement.getSettlementType()+" and current owner: "+settlement.getOwner());
+			}
 			return false;
 		}
 	}
@@ -120,6 +133,7 @@ public class GraphController {
 	 * Go through vertices and determine which players should receive resources for the given roll. 
 	 * Allocate those resources using methods in the player class.
 	 */
+
 	public void distributeResources(int roll){
 		boolean debug = true;
 		for (int i =0; i<vertices.length; i++){
@@ -135,14 +149,14 @@ public class GraphController {
 								System.out.println("resource of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ "to owner");
 							}
-							//owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
 						} else if (v.getSettlementType() == 2){
 							if (debug) {
 								System.out.println("2 resources of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ "to owner");
 							}
-							//owner.addResource(tiles[j].resource);
-							//owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
 						}
 						
 					
