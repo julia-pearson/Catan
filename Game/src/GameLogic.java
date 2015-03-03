@@ -125,7 +125,7 @@ public class GameLogic {
 
 	}
 
-	public void buildCity(int p, int vertexNumber){
+	public boolean buildCity(int p, int vertexNumber){
 		//check that the player has resources to build a city and has cities left
 		boolean build = players[p].buildCityCheck();
 

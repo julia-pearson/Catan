@@ -88,7 +88,7 @@ public class RunGame {
 		}
 	}
 	
-	private static int roll(){
+	public static int roll(){
 		//pick a random int between 1 and 6
 		Random generator =  new Random();
 		int roll = generator.nextInt(6);

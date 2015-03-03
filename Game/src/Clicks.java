@@ -4,10 +4,11 @@ import java.awt.Graphics;
 
 public class Clicks implements MouseListener{
 	private Hexanew hex;
+	private FrontEndInterface interaction;
 
-
-	public Clicks(Hexanew h){
+	public Clicks(Hexanew h, FrontEndInterface f){
 		hex = h;
+		interaction = f;
 	}
 
 	public void mouseClicked(MouseEvent e){
@@ -20,15 +21,16 @@ public class Clicks implements MouseListener{
 
 		boolean roll=rolledDice(x, y);
 		if(roll){
-			hex.rollOne=5;//random from Julia
-			hex.rollTwo=3;
+			int [] rolls= interaction.diceClicked();
+			hex.rollOne=rolls[0];//random from Julia
+			hex.rollTwo=rolls[1];
 			System.out.println("rolled");
-			if(hex.currentPlayer<4){
+/*			if(hex.currentPlayer<4){
 				hex.currentPlayer=hex.currentPlayer+1;				
 			}
 			else {
 				hex.currentPlayer=1;
-			}
+			}*/
 			hex.repaint();
 		}
 		boolean city = askCity(x,y);
@@ -71,11 +73,15 @@ public class Clicks implements MouseListener{
 			System.out.println("wheat");
 		}
 		if(verty<54){
+			interaction.vertexClicked(verty);
+			/*
 			if(hex.buildSettlement){
 				hex.vertex[verty][2]=1;
 				hex.vertex[verty][5]=hex.currentPlayer;
 				hex.buildSettlement=false;
 			}
+
+
 			if(hex.buildCity){
 				hex.vertex[verty][2]=2;
 				hex.vertex[verty][5]=hex.currentPlayer;
@@ -120,6 +126,7 @@ public class Clicks implements MouseListener{
 				hex.road2=0;
 			}
 		hex.repaint();	
+		*/
 		}
 
 	}

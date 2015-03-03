@@ -15,11 +15,9 @@ import java.awt.RenderingHints;
 
 
 public class Hexanew extends JFrame{
-
-
-
-  int currentPlayer=1;
   int gamePlayers=4;
+
+  FrontEndInterface interaction;
 
   //Making colors
   Color water = new Color (54, 183, 235);
@@ -181,12 +179,13 @@ public class Hexanew extends JFrame{
   int road2=0;
 
   //sets up screen and size
-  public Hexanew(){
+  public Hexanew( FrontEndInterface f){
       setTitle("Hexanew");
       setSize(1500, 1000);
       setVisible(true);
-      addMouseListener(new Clicks(this));
+      addMouseListener(new Clicks(this, f));
       setDefaultCloseOperation(EXIT_ON_CLOSE);
+      interaction = f;
   }
 
   //draws the Hexagons
@@ -195,8 +194,8 @@ public class Hexanew extends JFrame{
       //allows me to print text!
       Graphics2D g2 = (Graphics2D)g;
       g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-      drawBoard(g2,currentPlayer);
+      System.out.println(interaction.currentPlayerID);
+      drawBoard(g2,interaction.currentPlayerID);
       drawRobber(start[robber][0], start[robber][1]);        
       updateBoard();
   }
@@ -236,6 +235,7 @@ public class Hexanew extends JFrame{
   public void drawBoard(Graphics2D g2, int currentPlayer){
       //drawing border
       drawBorderHex(a1, x1, y1);
+      System.out.println(currentPlayer);
 
       //Filling in Board
       for (int i=0; i<19; i++){
@@ -492,6 +492,11 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
+  public void buildSettlement(int v){
+    vertex[v][2]=1;
+    vertex[v][5]=interaction.currentPlayerID;
+    repaint();
+  }
 
   public void drawCity(int x, int y, int currentPlayer){
       if(currentPlayer==1){
@@ -691,7 +696,8 @@ public class Hexanew extends JFrame{
     g.fillOval(x-radius, y-radius, radius*2, radius*2);
   }
  
-  public static void main(String[] args){
-    Hexanew h = new Hexanew();
-  }
+
+  //public static void main(String[] args){
+  //  Hexanew h = new Hexanew();
+  //}
 }

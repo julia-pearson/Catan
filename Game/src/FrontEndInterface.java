@@ -10,13 +10,22 @@
 public class FrontEndInterface {
 
 	static RunGame rg;
+	static Hexanew h;
+	public static int currentPlayerID;
 	
 	public FrontEndInterface (RunGame r){
 		rg = r;
+		h = new Hexanew( this );
 	}
 	
+	public FrontEndInterface (){
+		h = new Hexanew( this );
+		currentPlayerID = 1;
+	}
+
 	public static void settyClicked (){
 		rg.setActionType(1);
+		System.out.println("Setty Clicked in FRONT END INTERFACE");
 	}
 	
 	public static void cityClicked (){
@@ -25,6 +34,29 @@ public class FrontEndInterface {
 	
 	public static void vertexClicked (int v){
 		rg.setVertex(v);
+		System.out.println("Vertex "+v+" Clicked in FRONT END INTERFACE");
+		drawSettlement(v);
+	}
+
+	public static int[] diceClicked (){
+		System.out.println("Dice Clicked in FRONT END INTERFACE");
+	//	int r1 = rg.roll();
+	//	int r2 = rg.roll();
+		int[] toPass = new int[]{3,3};
+		currentPlayerID = 3;
+		return toPass;
+	}
+
+	public static void drawSettlement(int v){
+		h.buildSettlement(v);
+	}
+
+	public static void nullClick(){
+	//reset all action values and vertex etc
+	}
+
+	public static void main(String [] args){
+		new FrontEndInterface();
 	}
 	
 }
