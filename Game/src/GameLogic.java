@@ -7,7 +7,6 @@ public class GameLogic {
 	3. create FrontEndInterface to communicate with GUI and pass instructions
 	*/
 	private GraphController graph;
-	private Player[] players;
 	private DevCardDeck devDeck;
 
 	private boolean debugSet = true;
@@ -26,7 +25,7 @@ public class GameLogic {
 		devDeck = new DevCardDeck();
 	}
 	
-	public void testGraphFeatures(){
+	/*public void testGraphFeatures(){
 		System.out.println("Testing Graph Features");
 		Player test = new Player(0);
 		Player testb = new Player(1);
@@ -66,31 +65,22 @@ public class GameLogic {
 		v = 18;
 		placeSettlement(i, v);
 		players[i].printStats();
-	}
+	}*/
 
 	public void diceRoll(int numRoll){
-
-		if(numRoll == 7){
-			for(int i=0; i<players.length; i++)
-				players[i].sevenRoll();
-			//initiate robber movement stealing sequence (same as for knight)
-		}
-
-		else{
-			graph.distributeResources(roll);
-		}
+		graph.distributeResources(numRoll);
 
 	}
 	
 	//method to be called at start of game. will not check that player has enough resources
-	public boolean placeSettlement(int p, int vertexNumber){
-		boolean build = graph.placeSettlement(vertexNumber, players[p], debugSet);
+	public boolean placeSettlement(Player p, int vertexNumber){
+		boolean build = graph.placeSettlement(vertexNumber, p, debugSet);
 		if (debugSet){
 			System.out.println("Place settlement at "+vertexNumber+" " + build);
 		}
 		if (build == true){
 			//update stats in player class
-			players[p].placeSettlement();
+			p.placeSettlement();
 			return true;
 		}
 		else{
@@ -100,13 +90,13 @@ public class GameLogic {
 	}
 	
 	//method to be called during game play when player wants to build settlement
-	public boolean buildSettlement(int p, int vertexNumber){
+	public boolean buildSettlement(Player p, int vertexNumber){
 		//check that the player has resources to build a settlement and has settlements left
-		boolean build = players[p].buildSetCheck();
+		boolean build = p.buildSetCheck();
 		if(build == false)
 			return false;
 
-		build = graph.buildSettlement(vertexNumber, players[p], debugSet);
+		build = graph.buildSettlement(vertexNumber, p, debugSet);
 
 		if (debugSet){
 			System.out.println("Place settlement at "+vertexNumber+" " + build);
@@ -114,7 +104,7 @@ public class GameLogic {
 
 		if (build == true){
 			//update stats in player class
-			players[p].buildSettlement();
+			p.buildSettlement();
 			return true;
 		}
 
@@ -125,14 +115,14 @@ public class GameLogic {
 
 	}
 
-	public void buildCity(int p, int vertexNumber){
+	public boolean buildCity(Player p, int vertexNumber){
 		//check that the player has resources to build a city and has cities left
-		boolean build = players[p].buildCityCheck();
+		boolean build = p.buildCityCheck();
 
 		if (build == false)
 			return false;
 
-		build = graph.buildCity(vertexNumber, players[p], debugSet);
+		build = graph.buildCity(vertexNumber, p, debugSet);
 
 		if (build == false){
 			System.out.println("You cannot build a city on this location.");
@@ -140,20 +130,20 @@ public class GameLogic {
 		}
 
 		else{
-			players[p].buildCity();
+			p.buildCity();
 			return true;
 		}
 
 	}
 	
-	public void buildRoad(int p, int v1, int v2){
+	public boolean buildRoad(Player p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
-		boolean build = players[p].buildRoadCheck();
+		boolean build = p.buildRoadCheck();
 
 		if(build == false)
 			return false;
 
-		build = graph.placeRoad(v1,v2, players[p]); 
+		build = graph.placeRoad(v1,v2, p); 
 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
@@ -161,18 +151,17 @@ public class GameLogic {
 		}
 
 		else{
-			players[p].buildRoad();
+			p.buildRoad();
 			return true;
 		}
 
-//Q how do we do longest road?????
 	}
 
 	//used at beginning!
-	public void placeRoad(int p, int v1, int v2){
+	public boolean placeRoad(Player p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
 
-		boolean build = graph.placeRoad(v1,v2, players[p]); 
+		boolean build = graph.placeRoad(v1,v2, p); 
 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
@@ -180,14 +169,14 @@ public class GameLogic {
 		}
 
 		else{
-			players[p].placeRoad();
+			p.placeRoad();
 			return true;
 		}
 
 	}
 
-	public void buildDevCard(int p){
-		boolean build = players[p].buildDevCheck();
+	public boolean buildDevCard(Player p){
+		boolean build = p.buildDevCheck();
 
 		if (build == false)
 			return false;
@@ -199,20 +188,20 @@ public class GameLogic {
 			return false;
 		}
 
-		
-
-		//CJ: check that the player has resources to build a d card. update shit.
-		//Julia P: update graphics
-
-		//IF VP UPDATE PLAYER STAT
+		p.buildDev(i);
+		return true;
 	}
 
-	public void useDevCard(int p){
-		//CJ: ask which one and see if the player has that dev card
-		//Julia P: update graphics
-	}
+//still working on this
+	/*public boolean useDevCard(Player p, int i){
+		boolean build = p.useDevCard(i);
 
-	public void usePort(int p){
+		return build;
+	}
+	*/
+
+
+	public boolean usePort(Player p){
 		//CJ: check that the player has the port and update stats
 		//Julia P: update graphics
 	}
@@ -221,9 +210,5 @@ public class GameLogic {
 		//meep
 	}
 
-	public void moveRobber(){
-		//this is going to need to be used for 7 rolls and knights
-	} 
-	
-	
+
 }
