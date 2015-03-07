@@ -30,7 +30,10 @@ public class FrontEndInterface {
 		currentPlayerID = 1;
 	}
 	
-
+	public void updateCurrentPlayer (int cp){
+		currentPlayerID = cp;
+		h.updateBoard();
+	}
 
 	public void settyClicked (){
 		rg.setActionType(1);
@@ -42,9 +45,10 @@ public class FrontEndInterface {
 	}
 	
 	public void vertexClicked (int v){
+		if (rg.inFirstRound){
+			rg.vertexClickedFirstRound(v);
+		}
 		rg.setVertex(v);
-		System.out.println("Vertex "+v+" Clicked in FRONT END INTERFACE");
-		drawSettlement(v);
 	}
 
 	public int[] diceClicked (){

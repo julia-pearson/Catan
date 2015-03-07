@@ -12,18 +12,11 @@ public class GameLogic {
 
 	private boolean debugSet = true;
 
-	public GameLogic(int[][] board) {
-	//julia should be taking this
-	//	players = new Player[numPlayers];
-	//	for(int i=1; i<(numPlayers+1); i++)
-	//		players[i] = new Player(i);
-		//testboard gives a predetermined board
-	//	int[][] testBoard = new Board().getTestBoard();
-		//int[][] board= new Board().getBoard();
+	public GameLogic(int[][] board, Player[] pArray) {
 		GraphMaker gm = new GraphMaker(board);
-
 		graph = new GraphController(gm.getVertexArray());
 		devDeck = new DevCardDeck();
+		players = pArray;
 	}
 	
 	public void testGraphFeatures(){

@@ -10,6 +10,7 @@ import java.util.*;
 public class RunGame {
 	private static Scanner sc = new Scanner(System.in);
 	private  boolean usingGraphics;
+	TurnOrderManager order;
 	private  GameLogic gl;
 	private  FrontEndInterface fei;
 	
@@ -17,47 +18,46 @@ public class RunGame {
 	private  Player[] players;
 	private  int playerCount;
 	private  int currentPlayerID;
-	private  int[] turnOrder; //turn order contains the ids of the players turnOrder[0] = the id of the first player; 
-	//turnOrder[4] = the id of the last;
-	private  int turnCounter;
+	
 	private  int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
 	private  int vertexToAct;
+	public boolean inFirstRound;
 	
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
 
 	
 	public RunGame(int numPlayers, boolean useGraphics){
 		players = new Player[numPlayers+1];
-		turnOrder = new int[numPlayers];
+		
 		for(int i=1; i<(numPlayers+1); i++)
 			players[i] = new Player(i);
 		this.playerCount = numPlayers;
-		usingGraphics = useGraphics;
+		order = new TurnOrderManager (numPlayers);
+		currentPlayerID = order.getCurrentPlayer();
 		
+		usingGraphics = useGraphics;
 		//testboard gives a predetermined board
 		//int[][] board= new Board().getBoard();
 		int[][] testBoard = new Board().getTestBoard();
 		//pass this to gl 
-		gl = new GameLogic(testBoard);
-		determineTurnOrder();
+		gl = new GameLogic(testBoard, players);
+;
 	
 		if (usingGraphics){
 			//FEI will draw the graph
 			fei = new FrontEndInterface (this, testBoard);
 			fei.currentPlayerID = currentPlayerID;
+			inFirstRound = true;
 		} else{
 			for (int i=0; i<4; i++){
-				currentPlayerID = turnOrder[turnCounter];
+				currentPlayerID = order.getNextPlayer();
 				turn();
-				nextPlayer();
 			}
+		//	startGame();
 		}
-		startGame();
 	}
-	
-	private void startGame(){
+	/* void startGame(){
 		System.out.println("Let's start playing!");
-		determineTurnOrder();
 		for (int i=0; i<turnOrder.length; i++){
 			currentPlayerID = turnOrder[i];
 			Player currentPlayer = players[currentPlayerID];
@@ -71,7 +71,8 @@ public class RunGame {
 			firstRound(currentPlayer);
 		}
 	}
-	
+	*/
+
 	private void turn(){
 		int r = roll();
 		System.out.println("roll was "+r);
@@ -104,47 +105,31 @@ public class RunGame {
 		return roll+1;
 	}
 	
-	public void determineTurnOrder(){
-		boolean debugTurnOrder = false;
-		Random generator =  new Random();
-		int first = generator.nextInt(playerCount);
-		int firstPlayerID = first+1;
-		turnOrder [0] = firstPlayerID;
-		int nextPlayer = firstPlayerID;
-		for (int i = 1; i< playerCount ; i++) {
-			if (nextPlayer == playerCount){
-				nextPlayer = 1;
-				turnOrder[i] = nextPlayer;
-			} else {
-				nextPlayer = nextPlayer +1;
-				turnOrder[i] = nextPlayer;
-			}
-		}
-		if (debugTurnOrder){
-			System.out.println("Turn order is:");
-			for (int i=0; i<turnOrder.length; i++){
-				System.out.println(" Player "+turnOrder[i]);
-			}
-		}
-	}
-	
-	private void nextPlayer(){
-		if(turnCounter == turnOrder.length-1){
-			turnCounter = 0;
-		} else {
-			turnCounter ++;
-		}
-	}
-	
 	private void firstRound(Player p){
 		System.out.println("Player "+ currentPlayerID + "'s turn");
-		System.out.println("Where would you like to place your settlement?");
-		int vertexNum = sc.nextInt();
-		gl.placeSettlement(p.getID(),vertexNum);
-		System.out.println("What are vertexes you would ilke to place your road between?");
-		int v1= sc.nextInt();
-		int v2 = sc.nextInt();
+		if (!usingGraphics){
+			System.out.println("Where would you like to place your settlement?");
+			int vertexNum = sc.nextInt();
+			gl.placeSettlement(p.getID(),vertexNum);
+			System.out.println("What are vertexes you would ilke to place your road between?");
+			int v1= sc.nextInt();
+			int v2 = sc.nextInt();
+		} 
 		//gl.buildRoad();
+	}
+	
+	public void vertexClickedFirstRound( int vertex){
+		System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
+		gl.placeSettlement(currentPlayerID, vertex);
+		fei.drawSettlement(vertex);
+		if (!order.isFirstRoundDone()){
+			currentPlayerID = order.getNextPlayerGameStart();
+		} else {
+			inFirstRound = false;
+			order.getNextPlayer();
+			System.out.println("First Round is Done. Current player is: "+currentPlayerID);
+		}
+		fei.updateCurrentPlayer(currentPlayerID);
 	}
 	
 	private void sevenRolled(){
