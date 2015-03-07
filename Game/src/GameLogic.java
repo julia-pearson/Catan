@@ -146,7 +146,7 @@ public class GameLogic {
 
 	}
 	
-	public void buildRoad(int p, int v1, int v2){
+	public boolean buildRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
 		boolean build = players[p].buildRoadCheck();
 
@@ -169,7 +169,7 @@ public class GameLogic {
 	}
 
 	//used at beginning!
-	public void placeRoad(int p, int v1, int v2){
+	public boolean placeRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
 
 		boolean build = graph.placeRoad(v1,v2, players[p]); 
@@ -186,21 +186,21 @@ public class GameLogic {
 
 	}
 
-	public void buildDevCard(int p){
+	public boolean buildDevCard(int p){
 		boolean build = players[p].buildDevCheck();
 
 		if (build == false)
 			return false;
-
 		int i = devDeck.drawDevCard();
-
+		
+		
 		if(i ==10){
 			System.out.println("There are no development cards left.");
 			return false;
 		}
 
 		
-
+		return true;
 		//CJ: check that the player has resources to build a d card. update shit.
 		//Julia P: update graphics
 

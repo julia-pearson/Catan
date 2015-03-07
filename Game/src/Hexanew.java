@@ -40,6 +40,7 @@ public class Hexanew extends JFrame{
   Color robberGray = new Color (144,144,144);
   Color newGray = new Color (159,159,159);
   Graphics g;
+  Graphics2D g2;
 
   //Setting up fake board
   int resource=0;
@@ -179,23 +180,27 @@ public class Hexanew extends JFrame{
   int road2=0;
 
   //sets up screen and size
-  public Hexanew( FrontEndInterface f){
+  //initializes the board, links to the front end interface
+  //pass the list of tiles to draw and the first player
+  public Hexanew( FrontEndInterface f, int[][] board){
       setTitle("Hexanew");
       setSize(1500, 1000);
       setVisible(true);
       addMouseListener(new Clicks(this, f));
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       interaction = f;
+      res = board;
   }
+  
 
   //draws the Hexagons
   public void paint(Graphics graphics){
       g = graphics;
       //allows me to print text!
-      Graphics2D g2 = (Graphics2D)g;
+      g2 = (Graphics2D)g;
       g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       System.out.println(interaction.currentPlayerID);
-      drawBoard(g2,interaction.currentPlayerID);
+      drawBoard(interaction.currentPlayerID);
       drawRobber(start[robber][0], start[robber][1]);        
       updateBoard();
   }
@@ -232,7 +237,7 @@ public class Hexanew extends JFrame{
       }
   }
 
-  public void drawBoard(Graphics2D g2, int currentPlayer){
+  public void drawBoard (int currentPlayer){
       //drawing border
       drawBorderHex(a1, x1, y1);
       System.out.println(currentPlayer);

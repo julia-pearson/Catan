@@ -34,15 +34,15 @@ public class Player {
 
 	public void addResource(int i){
 		if(i==1)
-			resourceTracker.addRock();
+			resourceTracker.addRock(1);
 		if(i==2)
-			resourceTracker.addWheat();
+			resourceTracker.addWheat(1);
 		if(i==3)
-			resourceTracker.addBrick();
+			resourceTracker.addBrick(1);
 		if(i==4)
-			resourceTracker.addWood();
+			resourceTracker.addWood(1);
 		if(i==5)
-			resourceTracker.addSheep();
+			resourceTracker.addSheep(1);
 	}
 
 	public boolean buildSetCheck(){
@@ -85,6 +85,7 @@ public class Player {
 		resourceTracker.useSheep(1);
 		resourceTracker.useRock(1);
 		resourceTracker.useWheat(1);
+		return true;
 	}
 
 	public void sevenRoll(){

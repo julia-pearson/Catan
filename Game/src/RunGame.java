@@ -9,44 +9,53 @@ import java.util.*;
  */
 public class RunGame {
 	private static Scanner sc = new Scanner(System.in);
-	private static GameLogic gl;
-	private static Player[] players;
-	private static int playerCount;
-	private static int currentPlayerID;
-	private static int[] turnOrder; //turn order contains the ids of the players turnOrder[0] = the id of the first player; 
+	private  boolean usingGraphics;
+	private  GameLogic gl;
+	private  FrontEndInterface fei;
+	
+	
+	private  Player[] players;
+	private  int playerCount;
+	private  int currentPlayerID;
+	private  int[] turnOrder; //turn order contains the ids of the players turnOrder[0] = the id of the first player; 
 	//turnOrder[4] = the id of the last;
-	private static int turnCounter;
-	private static int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
-	private static int vertexToAct;
+	private  int turnCounter;
+	private  int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
+	private  int vertexToAct;
 	
 	//RUN WITH NUMBER OF PLAYERS AS COMMAND LINE ARGUMENT
-	public static void main (String[] args){
-		//creates Player classes for each player and stores in players[]
-		System.out.println("Enter number of players: ");
-		int numPlayers = sc.nextInt();
-		playerCount = numPlayers;
+
+	
+	public RunGame(int numPlayers, boolean useGraphics){
 		players = new Player[numPlayers+1];
 		turnOrder = new int[numPlayers];
 		for(int i=1; i<(numPlayers+1); i++)
 			players[i] = new Player(i);
+		this.playerCount = numPlayers;
+		usingGraphics = useGraphics;
 		
 		//testboard gives a predetermined board
 		//int[][] board= new Board().getBoard();
 		int[][] testBoard = new Board().getTestBoard();
 		//pass this to gl 
 		gl = new GameLogic(testBoard);
-		//Visualizer GUI = new Visualizer(board);
-		
-	//	gl.testCombinedFeatures();
-		startGame();
-		for (int i=0; i<4; i++){
-			currentPlayerID = turnOrder[turnCounter];
-			turn();
-			nextPlayer();
+		determineTurnOrder();
+	
+		if (usingGraphics){
+			//FEI will draw the graph
+			fei = new FrontEndInterface (this, testBoard);
+			fei.currentPlayerID = currentPlayerID;
+		} else{
+			for (int i=0; i<4; i++){
+				currentPlayerID = turnOrder[turnCounter];
+				turn();
+				nextPlayer();
+			}
 		}
+		startGame();
 	}
 	
-	private static void startGame(){
+	private void startGame(){
 		System.out.println("Let's start playing!");
 		determineTurnOrder();
 		for (int i=0; i<turnOrder.length; i++){
@@ -63,7 +72,7 @@ public class RunGame {
 		}
 	}
 	
-	private static void turn(){
+	private void turn(){
 		int r = roll();
 		System.out.println("roll was "+r);
 		if(r == 7){
@@ -88,14 +97,14 @@ public class RunGame {
 		}
 	}
 	
-	public static int roll(){
+	public int roll(){
 		//pick a random int between 1 and 6
 		Random generator =  new Random();
 		int roll = generator.nextInt(6);
 		return roll+1;
 	}
 	
-	private static void determineTurnOrder(){
+	public void determineTurnOrder(){
 		boolean debugTurnOrder = false;
 		Random generator =  new Random();
 		int first = generator.nextInt(playerCount);
@@ -119,7 +128,7 @@ public class RunGame {
 		}
 	}
 	
-	private static void nextPlayer(){
+	private void nextPlayer(){
 		if(turnCounter == turnOrder.length-1){
 			turnCounter = 0;
 		} else {
@@ -127,7 +136,7 @@ public class RunGame {
 		}
 	}
 	
-	private static void firstRound(Player p){
+	private void firstRound(Player p){
 		System.out.println("Player "+ currentPlayerID + "'s turn");
 		System.out.println("Where would you like to place your settlement?");
 		int vertexNum = sc.nextInt();
@@ -138,17 +147,17 @@ public class RunGame {
 		//gl.buildRoad();
 	}
 	
-	private static void sevenRolled(){
+	private void sevenRolled(){
 		for(int i=1; i<=players.length; i++)
 			players[i].sevenRoll();
 			//initiate robber movement stealing sequence (same as for knight)
 	}
 	
-	public static void setActionType (int t){
+	public void setActionType (int t){
 		actionType = t;
 	}
 	
-	public static void setVertex (int v){
+	public void setVertex (int v){
 		vertexToAct = v;
 	}
 }
