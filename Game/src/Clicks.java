@@ -24,7 +24,6 @@ public class Clicks implements MouseListener{
 			int [] rolls= interaction.diceClicked();
 			hex.rollOne=rolls[0];//random from Julia
 			hex.rollTwo=rolls[1];
-			System.out.println("rolled");
 /*			if(hex.currentPlayer<4){
 				hex.currentPlayer=hex.currentPlayer+1;				
 			}

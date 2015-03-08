@@ -395,7 +395,6 @@ public class Hexanew extends JFrame{
   
   //angle is the angle at which the road should be tilted: 0=vertical, 1=forward tilt, 2=backwards tilt
   public void drawRoad(int x, int y, int currentPlayer){
-
       g.setColor(blue);
       if(currentPlayer==1){
         g.setColor(blue);

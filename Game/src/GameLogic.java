@@ -44,7 +44,7 @@ public class GameLogic {
 		System.out.println("Testing Road Placement:");
 		int v1 = 17;
 		int v2 = 18;
-		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb) );
+		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb, true) );
 	}
 
 	public void testCombinedFeatures(){
@@ -90,6 +90,11 @@ public class GameLogic {
 			System.out.println("You cannot build on this location.");
 			return false;
 		}
+	}
+	
+	//method to give player the resource for their second settlement
+	public void giveResourcesStartGame(int vertexNumber){
+		graph.firstRoundResource(vertexNumber);
 	}
 	
 	//method to be called during game play when player wants to build settlement
@@ -146,7 +151,7 @@ public class GameLogic {
 		if(build == false)
 			return false;
 
-		build = graph.placeRoad(v1,v2, players[p]); 
+		build = graph.placeRoad(v1,v2, players[p], debugSet); 
 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
@@ -157,16 +162,13 @@ public class GameLogic {
 			players[p].buildRoad();
 			return true;
 		}
-
 //Q how do we do longest road?????
 	}
 
 	//used at beginning!
 	public boolean placeRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
-
-		boolean build = graph.placeRoad(v1,v2, players[p]); 
-
+		boolean build = graph.placeRoad(v1,v2, players[p], debugSet); 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
@@ -174,9 +176,9 @@ public class GameLogic {
 
 		else{
 			players[p].placeRoad();
+			System.out.println("Road placed successfully");
 			return true;
 		}
-
 	}
 
 	public boolean buildDevCard(int p){

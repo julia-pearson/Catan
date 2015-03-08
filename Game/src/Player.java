@@ -6,7 +6,7 @@ public class Player {
 	private boolean largestArmy;
 	private boolean longestRoad;
 
-	private int numberOfSettlements; //max 5
+	public int numberOfSettlements; //max 5
 	private int numberOfCities; //max 4
 	private int numberOfRoads; //max 15
 	
