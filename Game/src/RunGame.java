@@ -18,7 +18,7 @@ public class RunGame {
 	private  int playerCount;
 	private  int currentPlayerID;
 	
-	private  int actionType; //0= nothing, 1 = settlement, 2 = road, 3 = city
+	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
 	public boolean inFirstRound;
@@ -157,8 +157,9 @@ public class RunGame {
 					currentPlayerID = order.getNextPlayer();
 					firstRoundRoadCounter ++;
 					fei.updateCurrentPlayer(currentPlayerID); //switch players
+				} else{
+					System.out.println("Road placement didn't work, try again");
 				}
-				System.out.println("Road placement didn't work, try again");
 				vertexCounter = 0;
 				if (firstRoundRoadCounter == 2*playerCount){
 					inFirstRound = false;
@@ -168,17 +169,64 @@ public class RunGame {
 		}
 	}
 	
-	private void sevenRolled(){
-		for(int i=1; i<=players.length; i++)
-			players[i].sevenRoll();
-			//initiate robber movement stealing sequence (same as for knight)
-	}
-	
 	public void setActionType (int t){
 		actionType = t;
 	}
 	
 	public void setVertex (int v){
 		verticesToAct[vertexCounter] = v;
+		vertexCounter ++;
+		if (actionType == 1){
+			tryToBuildSettlement();
+		} else if (actionType == 2){
+			tryToBuildCity();
+		} else if (actionType == 3){
+			tryToBuildRoad();
+		}
+	}
+	
+	private void tryToBuildSettlement(){
+		int v = verticesToAct[0];
+		//TEST:
+		players[currentPlayerID].giveSettlementResources();
+		boolean success = 	gl.buildSettlement(currentPlayerID, v);
+		if (success){
+			fei.drawSettlement(v);
+		}
+		clearVerticesAndAction();
+	}
+	
+	private void tryToBuildCity(){
+		int v = verticesToAct[0];
+		//TEST:
+		players[currentPlayerID].giveCityResources();
+		boolean success = 	gl.buildCity(currentPlayerID, v);
+		if (success){
+			fei.drawCity(v);
+		}
+		clearVerticesAndAction();
+	}
+	
+	private void tryToBuildRoad(){
+		if (! (vertexCounter == 2)){
+			return;
+		} else {
+			//TEST:
+			players[currentPlayerID].giveRoadResources();
+			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
+			if (success){
+				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
+			}
+			clearVerticesAndAction();
+		}
+	}
+	
+	
+	public void clearVerticesAndAction(){
+		verticesToAct[0] = 0;
+		verticesToAct[1] = 0;
+		vertexCounter = 0;
+		actionType = 0;
 	}
 }
+

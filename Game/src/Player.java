@@ -148,5 +148,23 @@ public class Player {
 		System.out.println("Number of Roads: " +numberOfRoads);
 		System.out.println("Victory Points: " +victoryPoints);
 	}
+	
+	//method for testing
+	public void giveSettlementResources(){
+		resourceTracker.addWheat(1);
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
+		resourceTracker.addSheep(1);
+	}
+	
+	public void giveCityResources(){
+		resourceTracker.addWheat(2);
+		resourceTracker.addRock(3);
+	}
+	
+	public void giveRoadResources(){
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
+	}
 
 }

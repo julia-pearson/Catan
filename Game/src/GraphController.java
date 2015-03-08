@@ -82,12 +82,12 @@ public class GraphController {
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
 		for (int i = 0; i<e1.length; i++ ){
-		/*	System.out.println("Building road betwen: "+a+" and "+b);
+			System.out.println("Building road betwen: "+a+" and "+b);
 			System.out.println("vertex1 of edge: ");
 			e1[i].v1.printResources();
 			System.out.println(" vertex 2 of edge ");
 			e1[i].v2.printResources();
-			*/
+			
 			//must find the edge object that has either combination of {v1,v2} = {a,b} or {b,a}
 			if (e1[i].v1 == vertices[a] && e1[i].v2 == vertices[b] || 
 					e1[i].v1 == vertices[b] && e1[i].v2 == vertices[a]){

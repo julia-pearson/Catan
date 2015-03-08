@@ -62,13 +62,11 @@ public class GameLogic {
 	}
 
 	public void diceRoll(int numRoll){
-
 		if(numRoll == 7){
 			for(int i=0; i<players.length; i++)
 				players[i].sevenRoll();
 			//initiate robber movement stealing sequence (same as for knight)
 		}
-
 		else{
 			graph.distributeResources(numRoll);
 		}

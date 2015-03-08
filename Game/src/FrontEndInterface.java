@@ -37,11 +37,17 @@ public class FrontEndInterface {
 
 	public void settyClicked (){
 		rg.setActionType(1);
-		System.out.println("Setty Clicked in FRONT END INTERFACE");
+		System.out.println("Action: Build Settlement. Please click the vertex you want to build on");
 	}
 	
 	public void cityClicked (){
 		rg.setActionType(2);
+		System.out.println("Action: Build City. Please click the vertex you want to build on");
+	}
+	
+	public void roadClicked (){
+		rg.setActionType(3);
+		System.out.println("Action: Build Road. Please click the 2 vertexes you want to connect");
 	}
 	
 	public void vertexClicked (int v){
@@ -65,15 +71,13 @@ public class FrontEndInterface {
 		h.drawRoad(v1,v2, currentPlayerID);
 		h.repaint();
 	}
+	
+	public void drawCity(int v){
+	//	h.buildCity(v);
+		System.out.println("Tried to draw city on vertex: "+v);
+	}
 
 	public void nullClick(){
-	//reset all action values and vertex etc
+		rg.clearVerticesAndAction();
 	}
-
-	/*
-	public static void main(String [] args){
-		new FrontEndInterface();
-	}
-	*/
-	
 }
