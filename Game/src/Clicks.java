@@ -23,12 +23,6 @@ public class Clicks implements MouseListener{
 			int [] rolls= interaction.diceClicked();
 			hex.rollOne=rolls[0];//random from Julia
 			hex.rollTwo=rolls[1];
-/*			if(hex.currentPlayer<4){
-				hex.currentPlayer=hex.currentPlayer+1;				
-			}
-			else {
-				hex.currentPlayer=1;
-			}*/
 			hex.repaint();
 		}
 		boolean city = askCity(x,y);
@@ -45,6 +39,7 @@ public class Clicks implements MouseListener{
 		}
 		boolean dev = askDev(x,y);
 		if(dev){
+			//buy dev vcard
 			System.out.println("dev");
 		}
 		boolean sheep = sheep(x,y);

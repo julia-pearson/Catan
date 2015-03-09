@@ -63,13 +63,12 @@ public class FrontEndInterface {
 	}
 
 	public void drawSettlement(int v){
-		h.buildSettlement(v);
+		h.addSettlement(v);
 	}
 	
 	public void drawRoad (int v1, int v2){
 		System.out.println("Draw Road method in FEI called");
-		h.drawRoad(v1,v2, currentPlayerID);
-		h.repaint();
+		h.addRoad(v1,v2, currentPlayerID);
 	}
 	
 	public void drawCity(int v){

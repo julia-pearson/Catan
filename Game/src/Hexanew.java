@@ -208,7 +208,7 @@ public class Hexanew extends JFrame{
   public void updateBoard(){
 
       for (int i=0; i<54; i++){
-        if (vertex[i][3]>0){
+        if (vertex[i][2]>0){
           buildRoad(vertex[i][0],vertex[i][1], vertex[i][3], vertex[i][5]);
             if (vertex[i][2]==1){
               buildSetty(vertex[i][0],vertex[i][1], vertex[i][5]);
@@ -216,9 +216,8 @@ public class Hexanew extends JFrame{
             if (vertex[i][2]==2){
               buildCity(vertex[i][0],vertex[i][1], vertex[i][5]);
             }
-            System.out.println("got here");
         }  
-        if (vertex[i][4]>0){
+        if (vertex[i][3]>0){
           buildRoad(vertex[i][0],vertex[i][1], vertex[i][4], vertex[i][5]);
             if (vertex[i][2]==1){
               buildSetty(vertex[i][0],vertex[i][1], vertex[i][5]);
@@ -226,7 +225,6 @@ public class Hexanew extends JFrame{
             if (vertex[i][2]==2){
               buildCity(vertex[i][0],vertex[i][1], vertex[i][5]);
             }
-            System.out.println("got here");
         }   
         if (vertex[i][2]==1){
           buildSetty(vertex[i][0],vertex[i][1], vertex[i][5]);
@@ -393,6 +391,36 @@ public class Hexanew extends JFrame{
     drawCircle(x+w, y-a, 10);
   }
   
+  public void addRoad(int v1, int v2, int currentPlayer){
+	  	if(vertex[v1][3]==0){
+	  		vertex[v1][5]=currentPlayer;
+	  		vertex[v1][2]=3;
+			if (vertex[v1][0]>vertex[v2][0]){
+				vertex[v1][3]=1;								
+			}	
+			else if (vertex[v1][0]<vertex[v2][0]){
+				vertex[v1][3]=2;								
+			}
+			else if (vertex[v1][0]==vertex[v2][0]){
+				vertex[v1][3]=3;								
+			}
+	  	}
+	  	if(vertex[v1][3]!=0){
+	  		vertex[v1][5]=currentPlayer;
+			if (vertex[v1][0]>vertex[v2][0]){
+				vertex[v1][4]=1;								
+			}	
+			else if (vertex[v1][0]<vertex[v2][0]){
+				vertex[v1][4]=2;								
+			}
+			else if (vertex[v1][0]==vertex[v2][0]){
+				vertex[v1][4]=3;								
+			}
+	  	}
+	  	repaint();
+	  	
+  }
+  
   //angle is the angle at which the road should be tilted: 0=vertical, 1=forward tilt, 2=backwards tilt
   public void drawRoad(int x, int y, int currentPlayer){
       g.setColor(blue);
@@ -496,7 +524,7 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
-  public void buildSettlement(int v){
+  public void addSettlement(int v){
     vertex[v][2]=1;
     vertex[v][5]=interaction.currentPlayerID;
     repaint();
@@ -646,6 +674,13 @@ public class Hexanew extends JFrame{
       }
   }
 
+  //will pass player and an int array with resource count 
+  public void addResources(int currentPlayer, int[] resourceCount){
+	  for (i=1; i<resourceCount.length; i++){
+		//  show that number!
+	  }
+  }
+  
   public void drawPlayers(Graphics2D g2, int x, int y, int players){
       g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
       RenderingHints.VALUE_ANTIALIAS_ON);
