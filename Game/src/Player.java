@@ -6,7 +6,7 @@ public class Player {
 	private boolean largestArmy;
 	private boolean longestRoad;
 
-	private int numberOfSettlements; //max 5
+	public int numberOfSettlements; //max 5
 	private int numberOfCities; //max 4
 	private int numberOfRoads; //max 15
 	
@@ -34,15 +34,15 @@ public class Player {
 
 	public void addResource(int i){
 		if(i==1)
-			resourceTracker.addRock();
+			resourceTracker.addRock(1);
 		if(i==2)
-			resourceTracker.addWheat();
+			resourceTracker.addWheat(1);
 		if(i==3)
-			resourceTracker.addBrick();
+			resourceTracker.addBrick(1);
 		if(i==4)
-			resourceTracker.addWood();
+			resourceTracker.addWood(1);
 		if(i==5)
-			resourceTracker.addSheep();
+			resourceTracker.addSheep(1);
 	}
 
 	public boolean buildSetCheck(){
@@ -85,6 +85,7 @@ public class Player {
 		resourceTracker.useSheep(1);
 		resourceTracker.useRock(1);
 		resourceTracker.useWheat(1);
+		return true;
 	}
 
 	public void sevenRoll(){
@@ -146,6 +147,24 @@ public class Player {
 		System.out.println("Number of Cities: " +numberOfCities);
 		System.out.println("Number of Roads: " +numberOfRoads);
 		System.out.println("Victory Points: " +victoryPoints);
+	}
+	
+	//method for testing
+	public void giveSettlementResources(){
+		resourceTracker.addWheat(1);
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
+		resourceTracker.addSheep(1);
+	}
+	
+	public void giveCityResources(){
+		resourceTracker.addWheat(2);
+		resourceTracker.addRock(3);
+	}
+	
+	public void giveRoadResources(){
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
 	}
 
 }

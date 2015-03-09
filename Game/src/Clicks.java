@@ -18,13 +18,11 @@ public class Clicks implements MouseListener{
 		//identifying the Vertex and Hexagon
 		int verty= searchVert(x,y);
 		int hexy= searchHex(x,y);
-
 		boolean roll=rolledDice(x, y);
 		if(roll){
 			int [] rolls= interaction.diceClicked();
 			hex.rollOne=rolls[0];//random from Julia
 			hex.rollTwo=rolls[1];
-			System.out.println("rolled");
 /*			if(hex.currentPlayer<4){
 				hex.currentPlayer=hex.currentPlayer+1;				
 			}
@@ -35,18 +33,15 @@ public class Clicks implements MouseListener{
 		}
 		boolean city = askCity(x,y);
 		if(city){
-			hex.buildCity=true;
-			System.out.println("city");
+			interaction.cityClicked();
 		}
 		boolean setty = askSetty(x,y);
 		if(setty){
-			hex.buildSettlement=true;
-			System.out.println("setty");
+			interaction.settyClicked();
 		}
 		boolean road = askRoad(x,y);
 		if(road){
-			hex.buildRoad=true;
-			System.out.println("road");
+			interaction.roadClicked();
 		}
 		boolean dev = askDev(x,y);
 		if(dev){
