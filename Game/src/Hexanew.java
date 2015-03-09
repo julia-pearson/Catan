@@ -27,9 +27,7 @@ public class Hexanew extends JFrame{
   Color wheat = new Color (247, 244, 57);
   Color sheep = new Color (102, 255, 102);
   Color dessert = new Color (235, 177, 54);
-  //Number circles
   Color circles = new Color (255,248,220);
-  //Development Card Colors
   Color darkBlue = new Color (0,0,204);
   Color darkYellow = new Color (219,223,93);
   Color gray = new Color (160,160,160);
