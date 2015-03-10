@@ -60,7 +60,7 @@ public class Hexanew extends JFrame{
   int robber=0;
   boolean robberClick=false;
 
-  //71 long, v1,v1,road?,player
+  //v1,v2,road?,player
   int[][] roadSide = new int[][]{
     {0,1,0,0},
     {2,3,0,0},
@@ -93,7 +93,7 @@ public class Hexanew extends JFrame{
     {10,11,0,0},
     {12,13,0,0},
     {14,15,0,0},
-    {17,18,1,2},
+    {17,18,0,0},
     {19,20,0,0},
     {21,22,0,0},
     {23,24,0,0},
@@ -105,7 +105,7 @@ public class Hexanew extends JFrame{
     {38,39,0,0},
     {35,36,0,0},
     {40,41,0,0},
-    {42,43,1,1},
+    {42,43,0,0},
     {44,45,0,0},
     {47,48,0,0},
     {49,50,0,0},
@@ -125,7 +125,7 @@ public class Hexanew extends JFrame{
     {22,33,0,0},
     {24,35,0,0},
     {26,37,0,0},
-    {28,38,1,2},
+    {28,38,0,0},
     {30,40,0,0},
     {32,42,0,0},
     {34,44,0,0},
@@ -136,7 +136,7 @@ public class Hexanew extends JFrame{
     {45,53,0,0}
   };
 
-  //x,y,(nothing=0,settlement=1,city=2) [road=3),road angle1,road angle2,] currentPlayer
+  //x,y,(nothing=0,settlement=1,city=2), currentPlayer
   int[][] vertex = new int[][]{
     {x, y-14*a,0,0},
     {x+w, y-15*a,0,0},
@@ -153,7 +153,7 @@ public class Hexanew extends JFrame{
     {x+4*w, y-12*a,0,0},
     {x+5*w, y-11*a,0,0},
     {x+6*w, y-12*a,0,0},
-    {x+7*w, y-11*a,1,1},
+    {x+7*w, y-11*a,0,0},
     {x-2*w, y-8*a,0,0},
     {x-w, y-9*a,0,0},
     {x, y-8*a,0,0},
@@ -162,7 +162,7 @@ public class Hexanew extends JFrame{
     {x+3*w, y-9*a,0,0},
     {x+4*w, y-8*a,0,0},
     {x+5*w, y-9*a,0,0},
-    {x+6*w, y-8*a,1,3},
+    {x+6*w, y-8*a,0,0},
     {x+7*w, y-9*a,0,0},
     {x+8*w, y-8*a,0,0},
     {x-2*w, y-6*a,0,0},
@@ -174,7 +174,7 @@ public class Hexanew extends JFrame{
     {x+4*w, y-6*a,0,0},
     {x+5*w, y-5*a,0,0},
     {x+6*w, y-6*a,0,0},
-    {x+7*w, y-5*a,2,2},
+    {x+7*w, y-5*a,0,0},
     {x+8*w, y-6*a,0,0},
     {x-w, y-3*a,0,0},
     {x, y-2*a,0,0},
@@ -244,10 +244,10 @@ public class Hexanew extends JFrame{
     {4,4},
   };
 
-  int[] player1 = new int[]{0,0,0,0,7,0};
-  int[] player2 = new int[]{0,0,1,0,0,10};
-  int[] player3 = new int[]{0,0,0,2,0,0};
-  int[] player4 = new int[]{0,0,3,0,0,0};
+  int[] player1 = new int[]{0,0,0,0,10,0};
+  int[] player2 = new int[]{0,0,5,0,0,0};
+  int[] player3 = new int[]{0,0,0,7,10,0};
+  int[] player4 = new int[]{0,0,5,0,0,0};
 
 
   //sets up screen and size
@@ -557,7 +557,7 @@ public class Hexanew extends JFrame{
       g.fillPolygon(xpoints, ypoints, npoints);
 
       //draws outline
-      g.setColor(Color.white);
+      g.setColor(circles);
       g.drawPolygon(xpoints, ypoints, npoints);
   }
 
@@ -814,6 +814,11 @@ public class Hexanew extends JFrame{
         g2.drawString("Wheat   ", x, y+70+i*150);
         g2.drawString("Stone   ", x, y+85+i*150);
       }  
+      for(int i=0; i<players;i++){
+        g2.drawString("Victory Points   ", x+250, y+25+i*150);
+        g2.drawString("Development Cards    ", x+250, y+40+i*150); 
+      } 
+
   }
 
   public void drawResources(Graphics2D g2, int currentPlayer, int[] resourceCount){
@@ -853,8 +858,29 @@ public class Hexanew extends JFrame{
       g2.drawString(wheat, x, y+70+i*150);
       g2.drawString(stone, x, y+85+i*150);
 
-      repaint();
-      
+      repaint(); 
+  }
+
+  public void drawStatistics(Graphics2D g2){
+    /*
+      Font font = new Font("Gill Sans", Font.PLAIN, 15);
+      g2.setFont(font);
+      //draws cards
+      g2.setColor(stone);
+
+      String vp = Integer.toString(resourceCount[1]);
+      if(stone.equals("0")){
+        stone=" ";
+      }
+      String wheat = Integer.toString(resourceCount[2]);
+      if(wheat.equals("0")){
+        wheat=" ";
+      }
+
+      int i=currentPlayer-1;
+      g2.drawString("Victory Points   "+, x+250, y+25+i*150);
+      g2.drawString("Development Cards    "+, x+250, y+40+i*150); 
+   */ 
   }
 
   private void drawCircle(int x, int y, int radius) {
