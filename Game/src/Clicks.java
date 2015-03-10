@@ -19,6 +19,7 @@ public class Clicks implements MouseListener{
 		int verty= searchVert(x,y);
 		int hexy= searchHex(x,y);
 		boolean roll=rolledDice(x, y);
+
 		if(roll){
 			int [] rolls= interaction.diceClicked();
 			hex.rollOne=rolls[0];//random from Julia
@@ -64,61 +65,18 @@ public class Clicks implements MouseListener{
 		}
 		if(verty<54){
 			interaction.vertexClicked(verty);
-			/*
-			if(hex.buildSettlement){
-				hex.vertex[verty][2]=1;
-				hex.vertex[verty][5]=hex.currentPlayer;
-				hex.buildSettlement=false;
-			}
-
-
-			if(hex.buildCity){
-				hex.vertex[verty][2]=2;
-				hex.vertex[verty][5]=hex.currentPlayer;
-				hex.buildCity=false;
-			}
-			if(hex.buildRoad){
-				if(hex.road1==0){
-					hex.road1=verty;
-					hex.vertex[hex.road1][5]=hex.currentPlayer;
-				}
-				else if(hex.road1!=0 && hex.road2==0) {
-					hex.road2=verty;
-					hex.vertex[hex.road1][2]=3;
-					//checks if there is another road on vertex
-					if (hex.vertex[hex.road1][0]<hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=2;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=2;							
-						}
-					}
-					else if (hex.vertex[hex.road1][0]>hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=1;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=1;							
-						}				
-					}
-					else if (hex.vertex[hex.road1][0]==hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=3;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=3;							
-						}					
-					}					
-				}
-				hex.buildRoad=false;
-				hex.road1=0;
-				hex.road2=0;
-			}
-		hex.repaint();	
-		*/
 		}
-
+		if(hexy<19){
+		//should be Julia's code
+			if(hex.start[hexy][2]==1){
+				System.out.println("robber clicked");
+				hex.robberClick=true;
+			}
+			if(hex.robberClick && hex.start[hexy][2]==0){
+				hex.addRobber(hexy);
+				hex.robberClick=false;				
+			}
+		}
 	}
 
 	public int searchVert(int x, int y){
