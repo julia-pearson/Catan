@@ -25,6 +25,11 @@ public class FrontEndInterface {
 		h = new Hexanew( this, newBoard);
 	}
 	
+	public FrontEndInterface (){
+		//h = new Hexanew( this);
+		currentPlayerID = 1;
+	}
+	
 	public void updateCurrentPlayer (int cp){
 		currentPlayerID = cp;
 		h.updateBoard();
