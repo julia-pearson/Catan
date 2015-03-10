@@ -676,7 +676,7 @@ public class Hexanew extends JFrame{
 
   //will pass player and an int array with resource count 
   public void addResources(int currentPlayer, int[] resourceCount){
-	  for (i=1; i<resourceCount.length; i++){
+	 for (int i=1; i<resourceCount.length; i++){
 		//  show that number!
 	  }
   }

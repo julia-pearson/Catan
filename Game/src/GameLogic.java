@@ -63,7 +63,7 @@ public class GameLogic {
 
 	public void diceRoll(int numRoll){
 		if(numRoll == 7){
-			for(int i=0; i<players.length; i++)
+			for(int i=1; i<players.length; i++)
 				players[i].sevenRoll();
 			//initiate robber movement stealing sequence (same as for knight)
 		}
@@ -210,8 +210,27 @@ public class GameLogic {
 		//Julia P: update graphics
 	}
 
-	public void trade(int p){
-		//meep
+	public void trade(int[][] tradeStats){
+		//tradeStats[0]= {type you want, amount, playerID to give}, tradeStats[1] = {type you'll give away, amount, playerID initiating trade}
+		// if playerID to give is 0, the player initiating trade is trading with bank
+		if (tradeStats[0][2]!=0){ //not trading with computer
+			Player a = players[tradeStats[0][2]];
+			//player a gives away resources and gains some
+			for (int i = 0; i<tradeStats[0][1]; i++){
+				a.looseResource(tradeStats[0][0]);
+			} 
+			for (int i = 0; i<tradeStats[1][1]; i++){
+				a.addResource(tradeStats[1][0]);
+			} 
+		}
+		Player b = players[tradeStats[1][2]];	
+		//player b gives away resources and gains some
+		for (int i = 0; i<tradeStats[0][1]; i++){
+			b.looseResource(tradeStats[0][0]);
+		} 
+		for (int i = 0; i<tradeStats[1][1]; i++){
+			b.addResource(tradeStats[1][0]);
+		} 
 	}
 
 	public void moveRobber(){

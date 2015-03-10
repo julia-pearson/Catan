@@ -34,6 +34,14 @@ public class FrontEndInterface {
 		currentPlayerID = cp;
 		h.updateBoard();
 	}
+	
+	public void tradeClicked(){
+		rg.setActionType(4);
+	}
+	
+	public void resourceClicked (int resourceNum){
+		rg.tradeResource(resourceNum);
+	}
 
 	public void settyClicked (){
 		rg.setActionType(1);
@@ -74,6 +82,10 @@ public class FrontEndInterface {
 	public void drawCity(int v){
 	//	h.buildCity(v);
 		System.out.println("Tried to draw city on vertex: "+v);
+	}
+	
+	public void updateResources(int playerID, int[] resources){
+		//h.addResources(playerID, resources);
 	}
 
 	public void nullClick(){

@@ -1,5 +1,5 @@
 /*JE
- * The GraphController class will mantian the state of the graph as game play progresses.
+ * The GraphController class will maintain the state of the graph as game play progresses.
  * Actions like: build settlement, build road, and build city will all be validated and carried out in this class.  
  */
 public class GraphController {
