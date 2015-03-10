@@ -2,7 +2,7 @@
 
 public class Player {
 	private int playerID;
-	private int victoryPoints;
+	public int victoryPoints;
 	private boolean largestArmy;
 	private boolean longestRoad;
 

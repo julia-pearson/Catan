@@ -52,9 +52,7 @@ public class FrontEndInterface {
 		rg.setActionType(2);
 		System.out.println("Action: Build City. Please click the vertex you want to build on");
 		rg.setActionType(4);
-		System.out.println("Testing trades:");
-		
-		rg.tradeResource(2);
+		System.out.println("Testing trades: Click Resource");
 	}
 	
 	public void roadClicked (){
@@ -89,7 +87,7 @@ public class FrontEndInterface {
 	}
 	
 	public void updateResources(int playerID, int[] resources){
-		//h.addResources(playerID, resources);
+		h.addResources(playerID, resources);
 	}
 
 	public void nullClick(){

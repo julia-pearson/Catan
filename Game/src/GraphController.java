@@ -50,7 +50,7 @@ public class GraphController {
 			return placeSettlement(v,p, printError);
 		} else{
 			if(printError){
-				System.out.println("You need roads connected to thsi vertex");
+				System.out.println("You need roads connected to this vertex");
 			}
 			return false;
 		}
@@ -125,6 +125,20 @@ public class GraphController {
 			return false;
 		}
 	}
+	
+	 //must check for settlement at one edge - if in first round
+	 public boolean placeRound1Road(int v1, int v2, Player p, boolean printErrors){
+			Vertex vert1 = vertices[v1];
+			Vertex vert2 = vertices[v2];
+			if (vert1.getOwner()== p || vert2.getOwner() ==p ) {
+				return placeRoad(v1,v2,p, printErrors);
+			} else {
+				if (printErrors){
+					System.out.println("You must have a settlement at one end of this road");
+				}
+				return false;
+			}
+	 }
 	
 	
 	/*

@@ -38,7 +38,7 @@ public class RunGame {
 		currentPlayerID = order.getCurrentPlayer();
 		verticesToAct = new int[2];
 		vertexCounter = 0;
-		tradeResources = new int[2][2];
+		tradeResources = new int[2][3];
 		
 		usingGraphics = useGraphics;
 		//testboard gives a predetermined board
@@ -112,6 +112,10 @@ public class RunGame {
 	}
 	
 	public int[] rollDice(){
+		if ( gameEnd() ){
+			//System.exit(0);
+			return new int[] {6,6};
+		}
 		currentPlayerID = order.getNextPlayer();
 		fei.updateCurrentPlayer(currentPlayerID);
 		int r1 = roll();
@@ -142,6 +146,7 @@ public class RunGame {
 				fei.drawSettlement(vertex);
 				if(players[currentPlayerID].numberOfSettlements ==2){
 					gl.giveResourcesStartGame(vertex);
+					updateAllResources();
 				}	
 				if (!order.firstRoundSettlementDone()){
 					currentPlayerID = order.getNextPlayerGameStart();// switch players
@@ -198,10 +203,11 @@ public class RunGame {
 	private void tryToBuildSettlement(){
 		int v = verticesToAct[0];
 		//TEST:
-		players[currentPlayerID].giveSettlementResources();
+		//players[currentPlayerID].giveSettlementResources();
 		boolean success = 	gl.buildSettlement(currentPlayerID, v);
 		if (success){
 			fei.drawSettlement(v);
+			updateSinglePlayerResources();
 		}
 		clearVerticesAndAction();
 	}
@@ -209,7 +215,7 @@ public class RunGame {
 	private void tryToBuildCity(){
 		int v = verticesToAct[0];
 		//TEST:
-		players[currentPlayerID].giveCityResources();
+		//players[currentPlayerID].giveCityResources();
 		boolean success = 	gl.buildCity(currentPlayerID, v);
 		if (success){
 			fei.drawCity(v);
@@ -222,20 +228,12 @@ public class RunGame {
 			return;
 		} else {
 			//TEST:
-			players[currentPlayerID].giveRoadResources();
+			//players[currentPlayerID].giveRoadResources();
 			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
 			if (success){
 				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
 			}
 			clearVerticesAndAction();
-		}
-	}
-	
-	private void updateAllResources(){
-		for (int i = 1; i< players.length; i++){
-			int [] r = players[i].getResourceArray();
-			fei.updateResources(i, r);
-			players[i].printStats();
 		}
 	}
 	
@@ -262,11 +260,34 @@ public class RunGame {
 		
 	}
 	
+	private void updateSinglePlayerResources(){
+		int [] r = players[currentPlayerID].getResourceArray();
+		fei.updateResources(currentPlayerID, r);
+	}
+	
+	private void updateAllResources(){
+		for (int i = 1; i< players.length; i++){
+			int [] r = players[i].getResourceArray();
+			fei.updateResources(i, r);
+		}
+	}
+	
 	public void clearVerticesAndAction(){
 		verticesToAct[0] = 0;
 		verticesToAct[1] = 0;
 		vertexCounter = 0;
 		actionType = 0;
+	}
+	
+	private boolean gameEnd(){
+		for (int i = 1; i< players.length; i++){
+			int vp = players[i].victoryPoints;
+			if (vp>= 3){
+				System.out.println("GAME OVER. Winner is Player " + i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
