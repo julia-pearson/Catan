@@ -232,8 +232,10 @@ public class GameLogic {
 		b.looseResource(tradeStats[1][0], tradeStats[1][1]);
 	}
 
-	public void moveRobber(int destinationTile){
-		graph.moveRobber(destinationTile);
+	public void moveRobber(int destinationTile, int playerMovingRobber){
+		Player playerToLoose = graph.moveRobber(destinationTile);
+		int resourceGained = playerToLoose.stealResource();
+		players[playerMovingRobber].addResource(resourceGained, 1);
 	} 
 	
 }
