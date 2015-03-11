@@ -201,7 +201,27 @@ public class GameLogic {
 	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
 	//this will return whether they can play that d card and then julia needs to handle the rest 
 	public boolean useDevCard(int p, int i){
-		return players[p].useDevCard(i);
+		boolean build;
+		build = players[p].useDevCard(i);
+
+		//for largest army
+		if(i==0 && build){
+			if(players[p].getArmySize>=3 && players[p].getLgArmy()==false){
+				for(int m=0; m<players.length; m++){
+					if(players[m].checkLgArmy() == true){
+						if(players[p].getArmySize() > players[m].getArmySize()){
+							players[p].changeLgArmy();
+							players[m].changeLgArmy();
+						}
+						break;
+					}
+				}
+
+			}
+		}
+
+		return build;
+
 	}
 
 	public void useMonopoly(int p, int r){
