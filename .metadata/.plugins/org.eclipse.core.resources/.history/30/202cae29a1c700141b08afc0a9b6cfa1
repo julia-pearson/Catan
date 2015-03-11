@@ -31,7 +31,7 @@ public class FrontEndInterface {
 	}
 	
 	public void tradeClicked(){
-		rg.setActionType(5);
+		rg.setActionType(4);
 	}
 	
 	public void resourceClicked (int resourceNum){

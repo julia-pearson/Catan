@@ -269,8 +269,12 @@ public class RunGame {
 			//4 to one trade
 			if (tradeResources[0][0]== 0){
 				//nothing has been asked for
+				tradeResources[0][0] = resourceType;
+				tradeResources[0][1] = 1;
 				tradeResources[0][2] = 0;//trading with computer
 			} else {
+				tradeResources[1][0] = resourceType;
+				tradeResources[1][1] = 4;
 				tradeResources[1][2] = currentPlayerID;
 			}
 		}
@@ -281,19 +285,6 @@ public class RunGame {
 			updateAllResources();
 		}
 		//trade with other people
-	}
-	
-	public void resourceClicked( int resourceType ) {
-			if (tradeResources[0][0]== 0){
-				//nothing has been asked for
-				tradeResources[0][0] = resourceType;
-			} else {
-				tradeResources[0][1] ++;
-			} 
-			if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0) {
-				tradeResources[1][0] = resourceType; 
-			
-			}
 	}
 	
 	private void updateSinglePlayerResources(){

@@ -46,7 +46,8 @@ public class Clicks implements MouseListener{
 		}
 		boolean dev = askDev(x,y);
 		if(dev){
-			interaction.devCardClicked();
+			//buy dev vcard
+			System.out.println("dev");
 		}
 		boolean sheep = sheep(x,y);
 		if(sheep){

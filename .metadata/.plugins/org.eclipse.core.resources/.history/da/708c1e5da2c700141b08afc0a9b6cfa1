@@ -290,10 +290,11 @@ public class RunGame {
 			} else {
 				tradeResources[0][1] ++;
 			} 
-			if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0) {
+			if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0)
 				tradeResources[1][0] = resourceType; 
 			
 			}
+		} 
 	}
 	
 	private void updateSinglePlayerResources(){
