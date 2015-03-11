@@ -48,7 +48,7 @@ public class Hexanew extends JFrame{
   Color red = new Color (218,46,46);
   Color robberGray = new Color (144,144,144);
   Color newGray = new Color (159,159,159);
-  Color lightPurps = new Color (226,155,226);
+  Color lightPurps = new Color (137,63,137);
 
   //UNIVERSAL VARIABLES TO BE USED__________
 
@@ -526,6 +526,10 @@ public class Hexanew extends JFrame{
     }
     start[h][2]=1;
     repaint();
+  }
+
+  public void addStatistics(int[] statistics, int player){
+    
   }
 
 
