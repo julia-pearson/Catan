@@ -107,11 +107,11 @@ public class Player {
 
 	public void changeLgArmy(){
 		if(largestArmy==true){
-			largestArmy==false;
+			largestArmy=false;
 			victoryPoints = victoryPoints-2;
 		}
 		else{
-			largestArmy==true;
+			largestArmy=true;
 			victoryPoints = victoryPoints+2;
 		}
 	}

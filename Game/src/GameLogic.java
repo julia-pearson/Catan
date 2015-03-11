@@ -206,7 +206,7 @@ public class GameLogic {
 
 		//for largest army
 		if(i==0 && build){
-			if(players[p].getArmySize>=3 && players[p].getLgArmy()==false){
+			if(players[p].getArmySize()>=3 && players[p].checkLgArmy()==false){
 				for(int m=0; m<players.length; m++){
 					if(players[m].checkLgArmy() == true){
 						if(players[p].getArmySize() > players[m].getArmySize()){
