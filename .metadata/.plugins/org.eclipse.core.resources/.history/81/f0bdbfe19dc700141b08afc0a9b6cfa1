@@ -198,9 +198,6 @@ public class RunGame {
 	
 	public void setActionType (int t){
 		actionType = t;
-		if (actionType == 5){//player already clicked the trade button once
-			actionType = 4; //now player wants to trade 4:1
-		}
 	}
 	
 	public void setVertex (int v){
@@ -218,14 +215,6 @@ public class RunGame {
 			tryToBuildRoad();
 		}
 		updateSinglePlayerResources();
-		updateStats();
-	}
-	
-	public void buyDevCard(){
-		if (!gl.buildDevCard(currentPlayerID)){
-			System.out.println("Not enough resources to buy dev. card");
-		}
-		updateStats();
 	}
 	
 	private void tryToBuildSettlement(){
@@ -269,8 +258,12 @@ public class RunGame {
 			//4 to one trade
 			if (tradeResources[0][0]== 0){
 				//nothing has been asked for
+				tradeResources[0][0] = resourceType;
+				tradeResources[0][1] = 1;
 				tradeResources[0][2] = 0;//trading with computer
 			} else {
+				tradeResources[1][0] = resourceType;
+				tradeResources[1][1] = 4;
 				tradeResources[1][2] = currentPlayerID;
 			}
 		}
@@ -281,19 +274,6 @@ public class RunGame {
 			updateAllResources();
 		}
 		//trade with other people
-	}
-	
-	public void resourceClicked( int resourceType ) {
-			if (tradeResources[0][0]== 0){
-				//nothing has been asked for
-				tradeResources[0][0] = resourceType;
-			} else {
-				tradeResources[0][1] ++;
-			} 
-			if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0) {
-				tradeResources[1][0] = resourceType; 
-			
-			}
 	}
 	
 	private void updateSinglePlayerResources(){
@@ -311,7 +291,7 @@ public class RunGame {
 	private void updateStats(){
 		for (int i = 1; i< players.length; i++){
 			int [] r = players[i].getPlayerStats();
-			fei.updateVP(i, r);
+			fei.updatePlayerVP(i, r);
 		}
 	}
 	

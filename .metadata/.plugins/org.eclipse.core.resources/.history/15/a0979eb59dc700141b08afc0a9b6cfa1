@@ -31,7 +31,7 @@ public class FrontEndInterface {
 	}
 	
 	public void tradeClicked(){
-		rg.setActionType(5);
+		rg.setActionType(4);
 	}
 	
 	public void resourceClicked (int resourceNum){
@@ -65,10 +65,6 @@ public class FrontEndInterface {
 		return rg.rollDice();
 	}
 	
-	public void devCardClicked(){
-		rg.buyDevCard();
-	}
-	
 	public void robberClicked(){
 		rg.setActionType(6);
 	}
@@ -94,6 +90,7 @@ public class FrontEndInterface {
 	}
 	
 	public void updateVP (int playerID, int[] stats){
+	//call method in hex to update vp count	
 		h.addStatistics(stats, playerID);
 	}
 	
