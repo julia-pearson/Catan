@@ -25,14 +25,17 @@ public class FrontEndInterface {
 		h = new Hexanew( this, newBoard);
 	}
 	
-	public FrontEndInterface (){
-		//h = new Hexanew( this);
-		currentPlayerID = 1;
-	}
-	
 	public void updateCurrentPlayer (int cp){
 		currentPlayerID = cp;
 		h.updateBoard();
+	}
+	
+	public void tradeClicked(){
+		rg.setActionType(4);
+	}
+	
+	public void resourceClicked (int resourceNum){
+		rg.tradeResource(resourceNum);
 	}
 
 	public void settyClicked (){
@@ -43,6 +46,8 @@ public class FrontEndInterface {
 	public void cityClicked (){
 		rg.setActionType(2);
 		System.out.println("Action: Build City. Please click the vertex you want to build on");
+		rg.setActionType(4);
+		System.out.println("Testing trades: Click Resource");
 	}
 	
 	public void roadClicked (){
@@ -74,6 +79,10 @@ public class FrontEndInterface {
 	public void drawCity(int v){
 	//	h.buildCity(v);
 		System.out.println("Tried to draw city on vertex: "+v);
+	}
+	
+	public void updateResources(int playerID, int[] resources){
+		h.addResources(playerID, resources);
 	}
 
 	public void nullClick(){

@@ -358,7 +358,7 @@ public class Hexanew extends JFrame{
       int sqrthree= (int) three;
       double two=a/(4*(2^(1/2)));
       int sqrtwo= (int) two; 
-
+ 
       //sets road color to player
       if(roadSide[v][3]==1){
         g.setColor(blue);
@@ -469,14 +469,15 @@ public class Hexanew extends JFrame{
         if(roadSide[i][0]==v1){
           if(roadSide[i][1]==v2){
             roadSide[i][2]=1;
+            roadSide[i][3]=currentPlayer; 
           }
         }
         if(roadSide[i][0]==v2){
           if(roadSide[i][1]==v1){
             roadSide[i][2]=1;
+            roadSide[i][3]=currentPlayer; 
           }
-        } 
-        roadSide[i][3]=currentPlayer;       
+        }    
       }
 	  	repaint();
   }

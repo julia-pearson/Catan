@@ -18,12 +18,15 @@ public class RunGame {
 	private  int playerCount;
 	private  int currentPlayerID;
 	
-	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road
+	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road, 4 = trade 4 to 1, 5 = trade other player
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
+	
 	public boolean inFirstRound;
 	private boolean firstRoundSET;
 	private int firstRoundRoadCounter;
+	
+	private int[][] tradeResources; //tradeResources[0]= {type you want, amount, playerID}, tradeResouces[1] = {type you'll give away, amount, playerID}
 	
 	public RunGame(int numPlayers, boolean useGraphics){
 		players = new Player[numPlayers+1];
@@ -35,6 +38,7 @@ public class RunGame {
 		currentPlayerID = order.getCurrentPlayer();
 		verticesToAct = new int[2];
 		vertexCounter = 0;
+		tradeResources = new int[2][3];
 		
 		usingGraphics = useGraphics;
 		//testboard gives a predetermined board
@@ -108,11 +112,16 @@ public class RunGame {
 	}
 	
 	public int[] rollDice(){
+		if ( gameEnd() ){
+			//System.exit(0);
+			return new int[] {6,6};
+		}
 		currentPlayerID = order.getNextPlayer();
 		fei.updateCurrentPlayer(currentPlayerID);
 		int r1 = roll();
 		int r2 = roll();
 		gl.diceRoll(r1+r2);
+		updateAllResources();
 		return new int[] {r1,r2};
 	}
 	
@@ -133,18 +142,20 @@ public class RunGame {
 		if (firstRoundSET){
 			//settlement building part of first round
 			System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
-			gl.placeSettlement(currentPlayerID, vertex);
-			if(players[currentPlayerID].numberOfSettlements ==2){
-				gl.giveResourcesStartGame(vertex);
-			}
-			fei.drawSettlement(vertex);
-			if (!order.firstRoundSettlementDone()){
-				currentPlayerID = order.getNextPlayerGameStart();// switch players
-				fei.updateCurrentPlayer(currentPlayerID);
-			} else {
-				firstRoundSET = false;
-				firstRoundRoadCounter = 0;
-				System.out.println("Click vertexes for Roads");
+			if (gl.placeSettlement(currentPlayerID, vertex)){
+				fei.drawSettlement(vertex);
+				if(players[currentPlayerID].numberOfSettlements ==2){
+					gl.giveResourcesStartGame(vertex);
+					updateAllResources();
+				}	
+				if (!order.firstRoundSettlementDone()){
+					currentPlayerID = order.getNextPlayerGameStart();// switch players
+					fei.updateCurrentPlayer(currentPlayerID);
+				} else {
+					firstRoundSET = false;
+					firstRoundRoadCounter = 0;
+					System.out.println("Click vertexes for Roads");
+				}
 			}
 		} else {
 			//road placement part of Round 1
@@ -174,6 +185,10 @@ public class RunGame {
 	}
 	
 	public void setVertex (int v){
+		if (vertexCounter >= 2){
+			System.out.println("You have clicked too many vertices. Clearning action and vertecies.");
+			clearVerticesAndAction();
+		}
 		verticesToAct[vertexCounter] = v;
 		vertexCounter ++;
 		if (actionType == 1){
@@ -188,10 +203,11 @@ public class RunGame {
 	private void tryToBuildSettlement(){
 		int v = verticesToAct[0];
 		//TEST:
-		players[currentPlayerID].giveSettlementResources();
+		//players[currentPlayerID].giveSettlementResources();
 		boolean success = 	gl.buildSettlement(currentPlayerID, v);
 		if (success){
 			fei.drawSettlement(v);
+			updateSinglePlayerResources();
 		}
 		clearVerticesAndAction();
 	}
@@ -199,7 +215,7 @@ public class RunGame {
 	private void tryToBuildCity(){
 		int v = verticesToAct[0];
 		//TEST:
-		players[currentPlayerID].giveCityResources();
+		//players[currentPlayerID].giveCityResources();
 		boolean success = 	gl.buildCity(currentPlayerID, v);
 		if (success){
 			fei.drawCity(v);
@@ -212,7 +228,7 @@ public class RunGame {
 			return;
 		} else {
 			//TEST:
-			players[currentPlayerID].giveRoadResources();
+			//players[currentPlayerID].giveRoadResources();
 			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
 			if (success){
 				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
@@ -221,6 +237,40 @@ public class RunGame {
 		}
 	}
 	
+	public void tradeResource(int resourceType){
+		if (actionType == 4){
+			//4 to one trade
+			if (tradeResources[0][0]== 0){
+				//nothing has been asked for
+				tradeResources[0][0] = resourceType;
+				tradeResources[0][1] = 1;
+				tradeResources[0][2] = 0;//trading with computer
+			} else {
+				tradeResources[1][0] = resourceType;
+				tradeResources[1][1] = 4;
+				tradeResources[1][2] = currentPlayerID;
+			}
+		}
+		if (tradeResources [1][1] != 0){
+			System.out.println("Calling trade in game logic ");
+			//both elements have been filled in, pass to game logic 
+			gl.trade(tradeResources);
+			updateAllResources();
+		}
+		
+	}
+	
+	private void updateSinglePlayerResources(){
+		int [] r = players[currentPlayerID].getResourceArray();
+		fei.updateResources(currentPlayerID, r);
+	}
+	
+	private void updateAllResources(){
+		for (int i = 1; i< players.length; i++){
+			int [] r = players[i].getResourceArray();
+			fei.updateResources(i, r);
+		}
+	}
 	
 	public void clearVerticesAndAction(){
 		verticesToAct[0] = 0;
@@ -228,5 +278,17 @@ public class RunGame {
 		vertexCounter = 0;
 		actionType = 0;
 	}
+	
+	private boolean gameEnd(){
+		for (int i = 1; i< players.length; i++){
+			int vp = players[i].victoryPoints;
+			if (vp>= 3){
+				System.out.println("GAME OVER. Winner is Player " + i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
 

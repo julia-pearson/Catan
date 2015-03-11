@@ -45,23 +45,23 @@ public class Clicks implements MouseListener{
 		}
 		boolean sheep = sheep(x,y);
 		if(sheep){
-			System.out.println("sheep");
+			interaction.resourceClicked(5);
 		}
 		boolean wood = wood(x,y); 
 		if(wood){
-			System.out.println("wood");
+			interaction.resourceClicked(4);
 		}
 		boolean stone = stone(x,y);
 		if(stone){
-			System.out.println("stone");
+			interaction.resourceClicked(1);
 		}
 		boolean brick = brick(x,y);
 		if(brick){
-			System.out.println("brick");
+			interaction.resourceClicked(3);
 		}
 		boolean wheat = wheat(x,y);
 		if(wheat){
-			System.out.println("wheat");
+			interaction.resourceClicked(2);
 		}
 		if(verty<54){
 			interaction.vertexClicked(verty);

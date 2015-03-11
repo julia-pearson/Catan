@@ -63,7 +63,7 @@ public class GameLogic {
 
 	public void diceRoll(int numRoll){
 		if(numRoll == 7){
-			for(int i=0; i<players.length; i++)
+			for(int i=1; i<players.length; i++)
 				players[i].sevenRoll();
 			//initiate robber movement stealing sequence (same as for knight)
 		}
@@ -149,24 +149,22 @@ public class GameLogic {
 		if(build == false)
 			return false;
 
-		build = graph.placeRoad(v1,v2, players[p], debugSet); 
+		build = graph.buildRoad(v1,v2, players[p], debugSet); 
 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
-		}
-
-		else{
+		} else{
 			players[p].buildRoad();
 			return true;
 		}
-//Q how do we do longest road?????
+		//longest road check
 	}
 
 	//used at beginning!
 	public boolean placeRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
-		boolean build = graph.placeRoad(v1,v2, players[p], debugSet); 
+		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
@@ -210,11 +208,32 @@ public class GameLogic {
 		//Julia P: update graphics
 	}
 
-	public void trade(int p){
-		//meep
+	public void trade(int[][] tradeStats){
+		//tradeStats[0]= {type you want, amount, playerID to give}, tradeStats[1] = {type you'll give away, amount, playerID initiating trade}
+		// if playerID to give is 0, the player initiating trade is trading with bank
+		if (tradeStats[0][2]!=0){ //not trading with computer
+			Player a = players[tradeStats[0][2]];
+			//player a gives away resources and gains some
+			for (int i = 0; i<tradeStats[0][1]; i++){
+				a.looseResource(tradeStats[0][0]);
+			} 
+			for (int i = 0; i<tradeStats[1][1]; i++){
+				a.addResource(tradeStats[1][0]);
+			} 
+		}
+		Player b = players[tradeStats[1][2]];	
+		//player b gives away resources and gains some
+		for (int i = 0; i<tradeStats[0][1]; i++){
+			b.addResource(tradeStats[0][0]);
+		} 
+		for (int i = 0; i<tradeStats[1][1]; i++){
+			b.looseResource(tradeStats[1][0]);
+		} 
 	}
 
 	public void moveRobber(){
+		//TODO: find robber in the array
+		//move to new tile based on clicks
 		//this is going to need to be used for 7 rolls and knights
 	} 
 	
