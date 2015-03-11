@@ -146,7 +146,7 @@ public class RunGame {
 		if (firstRoundSET){
 			//settlement building part of first round
 			System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
-			if (gl.placeSettlement(players[currentPlayerID], vertex)){
+			if (gl.placeSettlement(currentPlayerID, vertex)){
 				fei.drawSettlement(vertex);
 				if(players[currentPlayerID].numberOfSettlements ==2){
 					gl.giveResourcesStartGame(vertex);
