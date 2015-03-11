@@ -351,6 +351,12 @@ public class Hexanew extends JFrame{
       if (totalPlayers==4){
         drawResources(g2, 4, player4);       
       }
+      drawStatistics(g2, 1, player1);
+      drawStatistics(g2, 2, player2);
+      drawStatistics(g2, 3, player3);
+      if (totalPlayers==4){
+        drawStatistics(g2, 4, player4);       
+      }
 
   }
 
@@ -528,7 +534,7 @@ public class Hexanew extends JFrame{
     repaint();
   }
 
-  public void addStatistics(int[] statistics, int player){
+  public void addStatistics(int[] statistics, int currentPlayer){
     for(int i=5;i<11;i++){
       if (currentPlayer==1) {
         player1[i]=statistics[i];        
@@ -882,34 +888,31 @@ public class Hexanew extends JFrame{
       repaint(); 
   }
 
-  public void drawStatistics(Graphics2D g2, int currentPlayer){
+  public void drawStatistics(Graphics2D g2, int currentPlayer, int[] statistics){
       Font font = new Font("Gill Sans", Font.PLAIN, 15);
       g2.setFont(font);
       //draws cards
       g2.setColor(stone);
 
+      String vp="0";
+
       if(currentPlayer==1){
-        String vp = Integer.toString(player1[5]);        
+        vp = Integer.toString(player1[5]);        
       }
       if(currentPlayer==2){
-        String vp = Integer.toString(player2[5]);        
+        vp = Integer.toString(player2[5]);        
       }
       if(currentPlayer==3){
-        String vp = Integer.toString(player3[5]);        
+        vp = Integer.toString(player3[5]);        
       }
       if(currentPlayer==4){
-        String vp = Integer.toString(player4[5]);        
+        vp = Integer.toString(player4[5]);        
       }
 
-/*      String dv = Integer.toString(resourceCount[2]);
-      if(wheat.equals("0")){
-        wheat=" ";
-      }
-*/
       int i=currentPlayer-1;
-      g2.drawString("Victory Points   "+dv, x+250, y+25+i*150);
+      g2.drawString("Victory Points   "+vp, x+250, y+25+i*150);
       g2.drawString("Development Cards    ", x+250, y+40+i*150); 
-   
+      repaint();
   }
 
   public void tradeButton(int x, int y){
