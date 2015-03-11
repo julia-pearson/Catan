@@ -65,7 +65,6 @@ public class Player {
 
 	public void addResource(int i, int q){
 		if(i==1)
-<<<<<<< HEAD
 			resourceTracker.addRock(q);
 		if(i==2)
 			resourceTracker.addWheat(q);
@@ -75,31 +74,20 @@ public class Player {
 			resourceTracker.addWood(q);
 		if(i==5)
 			resourceTracker.addSheep(q);
-=======
-			resourceTracker.addRock(1);
-		if(i==2)
-			resourceTracker.addWheat(1);
-		if(i==3)
-			resourceTracker.addBrick(1);
-		if(i==4)
-			resourceTracker.addWood(1);
-		if(i==5)
-			resourceTracker.addSheep(1);
 	}
 	
 	//used in trading
-	public void looseResource(int i){
+	public void looseResource(int i, int q){
 		if(i==1)
-			resourceTracker.useRock(1);
+			resourceTracker.useRock(q);
 		if(i==2)
-			resourceTracker.useWheat(1);
+			resourceTracker.useWheat(q);
 		if(i==3)
-			resourceTracker.useBrick(1);
+			resourceTracker.useBrick(q);
 		if(i==4)
-			resourceTracker.useWood(1);
+			resourceTracker.useWood(q);
 		if(i==5)
-			resourceTracker.useSheep(1);
->>>>>>> juliaedholm/master
+			resourceTracker.useSheep(q);
 	}
 
 	public boolean buildSetCheck(){
@@ -154,7 +142,6 @@ public class Player {
 		resourceTracker.useSheep(1);
 		resourceTracker.useRock(1);
 		resourceTracker.useWheat(1);
-<<<<<<< HEAD
 
 		if(i == 0)
 			dCardTracker.addKnight();
@@ -172,9 +159,9 @@ public class Player {
 
 		if(i == 4)
 			dCardTracker.addYearOfPlenty();
-=======
+
 		return true;
->>>>>>> juliaedholm/master
+
 	}
 
 	/*public boolean useDevCard(int i){
