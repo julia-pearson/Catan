@@ -22,6 +22,10 @@ public class Ports{
 	//4 = wood port
 	//5 = sheep port
 
+	public boolean getxPort(int x){
+		return portKey[x];
+	}
+
 	public boolean getSheepPort(){
 		return portKey[5];
 	}

@@ -77,17 +77,17 @@ public class Player {
 	}
 	
 	//used in trading
-	public void looseResource(int i, int q){
+	public boolean looseResource(int i, int q){
 		if(i==1)
-			resourceTracker.useRock(q);
+			return resourceTracker.useRock(q);
 		if(i==2)
-			resourceTracker.useWheat(q);
+			return resourceTracker.useWheat(q);
 		if(i==3)
-			resourceTracker.useBrick(q);
+			return resourceTracker.useBrick(q);
 		if(i==4)
-			resourceTracker.useWood(q);
+			return resourceTracker.useWood(q);
 		if(i==5)
-			resourceTracker.useSheep(q);
+			return resourceTracker.useSheep(q);
 	}
 
 	public boolean buildSetCheck(){
@@ -164,7 +164,7 @@ public class Player {
 
 	}
 
-	/*public boolean useDevCard(int i){
+	public boolean useDevCard(int i){
 		boolean build;
 		if(i==0){
 			build = dCardTracker.useKnight();
@@ -183,7 +183,7 @@ public class Player {
 
 			}	
 		}
-	}*/
+	}
 
 	public void sevenRoll(){
 		int total = resourceTracker.getNumber();
@@ -223,6 +223,35 @@ public class Player {
 		}
 		return true;
 	}
+
+	public boolean buildPortCheck(int x, int y){
+		boolean build = portTracker.getxPort(x);
+		if (build == false){
+			System.out.println("You are not built on this port.");
+			return false;
+		}
+
+		int howmany = resourceTracker.getx(y);
+
+		//if 3 for one you need three of the thing you are trading
+		if(x==0){
+			if (howmany>=3){
+				return true;
+			}	
+			System.out.println("You do not have enough of the necessary resource to use the port.");
+			return false;
+		}
+
+		//if you have any other port 2:1
+		else{
+			if (howmany>=2){
+				return true;
+			}	
+			System.out.println("You do not have enough of the necessary resource to use the port.");
+			return false;
+		}
+	}
+
 	
 	public void placeRoad(){
 		numberOfRoads++;

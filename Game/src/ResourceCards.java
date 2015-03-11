@@ -133,4 +133,8 @@ public class ResourceCards{
 		return false;
 	}
 
+	public int getx(int x){
+		return cardKey[x];
+	}
+
 }

@@ -198,9 +198,9 @@ public class GameLogic {
 		return true;
 	}
 
-//still working on this
-	/*public boolean useDevCard(Player p, int i){
-		boolean build = p.useDevCard(i);
+	//i is which dev card!
+	public boolean useDevCard(int p, int i){
+		boolean build = players[p].useDevCard(i);
 		
 		return true;
 		//CJ: check that the player has resources to build a d card. update shit.
@@ -208,13 +208,21 @@ public class GameLogic {
 
 		return build;
 	}
-	*/
 
 
-	public boolean usePort(Player p){
-		//CJ: check that the player has the port and update stats
-		//Julia P: update graphics
-		return false;
+	public boolean usePort(int p, int x, int r, int y){
+		//p is the player, x is which port they want to use, r is what resource they want, y is what resource they are using
+		boolean build = players[p].buildPortCheck(x,y);
+		if (build == false)
+			return false;
+		else{
+			if(x==0)
+				players[p].looseResource(y,3);
+			else
+				players[p].looseResource(y,2);
+			players[p].addResource(r,1);
+			return true;
+		}
 	}
 
 	public void trade(int[][] tradeStats){
