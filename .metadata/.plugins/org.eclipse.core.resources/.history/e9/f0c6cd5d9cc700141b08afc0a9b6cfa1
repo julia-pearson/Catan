@@ -89,9 +89,8 @@ public class FrontEndInterface {
 		h.addRobber(t);
 	}
 	
-	public void updateVP (int playerID, int[] stats){
+	public void updateVP (int playerID, int[] victoryPoints){
 	//call method in hex to update vp count	
-		
 	}
 	
 	public void updateResources(int playerID, int[] resources){
