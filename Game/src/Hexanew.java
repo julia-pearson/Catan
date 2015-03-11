@@ -48,18 +48,13 @@ public class Hexanew extends JFrame{
   Color red = new Color (218,46,46);
   Color robberGray = new Color (144,144,144);
   Color newGray = new Color (159,159,159);
-  Color lightPurps = new Color (137,63,137);
+  Color lightPurps = new Color (150,63,150);
 
-  //UNIVERSAL VARIABLES TO BE USED__________
+  //UNIVERSAL VARIABLES TO BE CHANGED_____________________________
 
   //initializing String that will be numbers on circles
-  String value ="0";
-
   int rollOne = 6;
   int rollTwo = 6;
-
-  //hex (start[i][0],start[i][1]) you move the robber to
-  int robber=0;
   boolean robberClick=false;
 
   //v1,v2,road?,player
@@ -137,7 +132,6 @@ public class Hexanew extends JFrame{
     {43,51,0,0},
     {45,53,0,0}
   };
-
   //x,y,(nothing=0,settlement=1,city=2), currentPlayer
   int[][] vertex = new int[][]{
     {x, y-14*a,0,0},
@@ -195,7 +189,6 @@ public class Hexanew extends JFrame{
     {x+5*w, y+a,0,0},
     {x+6*w, y,0,0}
   };
-
   //array of bottom left corners of Hexagons, third is robber
   int[][] start = new int[][]{
     {x,y-12*a,0},
@@ -219,35 +212,33 @@ public class Hexanew extends JFrame{
     {x+4*w, y,0}
   };
 
-  //CAN GET RID OF WHEN CONECTED__________
-
   //fake board
   int[][] res = new int[][]{
     {0,0},
-    {5,12},
-    {2,11},
-    {1,8},
-    {4,5},       
-    {5,4},
-    {3,8},
-    {3,10},
-    {4,10},
-    {5,6},
-    {5,3},
-    {1,4},
-    {2,6},
-    {3,9},       
-    {2,11},
-    {1,5},
-    {2,3},    
-    {4,9},
-    {4,4},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
+    {0,0},
   };
 
-  int[] player1 = new int[]{0,0,0,0,0,0,0,0,0,0};
-  int[] player2 = new int[]{0,0,0,0,0,0,0,0,0,0};
-  int[] player3 = new int[]{0,0,0,0,0,0,0,0,0,0};
-  int[] player4 = new int[]{0,0,0,0,0,0,0,0,0,0};
+  int[] player1 = new int[]{0,0,0,0,0,2,0,0,0,0,0};
+  int[] player2 = new int[]{0,0,0,0,0,0,5,0,0,0,0};
+  int[] player3 = new int[]{0,0,0,0,0,0,0,6,0,0,0};
+  int[] player4 = new int[]{0,0,0,0,0,8,0,0,0,0,0};
 
 
   //sets up screen and size
@@ -261,8 +252,7 @@ public class Hexanew extends JFrame{
       interaction = f;
       res = board;
       totalPlayers = numPlayers;
-  }
-  
+  } 
   public void paint(Graphics graphics){
       g = graphics;
       //allows me to print text!
@@ -272,10 +262,8 @@ public class Hexanew extends JFrame{
       drawBoard(interaction.currentPlayerID);       
       updateBoard();
   }
-
   public void drawBoard(int currentPlayer){
       //background
-
       g.setColor(circles);
       int xpoints[]={0,1500,1500,0};
       int ypoints[]={0,0,1000,1000};
@@ -284,15 +272,13 @@ public class Hexanew extends JFrame{
       //drawing border
       drawBorderHex(a1, x, y+2*a);
 
+      String value ="0";
       //Filling in Board
-      int resource=0;
       for (int i=0; i<19; i++){
-        //get resource ID, will be from CJ
-        resource= res[i][0];
         //Draw each small hexagon
-        drawHexalex(start[i][0],start[i][1], resource);
+        drawHexalex(start[i][0],start[i][1], res[i][0]);
         //Makes sure it's not the dessert
-        if(resource != 0){
+        if(res[i][0] != 0){
           g.setColor(circles);
          //circle radius is simply shifted from the left lower coordinates in start[][]
           drawCircle(start[i][0]+w, start[i][1]-a, 20);
@@ -308,7 +294,7 @@ public class Hexanew extends JFrame{
         }
       }
 
-      //Setting Dice, should be from Julia
+      //Setting Dice
       drawDice(25, 800, rollOne, false);
       drawDice(110, 800, rollTwo, true);
 
@@ -323,7 +309,6 @@ public class Hexanew extends JFrame{
       drawPlayers(g2, 900, 300, totalPlayers);
       tradeButton(1300,252);
   }
-
   public void updateBoard(){
       for (int i=0; i<71;i++){
         if(roadSide[i][2]>0){
@@ -357,7 +342,6 @@ public class Hexanew extends JFrame{
       if (totalPlayers==4){
         drawStatistics(g2, 4, player4);       
       }
-
   }
 
 
@@ -419,7 +403,6 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
-
   public void buildSetty(int x, int y, int currentPlayer){
       x=x-15;
       y=y+15;
@@ -444,7 +427,6 @@ public class Hexanew extends JFrame{
       g.setColor(circles);
       g.drawPolygon(xpoints, ypoints, npoints);
   }
-
   public void buildCity(int x, int y, int currentPlayer){
       x=x-15;
       y=y+15;
@@ -490,20 +472,17 @@ public class Hexanew extends JFrame{
         }    
       }
 	  	repaint();
-  }
-  
+  } 
   public void addSettlement(int v){
     vertex[v][2]=1;
     vertex[v][3]=interaction.currentPlayerID;
     repaint();
   }
-
   public void addCity(int v){
     vertex[v][2]=2;
     vertex[v][3]=interaction.currentPlayerID;
     repaint();
   }
-
   //will pass player and an int array with resource count 
   public void addResources(int currentPlayer, int[] resourceCount){
     //all the interaction happens here
@@ -522,18 +501,6 @@ public class Hexanew extends JFrame{
       }
     }
   }
-
-  //pass the add robber method the hexagon
-  public void addRobber(int h){
-    for (int i=0; i<19; i++){
-      if(start[i][2]==1){
-        start[i][2]=0; 
-      }
-    }
-    start[h][2]=1;
-    repaint();
-  }
-
   public void addStatistics(int[] statistics, int currentPlayer){
     for(int i=5;i<11;i++){
       if (currentPlayer==1) {
@@ -549,14 +516,24 @@ public class Hexanew extends JFrame{
         player4[i]=statistics[i];        
       }
     }
+    repaint();
+  }
+  //pass the add robber method the hexagon
+  public void addRobber(int h){
+    for (int i=0; i<19; i++){
+      if(start[i][2]==1){
+        start[i][2]=0; 
+      }
+    }
+    start[h][2]=1;
+    repaint();
   }
 
 
 
+
   //all draw methods
-
   public void drawHexalex(int x, int y, int resource){
-
       //array of coordinates, starting at lower left corner of the hexagon
       int xpoints[] = {x, x, x+w, x+2*w, x+2*w, x+w};
       int ypoints[] = {y, y-2*a, y-3*a, y-2*a, y, y+a};
@@ -588,7 +565,6 @@ public class Hexanew extends JFrame{
       g.setColor(circles);
       g.drawPolygon(xpoints, ypoints, npoints);
   }
-
   public void drawBorderHex(int a1, int x, int y){
 
       double yTwo=y-2*a1/1.155;
@@ -604,7 +580,6 @@ public class Hexanew extends JFrame{
       g.setColor(water);
       g.fillPolygon(xpoints, ypoints, npoints);
   }
-
   public void drawDice(int x, int y, int roll, boolean yellow){
       //l must be divisible by 10 for rounding of dice
       int l = 3*a/2;
@@ -658,7 +633,6 @@ public class Hexanew extends JFrame{
         drawCircle(x+9*l/10-2*radius, y-2*radius, radius);
       }
   }
-
   public void drawRoad(int x, int y, int currentPlayer){
       g.setColor(blue);
       if(currentPlayer==1){
@@ -687,7 +661,6 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
-
   public void drawSetty(int x, int y, int currentPlayer){
       if(currentPlayer==1){
         g.setColor(blue);
@@ -715,7 +688,6 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
-
   public void drawCity(int x, int y, int currentPlayer){
       if(currentPlayer==1){
         g.setColor(blue);
@@ -743,7 +715,6 @@ public class Hexanew extends JFrame{
         g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
-
   public void drawRobber(int x, int y){
     g.setColor(robberGray);
     drawCircle(x+w, y-a, 20);
@@ -752,7 +723,6 @@ public class Hexanew extends JFrame{
     g.setColor(robberGray);
     drawCircle(x+w, y-a, 10);
   }
-
   public void drawDevelopement(int l, int x, int y){
 
           //Draw card outline
@@ -776,7 +746,12 @@ public class Hexanew extends JFrame{
           g.setColor(stone);
           drawCircle(x, y, radius-27);
   }
-
+  public void drawCards(int x, int y){
+      //Drawing cards under PLayers
+      for(int j=0; j<5; j++){
+        drawResourceCards(x+j*2*a, y, 5-j);
+      }
+  }
   public void drawCardOutline(int l, int x, int y){
           //This b is an altered a
           int xpoints[] = {x, x-l/10, x-l/10, x, x+6*l/5, x+13*l/10, x+13*l/10,x+6*l/5};
@@ -784,14 +759,6 @@ public class Hexanew extends JFrame{
           int npoints = 8;
           g.fillPolygon(xpoints, ypoints, npoints);
   }
-
-  public void drawCards(int x, int y){
-      //Drawing cards under PLayers
-      for(int j=0; j<5; j++){
-        drawResourceCards(x+j*2*a, y, 5-j);
-      }
-  }
-
   public void drawResourceCards(int x, int y, int resource){
           //Setting Card Outline
           g.setColor(Color.white); 
@@ -813,8 +780,7 @@ public class Hexanew extends JFrame{
              g.setColor(sheep);
           }
           drawCardOutline(a-4, x+2, y-4);
-  }
-  
+  }  
   public void drawPlayers(Graphics2D g2,int x, int y, int players){
       Font font = new Font("Gill Sans", Font.PLAIN, 20);
       g2.setFont(font);
@@ -843,34 +809,37 @@ public class Hexanew extends JFrame{
         g2.drawString("Stone   ", x, y+85+i*150);
       }  
       for(int i=0; i<players;i++){
-        g2.drawString("Victory Points   ", x+250, y+25+i*150);
-        g2.drawString("Development Cards    ", x+250, y+40+i*150); 
+        g2.drawString("Victory Points", x+250, y+25+i*150);
+        g2.drawString("Knights Played", x+250, y+40+i*150);  
+        g2.drawString("Unplayed", x+380, y+40+i*150); 
+        g2.drawString("Road Builder", x+250, y+55+i*150); 
+        g2.drawString("Monopoly", x+250, y+70+i*150); 
+        g2.drawString("Year of Plenty", x+250, y+85+i*150); 
       } 
   }
-
   public void drawResources(Graphics2D g2, int currentPlayer, int[] resourceCount){
       Font font = new Font("Gill Sans", Font.PLAIN, 15);
       g2.setFont(font);
       //draws cards
       g2.setColor(stone);
 
-      String stone = Integer.toString(resourceCount[1]);
+      String stone = Integer.toString(resourceCount[0]);
       if(stone.equals("0")){
         stone=" ";
       }
-      String wheat = Integer.toString(resourceCount[2]);
+      String wheat = Integer.toString(resourceCount[1]);
       if(wheat.equals("0")){
         wheat=" ";
       }
-      String brick = Integer.toString(resourceCount[3]);
+      String brick = Integer.toString(resourceCount[2]);
       if(brick.equals("0")){
         brick=" ";
       }
-      String wood = Integer.toString(resourceCount[4]);
+      String wood = Integer.toString(resourceCount[3]);
       if(wood.equals("0")){
         wood=" ";
       }
-      String sheep = Integer.toString(resourceCount[5]);
+      String sheep = Integer.toString(resourceCount[4]);
       if(sheep.equals("0")){
         sheep=" ";
       }
@@ -887,32 +856,59 @@ public class Hexanew extends JFrame{
 
       repaint(); 
   }
-
   public void drawStatistics(Graphics2D g2, int currentPlayer, int[] statistics){
       Font font = new Font("Gill Sans", Font.PLAIN, 15);
       g2.setFont(font);
-      //draws cards
       g2.setColor(stone);
-
       String vp="0";
+      String knight="0";
+      String unplayed="0";
+      String roadBuilder="0";
+      String monopoly="0";
+      String yearOfPlenty="0";
 
       if(currentPlayer==1){
-        vp = Integer.toString(player1[5]);        
+        vp = Integer.toString(player1[5]);   
+        knight=Integer.toString(player1[6]); 
+        unplayed=Integer.toString(player1[7]); 
+        roadBuilder=Integer.toString(player1[8]); 
+        monopoly=Integer.toString(player1[9]);  
+        yearOfPlenty=Integer.toString(player1[10]);     
       }
       if(currentPlayer==2){
-        vp = Integer.toString(player2[5]);        
+        vp = Integer.toString(player2[5]);   
+        knight=Integer.toString(player2[6]); 
+        unplayed=Integer.toString(player2[7]); 
+        roadBuilder=Integer.toString(player2[8]); 
+        monopoly=Integer.toString(player2[9]);  
+        yearOfPlenty=Integer.toString(player2[10]);          
       }
       if(currentPlayer==3){
-        vp = Integer.toString(player3[5]);        
+        vp = Integer.toString(player3[5]);   
+        knight=Integer.toString(player3[6]); 
+        unplayed=Integer.toString(player3[7]); 
+        roadBuilder=Integer.toString(player3[8]); 
+        monopoly=Integer.toString(player3[9]);  
+        yearOfPlenty=Integer.toString(player3[10]);         
       }
       if(currentPlayer==4){
-        vp = Integer.toString(player4[5]);        
+        vp = Integer.toString(player1[5]);   
+        knight=Integer.toString(player4[6]); 
+        unplayed=Integer.toString(player4[7]); 
+        roadBuilder=Integer.toString(player4[8]); 
+        monopoly=Integer.toString(player4[9]);  
+        yearOfPlenty=Integer.toString(player4[10]);         
       }
+      int x=1250;
+      int y=300;
 
       int i=currentPlayer-1;
-      g2.drawString("Victory Points   "+vp, x+250, y+25+i*150);
-      g2.drawString("Development Cards    ", x+250, y+40+i*150); 
-      repaint();
+      g2.drawString(vp, x, y+25+i*150);
+      g2.drawString(knight, x, y+40+i*150); 
+      g2.drawString(unplayed, x+100, y+40+i*150); 
+      g2.drawString(roadBuilder, x, y+55+i*150);
+      g2.drawString(monopoly, x, y+70+i*150);
+      g2.drawString(yearOfPlenty, x, y+85+i*150);
   }
 
   public void tradeButton(int x, int y){
@@ -929,7 +925,6 @@ public class Hexanew extends JFrame{
       g.setColor(Color.white);
       g2.drawString("Trade", x-10, y-20);
   }
-
   private void drawCircle(int x, int y, int radius) {
     g.fillOval(x-radius, y-radius, radius*2, radius*2);
   }
