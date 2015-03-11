@@ -7,10 +7,11 @@ public class GameLogic {
 	3. create FrontEndInterface to communicate with GUI and pass instructions
 	*/
 	private GraphController graph;
-	private Player[] players;
 	private DevCardDeck devDeck;
 
 	private boolean debugSet = true;
+
+	private Player[] players;
 
 	public GameLogic(int[][] board, Player[] pArray) {
 		GraphMaker gm = new GraphMaker(board);
@@ -19,7 +20,7 @@ public class GameLogic {
 		players = pArray;
 	}
 	
-	public void testGraphFeatures(){
+	/*public void testGraphFeatures(){
 		System.out.println("Testing Graph Features");
 		Player test = new Player(0);
 		Player testb = new Player(1);
@@ -60,7 +61,7 @@ public class GameLogic {
 		v = 18;
 		placeSettlement(i, v);
 		players[i].printStats();
-	}
+	}*/
 
 	public void diceRoll(int numRoll){
 		if(numRoll == 7){
@@ -75,14 +76,14 @@ public class GameLogic {
 	}
 	
 	//method to be called at start of game. will not check that player has enough resources
-	public boolean placeSettlement(int p, int vertexNumber){
-		boolean build = graph.placeSettlement(vertexNumber, players[p], debugSet);
+	public boolean placeSettlement(Player p, int vertexNumber){
+		boolean build = graph.placeSettlement(vertexNumber, p, debugSet);
 		if (debugSet){
 			System.out.println("Place settlement at "+vertexNumber+" " + build);
 		}
 		if (build == true){
 			//update stats in player class
-			players[p].placeSettlement();
+			p.placeSettlement();
 			return true;
 		}
 		else{
@@ -143,6 +144,7 @@ public class GameLogic {
 
 	}
 	
+
 	public boolean buildRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
 		boolean build = players[p].buildRoadCheck();
@@ -155,7 +157,9 @@ public class GameLogic {
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
-		} else{
+		} 
+
+		else{
 			players[p].buildRoad();
 			return true;
 		}
@@ -191,20 +195,24 @@ public class GameLogic {
 			return false;
 		}
 
+		players[p].buildDev(i);
+		return true;
+	}
+
+//still working on this
+	/*public boolean useDevCard(Player p, int i){
+		boolean build = p.useDevCard(i);
 		
 		return true;
 		//CJ: check that the player has resources to build a d card. update shit.
 		//Julia P: update graphics
 
-		//IF VP UPDATE PLAYER STAT
+		return build;
 	}
+	*/
 
-	public void useDevCard(int p){
-		//CJ: ask which one and see if the player has that dev card
-		//Julia P: update graphics
-	}
 
-	public void usePort(int p){
+	public boolean usePort(Player p){
 		//CJ: check that the player has the port and update stats
 		//Julia P: update graphics
 	}
@@ -235,6 +243,5 @@ public class GameLogic {
 	public void moveRobber(int destinationTile){
 		graph.moveRobber(destinationTile);
 	} 
-	
 	
 }
