@@ -28,6 +28,8 @@ public class ResourceCards{
 		return num;
 	}
 
+
+
 	public int randomDelete(){
 		//returns the int of the resource deleted as referenced in the Resource class dictionary
 
