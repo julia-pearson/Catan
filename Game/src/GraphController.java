@@ -163,6 +163,7 @@ public class GraphController {
 		int longestRoad = 0;
 		for (int i = 0; i<vertices.length; i++){
 			Vertex v1 = vertices[i];
+			//impliment Stack
 			
 		}
 		return vertices[1].getOwner();

@@ -143,7 +143,12 @@ public class GameLogic {
 
 	}
 
-
+	public void moveRobber(int destinationTile, int playerMovingRobber){
+		Player playerToLoose = graph.moveRobber(destinationTile);
+		int resourceGained = playerToLoose.stealResource();
+		players[playerMovingRobber].addResource(resourceGained, 1);
+	} 
+	
 	public boolean buildRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
 		boolean build = players[p].buildRoadCheck();

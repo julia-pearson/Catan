@@ -12,7 +12,7 @@ public class FrontEndInterface {
 	private Hexanew h;
 	public int currentPlayerID;
 	
-	public FrontEndInterface (RunGame r, int[][] board){
+	public FrontEndInterface (RunGame r, int[][] board, int n){
 		rg = r;
 		//must convert board (4X19) to the correct shape for hexanew (19x2)
 		
@@ -22,7 +22,7 @@ public class FrontEndInterface {
 			newBoard[i][1]= board[1][i];
 		}
 	
-		h = new Hexanew( this, newBoard);
+		h = new Hexanew( this, newBoard, n);
 	}
 	
 	public void updateCurrentPlayer (int cp){
@@ -34,8 +34,12 @@ public class FrontEndInterface {
 		rg.setActionType(4);
 	}
 	
+	public void playerCliced(int playerID){
+		rg.playerClicked(playerID);
+	}
+	
 	public void resourceClicked (int resourceNum){
-		rg.tradeResource(resourceNum);
+		rg.resourceClicked(resourceNum);
 	}
 
 	public void settyClicked (){
@@ -65,6 +69,10 @@ public class FrontEndInterface {
 		return rg.rollDice();
 	}
 	
+	public void devCardClicked(){
+		rg.buyDevCard();
+	}
+	
 	public void robberClicked(){
 		rg.setActionType(6);
 	}
@@ -89,8 +97,8 @@ public class FrontEndInterface {
 		h.addRobber(t);
 	}
 	
-	public void updateVP (int playerID, int[] victoryPoints){
-	//call method in hex to update vp count	
+	public void updateVP (int playerID, int[] stats){
+		h.addStatistics(stats, playerID);
 	}
 	
 	public void updateResources(int playerID, int[] resources){
