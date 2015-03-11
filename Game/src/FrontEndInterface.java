@@ -46,8 +46,6 @@ public class FrontEndInterface {
 	public void cityClicked (){
 		rg.setActionType(2);
 		System.out.println("Action: Build City. Please click the vertex you want to build on");
-		rg.setActionType(4);
-		System.out.println("Testing trades: Click Resource");
 	}
 	
 	public void roadClicked (){

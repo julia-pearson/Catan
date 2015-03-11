@@ -186,9 +186,10 @@ public class RunGame {
 	
 	public void setTileClicked(int t){
 		if (actionType == 6 && sevenRolled) {
-			gl.moveRobber(t);
+			gl.moveRobber(t, currentPlayerID);
+			fei.updateRobberPosition(t);
+			updateAllResources();
 		}
-		fei.updateRobberPosition(t);
 	}
 	
 	public void setActionType (int t){
@@ -268,7 +269,7 @@ public class RunGame {
 			gl.trade(tradeResources);
 			updateAllResources();
 		}
-		
+		//trade with other people
 	}
 	
 	private void updateSinglePlayerResources(){

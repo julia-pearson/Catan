@@ -192,6 +192,11 @@ public class Player {
 				resourceTracker.randomDelete();
 		}
 	}
+	
+	public int stealResource() {
+		int resource = resourceTracker.randomDelete();
+		return resource;
+	}
 
 	public boolean buildCityCheck(){
 		if(resourceTracker.getWheat()<2 || resourceTracker.getRock()<3){

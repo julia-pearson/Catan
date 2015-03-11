@@ -67,15 +67,8 @@ public class Clicks implements MouseListener{
 			interaction.vertexClicked(verty);
 		}
 		if(hexy<19){
-		//should be Julia's code
-			if(hex.start[hexy][2]==1){
-				System.out.println("robber clicked");
-				hex.robberClick=true;
-			}
-			if(hex.robberClick && hex.start[hexy][2]==0){
-				hex.addRobber(hexy);
-				hex.robberClick=false;				
-			}
+			interaction.robberClicked();
+			interaction.tileClicked(hexy);
 		}
 	}
 
@@ -98,7 +91,6 @@ public class Clicks implements MouseListener{
 				vert=i;
 			}
       	}
-      	System.out.println(vert);
       	return vert;
 	}
 	public int searchHex(int x, int y){
@@ -120,7 +112,6 @@ public class Clicks implements MouseListener{
 				hexy=i;
 			}
       	}
-      	System.out.println(hexy);
       	return hexy;
 	}
 	public boolean rolledDice(int x, int y){

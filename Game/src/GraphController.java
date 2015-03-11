@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /*JE
  * The GraphController class will maintain the state of the graph as game play progresses.
  * Actions like: build settlement, build road, and build city will all be validated and carried out in this class.  
@@ -10,7 +12,6 @@ public class GraphController {
 	public GraphController (Vertex[] v, Tile[] t){
 		vertices = v;
 		tiles = t;
-		
 	}
 	
 	/*check if it is legal to build a settlement here (ie- no other settlements at a neighbor vertex 
@@ -85,12 +86,13 @@ public class GraphController {
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
 		for (int i = 0; i<e1.length; i++ ){
+			/*
 			System.out.println("Building road betwen: "+a+" and "+b);
 			System.out.println("vertex1 of edge: ");
 			e1[i].v1.printResources();
 			System.out.println(" vertex 2 of edge ");
 			e1[i].v2.printResources();
-			
+			*/
 			//must find the edge object that has either combination of {v1,v2} = {a,b} or {b,a}
 			if (e1[i].v1 == vertices[a] && e1[i].v2 == vertices[b] || 
 					e1[i].v1 == vertices[b] && e1[i].v2 == vertices[a]){
@@ -157,6 +159,16 @@ public class GraphController {
 		return false;
 	}
 	
+	private Player longestRoad(){
+		int longestRoad = 0;
+		for (int i = 0; i<vertices.length; i++){
+			Vertex v1 = vertices[i];
+			
+		}
+		return vertices[1].getOwner();
+	
+	}
+	
 	
 	/*
 	 * Go through vertices and determine which players should receive resources for the given roll. 
@@ -211,13 +223,34 @@ public class GraphController {
 	/*
 	 * Method that moves location of robber
 	 */
-	public void moveRobber (int tile){
+	public Player moveRobber (int tile){
 		for (int i =0; i<tiles.length; i++){
 			if (tiles[i].hasRobber){
 				tiles[i].hasRobber = false;
 			}
 		}
-		tiles[tile].hasRobber = true;		
+		tiles[tile].hasRobber = true;	
+		Player[] playersOnTile = new Player[3];//maximum of 3 players on any tile
+		int playersCount = 0;
+		for (int i =0; i<vertices.length; i++){
+			Vertex v = vertices[i];
+			if (v.getSettlementType() != 0){
+				// this vertex contains either a settlement or a city
+				Tile[] tiles = v.getAdjacentTiles();
+				Player owner = v.getOwner();
+				for (int j = 0; j<tiles.length; j++){
+					if (tiles[j].hasRobber){
+						System.out.println("Settlement on tile "+tile);
+						System.out.println("Owner of settlement +"+owner.getID());
+						playersOnTile[playersCount] = owner;
+						playersCount ++;
+					}
+				}
+			}
+		}
+		Random rand = new Random();
+		int i = rand.nextInt(playersCount); 
+		return playersOnTile[i];
 	}
 		
 }
