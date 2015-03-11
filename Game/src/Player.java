@@ -97,6 +97,7 @@ public class Player {
 		return resourceTracker.monopX(x);
 	}
 
+	//methods for largest army
 	public int getArmySize(){
 		return dCardTracker.armySize();
 	}
@@ -112,6 +113,26 @@ public class Player {
 		}
 		else{
 			largestArmy=true;
+			victoryPoints = victoryPoints+2;
+		}
+	}
+
+	//methods for longest road
+	public int getRoadSize(){
+		//I NEED TO GET THE ROAD SIZE FROM JULIAS GRAPH
+	}
+
+	public boolean checkLongRoad(){
+		return longestRoad;
+	}
+
+	public void changeLongRoad(){
+		if(longestRoad==true){
+			longestRoad=false;
+			victoryPoints = victoryPoints-2;
+		}
+		else{
+			longestRoad=true;
 			victoryPoints = victoryPoints+2;
 		}
 	}

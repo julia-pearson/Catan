@@ -165,6 +165,7 @@ public class GameLogic {
 
 		else{
 			players[p].buildRoad();
+			longRoadChecker(p);
 			return true;
 		}
 		//longest road check
@@ -180,6 +181,7 @@ public class GameLogic {
 
 		else{
 			players[p].placeRoad();
+			longRoadChecker(p);
 			System.out.println("Road placed successfully");
 			return true;
 		}
@@ -220,12 +222,26 @@ public class GameLogic {
 						break;
 					}
 				}
-
 			}
 		}
 
 		return build;
 
+	}
+
+	//this should be called after any instance of someone building a road (placeRoad and buildRoad)
+	public void longRoadChecker(int p){
+		if(players[p].getRoadSize()>=5 && players[p].checkLongRoad()==false){
+				for(int m=0; m<players.length; m++){
+					if(players[m].checkLongRoad() == true){
+						if(players[p].getRoadSize() > players[m].getRoadSize()){
+							players[p].changeLongRoad();
+							players[m].changeLongRoad();
+						}
+						break;
+					}
+				}
+		}
 	}
 
 	public void useMonopoly(int p, int r){
