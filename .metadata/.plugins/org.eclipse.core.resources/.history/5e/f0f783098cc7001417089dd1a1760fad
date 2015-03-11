@@ -21,7 +21,7 @@ public class RunGame {
 	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road, 4 = trade 4 to 1, 5 = trade other player, 6 = move robber
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
-	private boolean sevenRolled;
+	private int tileToAct;
 	
 	public boolean inFirstRound;
 	private boolean firstRoundSET;
@@ -121,9 +121,6 @@ public class RunGame {
 		fei.updateCurrentPlayer(currentPlayerID);
 		int r1 = roll();
 		int r2 = roll();
-		if ((r1+r2) == 7){
-			sevenRolled = true; 
-		}
 		gl.diceRoll(r1+r2);
 		updateAllResources();
 		return new int[] {r1,r2};
@@ -185,7 +182,8 @@ public class RunGame {
 	}
 	
 	public void setTileClicked(int t){
-		if (actionType == 6 && sevenRolled) {
+		tileToAct = t;
+		if (actionType == 6) {
 			gl.moveRobber(t);
 		}
 		fei.updateRobberPosition(t);
