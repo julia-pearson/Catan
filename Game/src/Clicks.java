@@ -15,6 +15,8 @@ public class Clicks implements MouseListener{
 
 		int x = e.getX();
 		int y = e.getY();
+		System.out.println(x);
+		System.out.println(y);
 		//identifying the Vertex and Hexagon
 		int verty= searchVert(x,y);
 		int hexy= searchHex(x,y);
@@ -25,6 +27,10 @@ public class Clicks implements MouseListener{
 			hex.rollOne=rolls[0];//random from Julia
 			hex.rollTwo=rolls[1];
 			hex.repaint();
+		}
+		boolean trade = triedTrade(x,y);
+		if(trade){
+			interaction.tradeClicked();
 		}
 		boolean city = askCity(x,y);
 		if(city){
@@ -113,6 +119,14 @@ public class Clicks implements MouseListener{
 			}
       	}
       	return hexy;
+	}
+	public boolean triedTrade(int x, int y){
+		if(x<1370 && x>1285 && y<254 && y>177){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public boolean rolledDice(int x, int y){
 		if(x<175 && x>25 && y<810 && y>745){
