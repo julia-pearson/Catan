@@ -269,7 +269,7 @@ public class RunGame {
 			gl.trade(tradeResources);
 			updateAllResources();
 		}
-		//trade with other people
+		
 	}
 	
 	private void updateSinglePlayerResources(){

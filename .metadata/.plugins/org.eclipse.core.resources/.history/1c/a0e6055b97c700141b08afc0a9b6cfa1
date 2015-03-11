@@ -113,6 +113,7 @@ public class RunGame {
 	}
 	
 	public int[] rollDice(){
+		gl.moveRobber(3, currentPlayerID);
 		if ( gameEnd() ){
 			//System.exit(0);
 			return new int[] {6,6};
@@ -188,7 +189,6 @@ public class RunGame {
 		if (actionType == 6 && sevenRolled) {
 			gl.moveRobber(t, currentPlayerID);
 			fei.updateRobberPosition(t);
-			updateAllResources();
 		}
 	}
 	
@@ -269,7 +269,7 @@ public class RunGame {
 			gl.trade(tradeResources);
 			updateAllResources();
 		}
-		//trade with other people
+		
 	}
 	
 	private void updateSinglePlayerResources(){

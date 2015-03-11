@@ -165,7 +165,7 @@ public class GraphController {
 			Vertex v1 = vertices[i];
 			
 		}
-		return vertices[1].getOwner();
+		return vertices[1].owner;
 	
 	}
 	

@@ -68,7 +68,6 @@ public class Clicks implements MouseListener{
 		}
 		if(hexy<19){
 			interaction.robberClicked();
-			interaction.tileClicked(hexy);
 		}
 	}
 
@@ -91,6 +90,7 @@ public class Clicks implements MouseListener{
 				vert=i;
 			}
       	}
+      	System.out.println(vert);
       	return vert;
 	}
 	public int searchHex(int x, int y){
@@ -112,6 +112,7 @@ public class Clicks implements MouseListener{
 				hexy=i;
 			}
       	}
+      	System.out.println(hexy);
       	return hexy;
 	}
 	public boolean rolledDice(int x, int y){

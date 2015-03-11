@@ -12,6 +12,7 @@ public class GraphController {
 	public GraphController (Vertex[] v, Tile[] t){
 		vertices = v;
 		tiles = t;
+		
 	}
 	
 	/*check if it is legal to build a settlement here (ie- no other settlements at a neighbor vertex 
@@ -159,16 +160,6 @@ public class GraphController {
 		return false;
 	}
 	
-	private Player longestRoad(){
-		int longestRoad = 0;
-		for (int i = 0; i<vertices.length; i++){
-			Vertex v1 = vertices[i];
-			
-		}
-		return vertices[1].getOwner();
-	
-	}
-	
 	
 	/*
 	 * Go through vertices and determine which players should receive resources for the given roll. 
@@ -240,8 +231,6 @@ public class GraphController {
 				Player owner = v.getOwner();
 				for (int j = 0; j<tiles.length; j++){
 					if (tiles[j].hasRobber){
-						System.out.println("Settlement on tile "+tile);
-						System.out.println("Owner of settlement +"+owner.getID());
 						playersOnTile[playersCount] = owner;
 						playersCount ++;
 					}
