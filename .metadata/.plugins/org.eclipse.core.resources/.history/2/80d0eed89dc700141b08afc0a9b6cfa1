@@ -215,7 +215,6 @@ public class RunGame {
 			tryToBuildRoad();
 		}
 		updateSinglePlayerResources();
-		updateStats();
 	}
 	
 	private void tryToBuildSettlement(){
@@ -286,13 +285,6 @@ public class RunGame {
 		for (int i = 1; i< players.length; i++){
 			int [] r = players[i].getResourceArray();
 			fei.updateResources(i, r);
-		}
-	}
-	
-	private void updateStats(){
-		for (int i = 1; i< players.length; i++){
-			int [] r = players[i].getPlayerStats();
-			fei.updateVP(i, r);
 		}
 	}
 	

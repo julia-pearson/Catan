@@ -90,6 +90,7 @@ public class FrontEndInterface {
 	}
 	
 	public void updateVP (int playerID, int[] stats){
+	//call method in hex to update vp count	
 		h.addStatistics(stats, playerID);
 	}
 	
