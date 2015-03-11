@@ -14,6 +14,7 @@ public class Hexanew extends JFrame{
   Graphics g;
   Graphics2D g2;
   FrontEndInterface interaction;
+  int totalPlayers;
 
   //CONSTANT__________
 
@@ -47,6 +48,7 @@ public class Hexanew extends JFrame{
   Color red = new Color (218,46,46);
   Color robberGray = new Color (144,144,144);
   Color newGray = new Color (159,159,159);
+  Color lightPurps = new Color (137,63,137);
 
   //UNIVERSAL VARIABLES TO BE USED__________
 
@@ -219,8 +221,6 @@ public class Hexanew extends JFrame{
 
   //CAN GET RID OF WHEN CONECTED__________
 
-  //need interaction game player variable 
-  int gamePlayers=4;
   //fake board
   int[][] res = new int[][]{
     {0,0},
@@ -244,15 +244,15 @@ public class Hexanew extends JFrame{
     {4,4},
   };
 
-  int[] player1 = new int[]{0,0,0,0,10,0};
-  int[] player2 = new int[]{0,0,5,0,0,0};
-  int[] player3 = new int[]{0,0,0,7,10,0};
-  int[] player4 = new int[]{0,0,5,0,0,0};
+  int[] player1 = new int[]{0,0,0,0,0,0};
+  int[] player2 = new int[]{0,0,0,0,0,0};
+  int[] player3 = new int[]{0,0,0,0,0,0};
+  int[] player4 = new int[]{0,0,0,0,0,0};
 
 
   //sets up screen and size
   //pass the list of tiles to draw and the first player
-  public Hexanew(FrontEndInterface f, int[][] board){
+  public Hexanew(FrontEndInterface f, int[][] board, int numPlayers){
       setTitle("Hexanew");
       setSize(1500, 1000);
       setVisible(true);
@@ -260,6 +260,7 @@ public class Hexanew extends JFrame{
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       interaction = f;
       res = board;
+      totalPlayers = numPlayers;
   }
   
   public void paint(Graphics graphics){
@@ -272,8 +273,9 @@ public class Hexanew extends JFrame{
       updateBoard();
   }
 
-  public void drawBoard (int currentPlayer){
+  public void drawBoard(int currentPlayer){
       //background
+
       g.setColor(circles);
       int xpoints[]={0,1500,1500,0};
       int ypoints[]={0,0,1000,1000};
@@ -318,7 +320,8 @@ public class Hexanew extends JFrame{
       drawDevelopement(3*a, x+780+4*a, y-560);
       drawCards(890, 260);
       //Setting players, should be from Julia
-      drawPlayers(g2, 900, 300, gamePlayers);
+      drawPlayers(g2, 900, 300, totalPlayers);
+      tradeButton(1300,252);
   }
 
   public void updateBoard(){
@@ -345,9 +348,10 @@ public class Hexanew extends JFrame{
       drawResources(g2, 1, player1);
       drawResources(g2, 2, player2);
       drawResources(g2, 3, player3);
-      if (gamePlayers==4){
+      if (totalPlayers==4){
         drawResources(g2, 4, player4);       
       }
+
   }
 
 
@@ -522,6 +526,10 @@ public class Hexanew extends JFrame{
     }
     start[h][2]=1;
     repaint();
+  }
+
+  public void addStatistics(int[] statistics, int player){
+    
   }
 
 
@@ -819,7 +827,6 @@ public class Hexanew extends JFrame{
         g2.drawString("Victory Points   ", x+250, y+25+i*150);
         g2.drawString("Development Cards    ", x+250, y+40+i*150); 
       } 
-
   }
 
   public void drawResources(Graphics2D g2, int currentPlayer, int[] resourceCount){
@@ -882,6 +889,21 @@ public class Hexanew extends JFrame{
       g2.drawString("Victory Points   "+, x+250, y+25+i*150);
       g2.drawString("Development Cards    "+, x+250, y+40+i*150); 
    */ 
+  }
+
+  public void tradeButton(int x, int y){
+      g.setColor(Color.white);
+      int radius=22;
+      drawCircle(x+25,y-radius-10,radius*2);
+      radius=20;
+      g.setColor(lightPurps);
+      drawCircle(x+25,y-radius-12,radius*2);
+
+
+      Font font = new Font("Gill Sans", Font.PLAIN, 30);
+      g2.setFont(font);
+      g.setColor(Color.white);
+      g2.drawString("Trade", x-10, y-20);
   }
 
   private void drawCircle(int x, int y, int radius) {
