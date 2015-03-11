@@ -223,13 +223,21 @@ public class GameLogic {
 		if (tradeStats[0][2]!=0){ //not trading with computer
 			Player a = players[tradeStats[0][2]];
 			//player a gives away resources and gains some
-			a.looseResource(tradeStats[0][0], tradeStats[0][1]);
-			a.addResource(tradeStats[1][0], tradeStats[1][1]);
+			for (int i = 0; i<tradeStats[0][1]; i++){
+				a.looseResource(tradeStats[0][0]);
+			} 
+			for (int i = 0; i<tradeStats[1][1]; i++){
+				a.addResource(tradeStats[1][0]);
+			} 
 		}
 		Player b = players[tradeStats[1][2]];	
 		//player b gives away resources and gains some
-		b.addResource(tradeStats[0][0], tradeStats[0][1]);
-		b.looseResource(tradeStats[1][0], tradeStats[1][1]);
+		for (int i = 0; i<tradeStats[0][1]; i++){
+			b.addResource(tradeStats[0][0]);
+		} 
+		for (int i = 0; i<tradeStats[1][1]; i++){
+			b.looseResource(tradeStats[1][0]);
+		} 
 	}
 
 	public void moveRobber(int destinationTile){

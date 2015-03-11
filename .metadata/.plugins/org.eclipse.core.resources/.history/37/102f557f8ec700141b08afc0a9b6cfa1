@@ -177,13 +177,14 @@ public class GraphController {
 								System.out.println("resource of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ " to player"+owner.getID());
 							}
-							owner.addResource(tiles[j].resource, 1);
+							owner.addResource(tiles[j].resource);
 						} else if (v.getSettlementType() == 2){
 							if (debug) {
 								System.out.println("2 resources of type: "+Resource.getType(tiles[j].resource)+
 										" given on roll"+ roll+ " to player" + owner.getID());
 							}
-							owner.addResource(tiles[j].resource, 2);
+							owner.addResource(tiles[j].resource);
+							owner.addResource(tiles[j].resource);
 						}
 					}
 				}
@@ -204,7 +205,7 @@ public class GraphController {
 				System.out.println("resource of type: "+Resource.getType(tiles[i].resource)+
 						" given to player "+owner.getID());
 			}
-			owner.addResource(tiles[i].resource, 1);
+			owner.addResource(tiles[i].resource);
 		}
 	}
 	

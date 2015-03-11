@@ -204,7 +204,7 @@ public class GraphController {
 				System.out.println("resource of type: "+Resource.getType(tiles[i].resource)+
 						" given to player "+owner.getID());
 			}
-			owner.addResource(tiles[i].resource, 1);
+			owner.addResource(tiles[i].resource);
 		}
 	}
 	
