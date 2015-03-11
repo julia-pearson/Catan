@@ -46,7 +46,7 @@ public class Player {
 		// 9 number of monopoly cards
 		// 10 number of year of plenty cards
 
-		int[] stats = new int[6];
+		int[] stats = new int[11];
 		stats[0] = resourceTracker.getSheep();
 		stats[1] = resourceTracker.getRock();
 		stats[2] = resourceTracker.getWheat();
@@ -165,24 +165,18 @@ public class Player {
 	}
 
 	public boolean useDevCard(int i){
-		boolean build;
-		if(i==0){
-			build = dCardTracker.useKnight();
-			if(build){
-				//initiate knight sequence
-				return true;
-			}
-			System.out.println("You do not have a knight to use.")
-			return false;
-		}
+		if(i==0)
+			return dCardTracker.useKnight();
 
-		if(i==2){
-			build=dCardTracker.useRoadBuilder();
-			if(build){
-				//build two roads
+		if(i==3)
+			return dCardTracker.useRoadBuilder();	
 
-			}	
-		}
+		if(i==4)
+			return dCardTracker.useMonopoly();
+
+		if(i==5)
+			return dCardTracker.useYearOfPlenty();
+		
 	}
 
 	public void sevenRoll(){

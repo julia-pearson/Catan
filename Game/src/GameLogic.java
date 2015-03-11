@@ -198,15 +198,10 @@ public class GameLogic {
 		return true;
 	}
 
-	//i is which dev card!
+	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
+	//this will return whether they can play that d card and then julia needs to handle the rest 
 	public boolean useDevCard(int p, int i){
-		boolean build = players[p].useDevCard(i);
-		
-		return true;
-		//CJ: check that the player has resources to build a d card. update shit.
-		//Julia P: update graphics
-
-		return build;
+		return build = players[p].useDevCard(i);
 	}
 
 
@@ -240,10 +235,5 @@ public class GameLogic {
 		b.looseResource(tradeStats[1][0], tradeStats[1][1]);
 	}
 
-	public void moveRobber(int destinationTile, int playerMovingRobber){
-		Player playerToLoose = graph.moveRobber(destinationTile);
-		int resourceGained = playerToLoose.stealResource();
-		players[playerMovingRobber].addResource(resourceGained, 1);
-	} 
 	
 }
