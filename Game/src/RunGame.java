@@ -307,23 +307,43 @@ public class RunGame {
 	}
 	
 	//dev card methods
-	
-
 	public void useMonopoly(){
-		
-		//logic
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		//r is the resource (int) they want to monopolize from all the players
+		boolean allowed = gl.useDevCard(p,4);
+		if(allowed){
+			gl.useMonopoly(p,r);
+		}
+		//update stats (affects many players resource stats)
 	}
 	
 	public void useYearOfPlenty(){
-		//logic
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		//r1 and r2 are the two resources (int) they want to take from the bank
+		boolean allowed = gl.useDevCard(p,5);
+		if(allowed){
+			gl.useYearOfPlenty(p,r1,r2);
+		}
+		//update stats (affects that players resource stats)
 	}
 
 	public void useRoadBuilder(){
-		//JULIA WILL HANDLE
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		boolean allowed = gl.useDevCard(p,3);
+		if(allowed){
+			//you are handling this. place two roads for free (same as placing roads in the begining
+			//gl.placeRoad(int p, int v1, int v2)
+		}
+		//update stats (because this may have affected longest road)
 	}
 	
 	public void useKnight(){
-		//JULIA will handle
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		boolean allowed = gl.useDevCard(p,0);
+		if(allowed){
+			//you are handling this. move the robber and steal from someone (same as 7)
+		}
+		//update stats (resources changed from steal and may have affected largest army)
 	}
 	
 	private void updateSinglePlayerResources(){

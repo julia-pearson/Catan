@@ -170,9 +170,8 @@ public class GameLogic {
 		//longest road check
 	}
 
-	//used at beginning!
+	//used at beginning + for roadbuilder dev card
 	public boolean placeRoad(int p, int v1, int v2){
-		//check that the player has resources to build a road and has roads left
 		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
