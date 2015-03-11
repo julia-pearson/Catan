@@ -137,4 +137,12 @@ public class ResourceCards{
 		return cardKey[x];
 	}
 
+	public int monopX(int x){
+		int getrid = cardKey[x];
+		while(cardKey[x]>0){
+			cardKey[x]--;
+		}
+		return getrid;
+	}
+
 }

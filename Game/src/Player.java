@@ -88,6 +88,13 @@ public class Player {
 			return resourceTracker.useWood(q);
 		if(i==5)
 			return resourceTracker.useSheep(q);
+
+		System.out.println("Something is wrong if this prints - looseResource");
+		return false;
+	}
+
+	public int getAllX(int x){
+		return resourceTracker.monopX(x);
 	}
 
 	public boolean buildSetCheck(){
@@ -177,6 +184,8 @@ public class Player {
 		if(i==5)
 			return dCardTracker.useYearOfPlenty();
 		
+		System.out.println("Something is wrong if this prints - usedevcard.");
+		return false;
 	}
 
 	public void sevenRoll(){

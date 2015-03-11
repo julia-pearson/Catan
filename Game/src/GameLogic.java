@@ -142,7 +142,7 @@ public class GameLogic {
 		}
 
 	}
-	
+
 
 	public boolean buildRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
@@ -201,7 +201,22 @@ public class GameLogic {
 	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
 	//this will return whether they can play that d card and then julia needs to handle the rest 
 	public boolean useDevCard(int p, int i){
-		return build = players[p].useDevCard(i);
+		return players[p].useDevCard(i);
+	}
+
+	public void useMonopoly(int p, int r){
+		//r is the resource we are monopolizing
+		int total = 0;
+		for(int i=0; i<players.length; i++){
+			if(i!=p)
+				total = total + players[p].getAllX(r);
+		}
+		players[p].addResource(r,total);
+	}
+
+	public void useYearOfPlenty(int p, int r1, int r2){
+		players[p].addResource(r1, 1);
+		players[p].addResource(r2, 1);
 	}
 
 
