@@ -142,7 +142,7 @@ public class GameLogic {
 		}
 
 	}
-	
+
 
 	public boolean buildRoad(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
@@ -198,23 +198,41 @@ public class GameLogic {
 		return true;
 	}
 
-//still working on this
-	/*public boolean useDevCard(Player p, int i){
-		boolean build = p.useDevCard(i);
-		
-		return true;
-		//CJ: check that the player has resources to build a d card. update shit.
-		//Julia P: update graphics
-
-		return build;
+	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
+	//this will return whether they can play that d card and then julia needs to handle the rest 
+	public boolean useDevCard(int p, int i){
+		return players[p].useDevCard(i);
 	}
-	*/
+
+	public void useMonopoly(int p, int r){
+		//r is the resource we are monopolizing
+		int total = 0;
+		for(int i=0; i<players.length; i++){
+			if(i!=p)
+				total = total + players[p].getAllX(r);
+		}
+		players[p].addResource(r,total);
+	}
+
+	public void useYearOfPlenty(int p, int r1, int r2){
+		players[p].addResource(r1, 1);
+		players[p].addResource(r2, 1);
+	}
 
 
-	public boolean usePort(Player p){
-		//CJ: check that the player has the port and update stats
-		//Julia P: update graphics
-		return false;
+	public boolean usePort(int p, int x, int r, int y){
+		//p is the player, x is which port they want to use, r is what resource they want, y is what resource they are using
+		boolean build = players[p].buildPortCheck(x,y);
+		if (build == false)
+			return false;
+		else{
+			if(x==0)
+				players[p].looseResource(y,3);
+			else
+				players[p].looseResource(y,2);
+			players[p].addResource(r,1);
+			return true;
+		}
 	}
 
 	public void trade(int[][] tradeStats){
@@ -232,10 +250,5 @@ public class GameLogic {
 		b.looseResource(tradeStats[1][0], tradeStats[1][1]);
 	}
 
-	public void moveRobber(int destinationTile, int playerMovingRobber){
-		Player playerToLoose = graph.moveRobber(destinationTile);
-		int resourceGained = playerToLoose.stealResource();
-		players[playerMovingRobber].addResource(resourceGained, 1);
-	} 
 	
 }
