@@ -15,7 +15,7 @@ public class GameLogic {
 
 	public GameLogic(int[][] board, Player[] pArray) {
 		GraphMaker gm = new GraphMaker(board);
-		graph = new GraphController(gm.getVertexArray());
+		graph = new GraphController(gm.getVertexArray(), gm.tilesInBoard);
 		devDeck = new DevCardDeck();
 		players = pArray;
 	}
@@ -41,11 +41,12 @@ public class GameLogic {
 		System.out.println("Testing Resource Distribution:");
 		int roll = 4;
 		graph.distributeResources(roll);
-		
+		/*
 		System.out.println("Testing Road Placement:");
 		int v1 = 17;
 		int v2 = 18;
 		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb, true) );
+		*/
 	}
 
 	public void testCombinedFeatures(){
@@ -239,10 +240,8 @@ public class GameLogic {
 		} 
 	}
 
-	public void moveRobber(){
-		//TODO: find robber in the array
-		//move to new tile based on clicks
-		//this is going to need to be used for 7 rolls and knights
+	public void moveRobber(int destinationTile){
+		graph.moveRobber(destinationTile);
 	} 
 	
 }
