@@ -66,19 +66,33 @@ public class FrontEndInterface {
 	public int[] diceClicked (){
 		return rg.rollDice();
 	}
+	
+	public void robberClicked(){
+		rg.setActionType(6);
+	}
+	
+	public void tileClicked(int t){
+		rg.setTileClicked(t);
+	}
 
 	public void drawSettlement(int v){
 		h.addSettlement(v);
 	}
 	
 	public void drawRoad (int v1, int v2){
-		System.out.println("Draw Road method in FEI called");
 		h.addRoad(v1,v2, currentPlayerID);
 	}
 	
 	public void drawCity(int v){
-	//	h.buildCity(v);
-		System.out.println("Tried to draw city on vertex: "+v);
+		h.addCity(v);
+	}
+	
+	public void updateRobberPosition (int t){
+		h.addRobber(t);
+	}
+	
+	public void updateVP (int playerID, int[] victoryPoints){
+	//call method in hex to update vp count	
 	}
 	
 	public void updateResources(int playerID, int[] resources){

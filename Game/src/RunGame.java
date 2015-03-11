@@ -18,9 +18,10 @@ public class RunGame {
 	private  int playerCount;
 	private  int currentPlayerID;
 	
-	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road, 4 = trade 4 to 1, 5 = trade other player
+	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road, 4 = trade 4 to 1, 5 = trade other player, 6 = move robber
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
+	private int tileToAct;
 	
 	public boolean inFirstRound;
 	private boolean firstRoundSET;
@@ -180,6 +181,14 @@ public class RunGame {
 		}
 	}
 	
+	public void setTileClicked(int t){
+		tileToAct = t;
+		if (actionType == 6) {
+			gl.moveRobber(t);
+		}
+		fei.updateRobberPosition(t);
+	}
+	
 	public void setActionType (int t){
 		actionType = t;
 	}
@@ -198,6 +207,7 @@ public class RunGame {
 		} else if (actionType == 3){
 			tryToBuildRoad();
 		}
+		updateSinglePlayerResources();
 	}
 	
 	private void tryToBuildSettlement(){
@@ -207,7 +217,6 @@ public class RunGame {
 		boolean success = 	gl.buildSettlement(currentPlayerID, v);
 		if (success){
 			fei.drawSettlement(v);
-			updateSinglePlayerResources();
 		}
 		clearVerticesAndAction();
 	}
