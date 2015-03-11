@@ -186,21 +186,10 @@ public class RunGame {
 	
 	public void setTileClicked(int t){
 		if (actionType == 6 && sevenRolled) {
-<<<<<<< HEAD
 			gl.moveRobber(t, currentPlayerID);
 			fei.updateRobberPosition(t);
 			updateAllResources();
 		}
-=======
-			robberAction(t, currentPlayerID);
-		}
-	}
-	
-	public void robberAction(int tile, int playerID){
-		gl.moveRobber(tile, playerID);
-		fei.updateRobberPosition(tile);
-		updateAllResources();
->>>>>>> juliaedholm/master
 	}
 	
 	public void setActionType (int t){
