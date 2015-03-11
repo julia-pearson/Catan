@@ -118,9 +118,6 @@ public class Player {
 	}
 
 	//methods for longest road
-	public int getRoadSize(){
-		//I NEED TO GET THE ROAD SIZE FROM JULIAS GRAPH
-	}
 
 	public boolean checkLongRoad(){
 		return longestRoad;

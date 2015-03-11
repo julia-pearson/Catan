@@ -231,10 +231,10 @@ public class GameLogic {
 
 	//this should be called after any instance of someone building a road (placeRoad and buildRoad)
 	public void longRoadChecker(int p){
-		if(players[p].getRoadSize()>=5 && players[p].checkLongRoad()==false){
+		if(graph.getRoadSize(players[p])>=5 && players[p].checkLongRoad()==false){
 				for(int m=0; m<players.length; m++){
 					if(players[m].checkLongRoad() == true){
-						if(players[p].getRoadSize() > players[m].getRoadSize()){
+						if(graph.getRoadSize(players[p]) > graph.getRoadSize(players[m])){
 							players[p].changeLongRoad();
 							players[m].changeLongRoad();
 						}
