@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="addRo" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="robber"/>
+			<item value="victory"/>
+			<item value="vict"/>
+			<item value="addCi"/>
+			<item value="repaint"/>
+			<item value="&lt;&lt;&lt;&lt;"/>
 			<item value="addRo"/>
 			<item value="buildSet"/>
-			<item value="drawSettlement"/>
-			<item value="drawSett"/>
-			<item value="drawBoard"/>
-			<item value="int[][]"/>
-			<item value="&gt;&gt;&gt;&gt;&gt;"/>
-			<item value="placeSet"/>
 		</list>
 		<list key="replacehistory">
 		</list>

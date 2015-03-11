@@ -4,10 +4,13 @@
  */
 public class GraphController {
 	static Vertex[] vertices; //pointers to the vertex objects in graph (connected by edge objects)
-	boolean debug = true; 
+	static Tile[] tiles;
+	boolean debug = false; 
 	
-	public GraphController (Vertex[] v){
+	public GraphController (Vertex[] v, Tile[] t){
 		vertices = v;
+		tiles = t;
+		
 	}
 	
 	/*check if it is legal to build a settlement here (ie- no other settlements at a neighbor vertex 
@@ -183,8 +186,6 @@ public class GraphController {
 							owner.addResource(tiles[j].resource);
 							owner.addResource(tiles[j].resource);
 						}
-						
-					
 					}
 				}
 			}
@@ -207,4 +208,17 @@ public class GraphController {
 			owner.addResource(tiles[i].resource);
 		}
 	}
+	
+	/*
+	 * Method that moves location of robber
+	 */
+	public void moveRobber (int tile){
+		for (int i =0; i<tiles.length; i++){
+			if (tiles[i].hasRobber){
+				tiles[i].hasRobber = false;
+			}
+		}
+		tiles[tile].hasRobber = true;		
+	}
+		
 }
