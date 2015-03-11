@@ -12,7 +12,7 @@ public class FrontEndInterface {
 	private Hexanew h;
 	public int currentPlayerID;
 	
-	public FrontEndInterface (RunGame r, int[][] board){
+	public FrontEndInterface (RunGame r, int[][] board, int n){
 		rg = r;
 		//must convert board (4X19) to the correct shape for hexanew (19x2)
 		
@@ -22,7 +22,7 @@ public class FrontEndInterface {
 			newBoard[i][1]= board[1][i];
 		}
 	
-		h = new Hexanew( this, newBoard);
+		h = new Hexanew( this, newBoard, n);
 	}
 	
 	public void updateCurrentPlayer (int cp){

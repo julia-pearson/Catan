@@ -51,7 +51,7 @@ public class RunGame {
 	
 		if (usingGraphics){
 			//FEI will draw the graph
-			fei = new FrontEndInterface (this, testBoard);
+			fei = new FrontEndInterface (this, testBoard, numPlayers);
 			fei.currentPlayerID = currentPlayerID;
 			inFirstRound = true;
 			firstRoundSET = true;
