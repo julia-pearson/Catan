@@ -1,13 +1,12 @@
 //CJ
 
 public class Player {
-
 	private int playerID;
-	private int victoryPoints;
+	public int victoryPoints;
 	private boolean largestArmy;
 	private boolean longestRoad;
 
-	private int numberOfSettlements; //max 5
+	public int numberOfSettlements; //max 5
 	private int numberOfCities; //max 4
 	private int numberOfRoads; //max 15
 	
@@ -66,6 +65,7 @@ public class Player {
 
 	public void addResource(int i, int q){
 		if(i==1)
+<<<<<<< HEAD
 			resourceTracker.addRock(q);
 		if(i==2)
 			resourceTracker.addWheat(q);
@@ -75,6 +75,31 @@ public class Player {
 			resourceTracker.addWood(q);
 		if(i==5)
 			resourceTracker.addSheep(q);
+=======
+			resourceTracker.addRock(1);
+		if(i==2)
+			resourceTracker.addWheat(1);
+		if(i==3)
+			resourceTracker.addBrick(1);
+		if(i==4)
+			resourceTracker.addWood(1);
+		if(i==5)
+			resourceTracker.addSheep(1);
+	}
+	
+	//used in trading
+	public void looseResource(int i){
+		if(i==1)
+			resourceTracker.useRock(1);
+		if(i==2)
+			resourceTracker.useWheat(1);
+		if(i==3)
+			resourceTracker.useBrick(1);
+		if(i==4)
+			resourceTracker.useWood(1);
+		if(i==5)
+			resourceTracker.useSheep(1);
+>>>>>>> juliaedholm/master
 	}
 
 	public boolean buildSetCheck(){
@@ -129,6 +154,7 @@ public class Player {
 		resourceTracker.useSheep(1);
 		resourceTracker.useRock(1);
 		resourceTracker.useWheat(1);
+<<<<<<< HEAD
 
 		if(i == 0)
 			dCardTracker.addKnight();
@@ -146,6 +172,9 @@ public class Player {
 
 		if(i == 4)
 			dCardTracker.addYearOfPlenty();
+=======
+		return true;
+>>>>>>> juliaedholm/master
 	}
 
 	/*public boolean useDevCard(int i){
@@ -222,13 +251,50 @@ public class Player {
 		return playerID;
 	}
 	
+	public int[] getResourceArray(){
+		//returns an array of the number of each type of resource
+		//using same key as defined by CJ.
+		//index 1 = Rock, index 2 = Wheat, index 3 = Brick, index 4 = wood, index 5 = sheep
+		int[] toReturn = new int[6];
+		toReturn[1] = resourceTracker.getRock();
+		toReturn[2] = resourceTracker.getWheat();
+		toReturn[3] = resourceTracker.getBrick();
+		toReturn[4] = resourceTracker.getWood();
+		toReturn[5] = resourceTracker.getSheep();
+		return toReturn;
+	}
+	
 	public void printStats(){
 		System.out.println("Stats for player: "+playerID);
 		System.out.println("Number of Settlements: " +numberOfSettlements);
 		System.out.println("Number of Cities: " +numberOfCities);
 		System.out.println("Number of Roads: " +numberOfRoads);
 		System.out.println("Victory Points: " +victoryPoints);
+		System.out.println("Resources:");
+		int[] resources = getResourceArray();
+		System.out.println("Num Rock: "+resources[1]);
+		System.out.println("Num Wheat: "+resources[2]);
+		System.out.println("Num Brick: "+resources[3]);
+		System.out.println("Num Wood: "+resources[4]);
+		System.out.println("Num Sheep: "+resources[5]);
 	}
-
+	
+	//method for testing
+	public void giveSettlementResources(){
+		resourceTracker.addWheat(1);
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
+		resourceTracker.addSheep(1);
+	}
+	
+	public void giveCityResources(){
+		resourceTracker.addWheat(2);
+		resourceTracker.addRock(3);
+	}
+	
+	public void giveRoadResources(){
+		resourceTracker.addBrick(1);
+		resourceTracker.addWood(1);
+	}
 
 }

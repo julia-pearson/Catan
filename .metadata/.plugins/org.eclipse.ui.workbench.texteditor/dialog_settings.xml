@@ -13,9 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="placeSet" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="placeSet"/>
+			<item value="repaint"/>
+			<item value="&lt;&lt;&lt;&lt;"/>
+			<item value="addRo"/>
+			<item value="buildSet"/>
+			<item value="drawSettlement"/>
+			<item value="drawSett"/>
+			<item value="drawBoard"/>
+			<item value="int[][]"/>
 		</list>
 		<list key="replacehistory">
 		</list>

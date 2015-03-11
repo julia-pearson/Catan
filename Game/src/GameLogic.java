@@ -11,18 +11,11 @@ public class GameLogic {
 
 	private boolean debugSet = true;
 
-	public GameLogic(int[][] board) {
-	//julia should be taking this
-	//	players = new Player[numPlayers];
-	//	for(int i=1; i<(numPlayers+1); i++)
-	//		players[i] = new Player(i);
-		//testboard gives a predetermined board
-	//	int[][] testBoard = new Board().getTestBoard();
-		//int[][] board= new Board().getBoard();
+	public GameLogic(int[][] board, Player[] pArray) {
 		GraphMaker gm = new GraphMaker(board);
-
 		graph = new GraphController(gm.getVertexArray());
 		devDeck = new DevCardDeck();
+		players = pArray;
 	}
 	
 	/*public void testGraphFeatures(){
@@ -50,7 +43,7 @@ public class GameLogic {
 		System.out.println("Testing Road Placement:");
 		int v1 = 17;
 		int v2 = 18;
-		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb) );
+		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb, true) );
 	}
 
 	public void testCombinedFeatures(){
@@ -68,7 +61,18 @@ public class GameLogic {
 	}*/
 
 	public void diceRoll(int numRoll){
+<<<<<<< HEAD
 		graph.distributeResources(numRoll);
+=======
+		if(numRoll == 7){
+			for(int i=1; i<players.length; i++)
+				players[i].sevenRoll();
+			//initiate robber movement stealing sequence (same as for knight)
+		}
+		else{
+			graph.distributeResources(numRoll);
+		}
+>>>>>>> juliaedholm/master
 
 	}
 	
@@ -87,6 +91,11 @@ public class GameLogic {
 			System.out.println("You cannot build on this location.");
 			return false;
 		}
+	}
+	
+	//method to give player the resource for their second settlement
+	public void giveResourcesStartGame(int vertexNumber){
+		graph.firstRoundResource(vertexNumber);
 	}
 	
 	//method to be called during game play when player wants to build settlement
@@ -115,7 +124,11 @@ public class GameLogic {
 
 	}
 
+<<<<<<< HEAD
 	public boolean buildCity(Player p, int vertexNumber){
+=======
+	public boolean buildCity(int p, int vertexNumber){
+>>>>>>> juliaedholm/master
 		//check that the player has resources to build a city and has cities left
 		boolean build = p.buildCityCheck();
 
@@ -136,18 +149,27 @@ public class GameLogic {
 
 	}
 	
+<<<<<<< HEAD
 	public boolean buildRoad(Player p, int v1, int v2){
+=======
+	public boolean buildRoad(int p, int v1, int v2){
+>>>>>>> juliaedholm/master
 		//check that the player has resources to build a road and has roads left
 		boolean build = p.buildRoadCheck();
 
 		if(build == false)
 			return false;
 
+<<<<<<< HEAD
 		build = graph.placeRoad(v1,v2, p); 
+=======
+		build = graph.buildRoad(v1,v2, players[p], debugSet); 
+>>>>>>> juliaedholm/master
 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
+<<<<<<< HEAD
 		}
 
 		else{
@@ -163,31 +185,54 @@ public class GameLogic {
 
 		boolean build = graph.placeRoad(v1,v2, p); 
 
+=======
+		} else{
+			players[p].buildRoad();
+			return true;
+		}
+		//longest road check
+	}
+
+	//used at beginning!
+	public boolean placeRoad(int p, int v1, int v2){
+		//check that the player has resources to build a road and has roads left
+		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
+>>>>>>> juliaedholm/master
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
 		}
 
 		else{
+<<<<<<< HEAD
 			p.placeRoad();
+=======
+			players[p].placeRoad();
+			System.out.println("Road placed successfully");
+>>>>>>> juliaedholm/master
 			return true;
 		}
-
 	}
 
+<<<<<<< HEAD
 	public boolean buildDevCard(Player p){
 		boolean build = p.buildDevCheck();
+=======
+	public boolean buildDevCard(int p){
+		boolean build = players[p].buildDevCheck();
+>>>>>>> juliaedholm/master
 
 		if (build == false)
 			return false;
-
 		int i = devDeck.drawDevCard();
-
+		
+		
 		if(i ==10){
 			System.out.println("There are no development cards left.");
 			return false;
 		}
 
+<<<<<<< HEAD
 		p.buildDev(i);
 		return true;
 	}
@@ -195,6 +240,12 @@ public class GameLogic {
 //still working on this
 	/*public boolean useDevCard(Player p, int i){
 		boolean build = p.useDevCard(i);
+=======
+		
+		return true;
+		//CJ: check that the player has resources to build a d card. update shit.
+		//Julia P: update graphics
+>>>>>>> juliaedholm/master
 
 		return build;
 	}
@@ -206,9 +257,38 @@ public class GameLogic {
 		//Julia P: update graphics
 	}
 
-	public void trade(int p){
-		//meep
+	public void trade(int[][] tradeStats){
+		//tradeStats[0]= {type you want, amount, playerID to give}, tradeStats[1] = {type you'll give away, amount, playerID initiating trade}
+		// if playerID to give is 0, the player initiating trade is trading with bank
+		if (tradeStats[0][2]!=0){ //not trading with computer
+			Player a = players[tradeStats[0][2]];
+			//player a gives away resources and gains some
+			for (int i = 0; i<tradeStats[0][1]; i++){
+				a.looseResource(tradeStats[0][0]);
+			} 
+			for (int i = 0; i<tradeStats[1][1]; i++){
+				a.addResource(tradeStats[1][0]);
+			} 
+		}
+		Player b = players[tradeStats[1][2]];	
+		//player b gives away resources and gains some
+		for (int i = 0; i<tradeStats[0][1]; i++){
+			b.addResource(tradeStats[0][0]);
+		} 
+		for (int i = 0; i<tradeStats[1][1]; i++){
+			b.looseResource(tradeStats[1][0]);
+		} 
 	}
 
+<<<<<<< HEAD
 
+=======
+	public void moveRobber(){
+		//TODO: find robber in the array
+		//move to new tile based on clicks
+		//this is going to need to be used for 7 rolls and knights
+	} 
+	
+	
+>>>>>>> juliaedholm/master
 }

@@ -1,9 +1,10 @@
 /*JE
- * The GraphController class will mantian the state of the graph as game play progresses.
+ * The GraphController class will maintain the state of the graph as game play progresses.
  * Actions like: build settlement, build road, and build city will all be validated and carried out in this class.  
  */
 public class GraphController {
 	static Vertex[] vertices; //pointers to the vertex objects in graph (connected by edge objects)
+	boolean debug = true; 
 	
 	public GraphController (Vertex[] v){
 		vertices = v;
@@ -26,7 +27,6 @@ public class GraphController {
 			//check that position is legal
 			Edge[] es = vert.getEdges();
 			for (int i=0; i< es.length; i++){
-				System.out.println(es);
 				if (es[i].v1.getSettlementType() != 0  || es[i].v2.getSettlementType() != 0){
 					//there is another settlement one edge away(neighbor vertex)
 					if(printError){
@@ -50,7 +50,7 @@ public class GraphController {
 			return placeSettlement(v,p, printError);
 		} else{
 			if(printError){
-				System.out.println("You need roads connected to thsi vertex");
+				System.out.println("You need roads connected to this vertex");
 			}
 			return false;
 		}
@@ -77,11 +77,17 @@ public class GraphController {
 	 * If so, place road and return true
 	 * if not, make no change to the graph and return false	
 	*/
-	public boolean placeRoad(int a, int b, Player p){
+	public boolean placeRoad(int a, int b, Player p, boolean printError){
 		//find edge object that links v1 and v2, then check if edge is free
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
 		for (int i = 0; i<e1.length; i++ ){
+			System.out.println("Building road betwen: "+a+" and "+b);
+			System.out.println("vertex1 of edge: ");
+			e1[i].v1.printResources();
+			System.out.println(" vertex 2 of edge ");
+			e1[i].v2.printResources();
+			
 			//must find the edge object that has either combination of {v1,v2} = {a,b} or {b,a}
 			if (e1[i].v1 == vertices[a] && e1[i].v2 == vertices[b] || 
 					e1[i].v1 == vertices[b] && e1[i].v2 == vertices[a]){
@@ -90,10 +96,16 @@ public class GraphController {
 		}
 		if (toConsider == null){
 			//there is no edge that connects those two vertices, invalid input
+			 if (printError){
+				 System.out.println("These two vertices are not linked by one edge");
+			 }
 			return false;
 		} else {
 			 if (toConsider.hasRoad){
 				 //there is already a road here!
+				 if (printError){
+					 System.out.println("There is already a road on this edge");
+				 }
 				 return false;
 			 } else {
 				 toConsider.buildRoad(p);
@@ -106,13 +118,27 @@ public class GraphController {
 	 * will check that player has road connecting to either v1 or v2, then will call placeRoad
 	 *TODO: incorporate longest road
 	 */
-	public boolean buildRoad(int v1, int v2, Player p){
+	public boolean buildRoad(int v1, int v2, Player p, boolean printErrors){
 		if (connectedRoads(v1,p) || connectedRoads(v2,p)){
-			return placeRoad(v1,v2,p);
+			return placeRoad (v1, v2, p, printErrors);
 		} else{
 			return false;
 		}
 	}
+	
+	 //must check for settlement at one edge - if in first round
+	 public boolean placeRound1Road(int v1, int v2, Player p, boolean printErrors){
+			Vertex vert1 = vertices[v1];
+			Vertex vert2 = vertices[v2];
+			if (vert1.getOwner()== p || vert2.getOwner() ==p ) {
+				return placeRoad(v1,v2,p, printErrors);
+			} else {
+				if (printErrors){
+					System.out.println("You must have a settlement at one end of this road");
+				}
+				return false;
+			}
+	 }
 	
 	
 	/*
@@ -133,8 +159,8 @@ public class GraphController {
 	 * Go through vertices and determine which players should receive resources for the given roll. 
 	 * Allocate those resources using methods in the player class.
 	 */
+
 	public void distributeResources(int roll){
-		boolean debug = true;
 		for (int i =0; i<vertices.length; i++){
 			Vertex v = vertices[i];
 			if (v.getSettlementType() != 0){
@@ -146,13 +172,13 @@ public class GraphController {
 						if (v.getSettlementType()==1){
 							if (debug) {
 								System.out.println("resource of type: "+Resource.getType(tiles[j].resource)+
-										" given on roll"+ roll+ "to owner");
+										" given on roll"+ roll+ " to player"+owner.getID());
 							}
 							owner.addResource(tiles[j].resource);
 						} else if (v.getSettlementType() == 2){
 							if (debug) {
 								System.out.println("2 resources of type: "+Resource.getType(tiles[j].resource)+
-										" given on roll"+ roll+ "to owner");
+										" given on roll"+ roll+ " to player" + owner.getID());
 							}
 							owner.addResource(tiles[j].resource);
 							owner.addResource(tiles[j].resource);
@@ -163,6 +189,22 @@ public class GraphController {
 				}
 			}
 			
+		}
+	}
+	
+	/*
+	 * Method that will give each owner the three resources of their second settlement
+	 */
+	public void firstRoundResource(int vertex){
+		Vertex v = vertices[vertex];
+		Player owner = v.getOwner();
+		Tile[] tiles = v.getAdjacentTiles();
+		for (int i=0; i<tiles.length; i++){
+			if (debug) {
+				System.out.println("resource of type: "+Resource.getType(tiles[i].resource)+
+						" given to player "+owner.getID());
+			}
+			owner.addResource(tiles[i].resource);
 		}
 	}
 }

@@ -168,8 +168,8 @@ public class GraphMaker {
 					System.out.println("Vertical incriment: "+verticalIncriment);
 				}
 				Edge vert= new Edge(vertices[i],vertices[i+verticalIncriment]);
-				vertices[i].addEdge(vert);
-				vertices[i+1].addEdge(vert);
+				vert.v1.addEdge(vert);
+				vert.v2.addEdge(vert);
 				if (debugE){
 					System.out.println("Added edge between");
 					vert.v1.printResources() ;

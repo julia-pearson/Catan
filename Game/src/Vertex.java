@@ -53,6 +53,9 @@ public class Vertex {
 	public void buildSettlement(Player p){
 		settlementType = 1;
 		setOwner(p);
+		if (port != null){
+			//owner.setPort(port.portType);
+		}
 	}
 	
 	public void buildCity(){
