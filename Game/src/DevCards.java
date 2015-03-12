@@ -93,8 +93,6 @@ public class DevCards{
 
 	public int getYoP(){
 		return cardKey[5];
-
-		
 	}
 
 

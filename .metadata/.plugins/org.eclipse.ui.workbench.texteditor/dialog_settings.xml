@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="addSta" key="selection"/>
 		<list key="findhistory">
+			<item value="addSta"/>
+			<item value="move"/>
+			<item value="&lt;&lt;&lt;"/>
 			<item value="robber"/>
 			<item value="victory"/>
 			<item value="vict"/>
 			<item value="addCi"/>
 			<item value="repaint"/>
-			<item value="&lt;&lt;&lt;&lt;"/>
-			<item value="addRo"/>
-			<item value="buildSet"/>
 		</list>
 		<list key="replacehistory">
 		</list>

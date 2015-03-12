@@ -18,7 +18,9 @@ public class RunGame {
 	private  int playerCount;
 	private  int currentPlayerID;
 	
-	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road, 4 = trade 4 to 1, 5 = trade other player, 6 = move robber
+	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road,
+	//4 = trade 4 to 1, 5 = trade other player, 6 = move robber, 7 = monopoly 8 = year of plenty
+	//9 = road builder, 10 = robber
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
 	private boolean sevenRolled;
@@ -28,6 +30,7 @@ public class RunGame {
 	private int firstRoundRoadCounter;
 	
 	private int[][] tradeResources; //tradeResources[0]= {type you want, amount, playerID}, tradeResouces[1] = {type you'll give away, amount, playerID}
+	private int[] yopResources;
 	
 	public RunGame(int numPlayers, boolean useGraphics){
 		players = new Player[numPlayers+1];
@@ -43,15 +46,15 @@ public class RunGame {
 		
 		usingGraphics = useGraphics;
 		//testboard gives a predetermined board
-		//int[][] board= new Board().getBoard();
-		int[][] testBoard = new Board().getTestBoard();
+		int[][] board= new Board().getBoard();
+		//int[][] testBoard = new Board().getTestBoard();
 		//pass this to gl 
-		gl = new GameLogic(testBoard, players);
+		gl = new GameLogic(board, players);
 ;
 	
 		if (usingGraphics){
 			//FEI will draw the graph
-			fei = new FrontEndInterface (this, testBoard, numPlayers);
+			fei = new FrontEndInterface (this, board, numPlayers);
 			fei.currentPlayerID = currentPlayerID;
 			inFirstRound = true;
 			firstRoundSET = true;
@@ -187,6 +190,8 @@ public class RunGame {
 	public void setTileClicked(int t){
 		if (actionType == 6 && sevenRolled) {
 			robberAction(t, currentPlayerID);
+		} if (actionType == 10){
+			useKnight(t);
 		}
 	}
 	
@@ -197,10 +202,15 @@ public class RunGame {
 	}
 	
 	public void setActionType (int t){
-		actionType = t;
-		if (actionType == 5){//player already clicked the trade button once
-			actionType = 4; //now player wants to trade 4:1
+		if (t == 4 ){
+			System.out.println("Trade started. Click num of resources you want. Num of resources you'll give up.");
 		}
+		if (actionType == 4 && t == 4){//player already clicked the trade button once
+			tradeResourceButton();
+		} else if (t == 8){
+			yopResources = new int[2];
+		}
+		actionType = t;
 	}
 	
 	public void setVertex (int v){
@@ -216,16 +226,16 @@ public class RunGame {
 			tryToBuildCity();
 		} else if (actionType == 3){
 			tryToBuildRoad();
+		} else if (actionType == 9){
+			useRoadBuilder();
 		}
 		updateSinglePlayerResources();
 		updateStats();
 	}
 	
 	public void buyDevCard(){
-		if (!gl.buildDevCard(currentPlayerID)){
-			System.out.println("Not enough resources to buy dev. card");
-		}
 		updateStats();
+		updateSinglePlayerResources();
 	}
 	
 	private void tryToBuildSettlement(){
@@ -265,6 +275,7 @@ public class RunGame {
 	}
 	
 	public void playerClicked(int playerID){
+		System.out.println("Player clicked: Action Type is curently: "+actionType);
 		if (actionType == 4){
 			actionType = 5;
 			tradeResources[0][2] = playerID; //want to trade with the player clicked
@@ -274,6 +285,7 @@ public class RunGame {
 	}
 	
 	public void tradeResourceButton(){
+		System.out.println("Trade button clicked: Action Type is curently: "+actionType);
 		if (actionType == 4){ //clicked trade but did not click player
 			//4 to one trade
 			tradeResources[0][2] = 0;//trading with computer
@@ -291,39 +303,80 @@ public class RunGame {
 	
 	//fills the array with type of resources and quantity
 	public void resourceClicked( int resourceType ) {
-			if (tradeResources[0][0] == 0){
-				//nothing has been asked for
-				tradeResources[0][0] = resourceType;
-				tradeResources[0][1] = 1;
-			} else if (tradeResources[0][0] == resourceType) {
-				tradeResources[0][1] ++;
-			} 
-			if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0) {
-				tradeResources[1][0] = resourceType; 
-				tradeResources[1][1] = 1;
-			} else if (tradeResources[1][0]== resourceType) {
-				tradeResources[1][1]++;
+		System.out.println("Resource Clicked");
+			if (actionType == 5 || actionType == 4){
+				if (tradeResources[0][0] == 0){
+					//nothing has been asked for
+					System.out.println("nothing asked for, setting resource wanted");
+					tradeResources[0][0] = resourceType;
+					tradeResources[0][1] = 1;
+				} else if (tradeResources[0][0] == resourceType) {
+					System.out.println("incrimenting resource wanted");
+					tradeResources[0][1] ++;
+				} else if (tradeResources[1][0] == 0 && tradeResources[0][0] != 0) {
+					System.out.println("Something has been asked for, setting resource to give up");
+					tradeResources[1][0] = resourceType; 
+					tradeResources[1][1] = 1;
+				} else if (tradeResources[1][0]== resourceType) {
+					System.out.println("Incrimenting resource to give up");
+					tradeResources[1][1]++;
+				} 
+			} else if (actionType == 7){
+				useMonopoly(resourceType);
+			} else if (actionType == 8){
+				if (yopResources[0] == 0){
+					yopResources[0] = resourceType;
+				} else {
+					yopResources[1] = resourceType;
+					useYearOfPlenty();
+				}
 			}
+			
 	}
 	
 	//dev card methods
-	
-
-	public void useMonopoly(){
-		
-		//logic
+	public void useMonopoly(int resource){
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		//r is the resource (int) they want to monopolize from all the players
+		boolean allowed = gl.useDevCard(currentPlayerID, 4);
+		if(allowed){
+			gl.useMonopoly(currentPlayerID, resource);
+		}
+		updateAllResources();
 	}
 	
 	public void useYearOfPlenty(){
-		//logic
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		//r1 and r2 are the two resources (int) they want to take from the bank
+		boolean allowed = gl.useDevCard(currentPlayerID,5);
+		if(allowed){
+			gl.useYearOfPlenty(currentPlayerID, yopResources[0], yopResources[1]);
+		}
+		updateAllResources();
 	}
 
 	public void useRoadBuilder(){
-		//JULIA WILL HANDLE
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		boolean allowed = gl.useDevCard(currentPlayerID,3);
+		if(allowed){
+			players[currentPlayerID].giveRoadResources();
+			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
+			if (success){
+				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
+			}
+			updateAllResources();
+			clearVerticesAndAction();
+		}
+		//update stats (because this may have affected longest road)
 	}
 	
-	public void useKnight(){
-		//JULIA will handle
+	public void useKnight(int tile){
+		//p is the player number which we need as input - I will leave that to you since you've been doing it
+		boolean allowed = gl.useDevCard(currentPlayerID,0);
+		if(allowed){
+			robberAction(tile, currentPlayerID);
+		}
+		updateAllResources();
 	}
 	
 	private void updateSinglePlayerResources(){
@@ -350,6 +403,7 @@ public class RunGame {
 		verticesToAct[1] = 0;
 		vertexCounter = 0;
 		actionType = 0;
+		tradeResources = new int[2][3];
 	}
 	
 	private boolean gameEnd(){

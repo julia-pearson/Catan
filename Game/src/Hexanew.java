@@ -534,6 +534,24 @@ public class Hexanew extends JFrame{
   }
 
 
+  public void addStatistics(int[] statistics, int currentPlayer){
+    for(int i=5;i<10;i++){
+      if (currentPlayer==1) {
+        player1[i]=statistics[i];        
+      }
+      if (currentPlayer==2) {
+        player2[i]=statistics[i];        
+      }
+      if (currentPlayer==3) {
+        player3[i]=statistics[i];        
+      }
+      if (currentPlayer==4) {
+        player4[i]=statistics[i];        
+      }
+    }
+  }
+
+
 
 
   //all draw methods
@@ -860,6 +878,10 @@ public class Hexanew extends JFrame{
 
       repaint(); 
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> juliaedholm/master
   public void drawStatistics(Graphics2D g2, int currentPlayer, int[] statistics){
       Font font = new Font("Gill Sans", Font.PLAIN, 15);
       g2.setFont(font);
@@ -871,6 +893,7 @@ public class Hexanew extends JFrame{
       String monopoly="0";
       String yearOfPlenty="0";
 
+<<<<<<< HEAD
       if(currentPlayer==1){
         vp = Integer.toString(player1[5]);   
         knight=Integer.toString(player1[6]); 
@@ -902,17 +925,38 @@ public class Hexanew extends JFrame{
         roadBuilder=Integer.toString(player4[8]); 
         monopoly=Integer.toString(player4[9]);  
         yearOfPlenty=Integer.toString(player4[10]);         
+=======
+      String vp="0";
+
+      if(currentPlayer==1){
+        vp = Integer.toString(player1[5]);        
+      }
+      if(currentPlayer==2){
+        vp = Integer.toString(player2[5]);        
+      }
+      if(currentPlayer==3){
+        vp = Integer.toString(player3[5]);        
+      }
+      if(currentPlayer==4){
+        vp = Integer.toString(player4[5]);        
+>>>>>>> juliaedholm/master
       }
       int x=1250;
       int y=300;
 
       int i=currentPlayer-1;
+<<<<<<< HEAD
       g2.drawString(vp, x, y+25+i*150);
       g2.drawString(knight, x, y+40+i*150); 
       g2.drawString(unplayed, x+100, y+40+i*150); 
       g2.drawString(roadBuilder, x, y+55+i*150);
       g2.drawString(monopoly, x, y+70+i*150);
       g2.drawString(yearOfPlenty, x, y+85+i*150);
+=======
+      g2.drawString("Victory Points   "+vp, x+250, y+25+i*150);
+      g2.drawString("Development Cards    ", x+250, y+40+i*150); 
+      repaint();
+>>>>>>> juliaedholm/master
   }
   public void tradeButton(int x, int y){
       g.setColor(Color.white);

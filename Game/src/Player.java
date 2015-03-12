@@ -95,6 +95,45 @@ public class Player {
 
 	public int getAllX(int x){
 		return resourceTracker.monopX(x);
+		//this does not compile
+		//CJ, please fix
+	}
+
+	//methods for largest army
+	public int getArmySize(){
+		return dCardTracker.armySize();
+	}
+
+	public boolean checkLgArmy(){
+		return largestArmy;
+	}
+
+	public void changeLgArmy(){
+		if(largestArmy==true){
+			largestArmy=false;
+			victoryPoints = victoryPoints-2;
+		}
+		else{
+			largestArmy=true;
+			victoryPoints = victoryPoints+2;
+		}
+	}
+
+	//methods for longest road
+
+	public boolean checkLongRoad(){
+		return longestRoad;
+	}
+
+	public void changeLongRoad(){
+		if(longestRoad==true){
+			longestRoad=false;
+			victoryPoints = victoryPoints-2;
+		}
+		else{
+			longestRoad=true;
+			victoryPoints = victoryPoints+2;
+		}
 	}
 
 	public boolean buildSetCheck(){
