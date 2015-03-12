@@ -70,42 +70,39 @@ public class Clicks implements MouseListener{
 		}
 		boolean player1=player1(x,y);
 		if(player1){
-			System.out.println("player1clicked");
 			//JuliaE Code
 		}
 		boolean player2=player2(x,y);
 		if(player2){
-			System.out.println("player2clicked");
 			//JuliaE Code
 		}
 		boolean player3=player3(x,y);
 		if(player3){
-			System.out.println("player3clicked");
 			//JuliaE Code
 		}
 		boolean player4=player4(x,y);
 		if(player4){
-			System.out.println("player4clicked");
 			//JuliaE Code
 		}
 		boolean knights=knights(x,y);
 		if(knights){
-			System.out.println("knights");
 			//JuliaE Code
 		}
 		boolean yearOfPlenty=yearOfPlenty(x,y);
 		if(yearOfPlenty){
-			System.out.println("yearOfPlenty");
 			//JuliaE Code
 		}
 		boolean monopoly=monopoly(x,y);
 		if(monopoly){
-			System.out.println("monopoly");
 			//JuliaE Code
 		}
 		boolean roadBuilder=roadBuilder(x,y);
 		if(roadBuilder){
-			System.out.println("roadBuilder");
+			//JuliaE Code
+		}
+		boolean port1=port1(x,y);
+		if(port1){
+			System.out.println("port1");
 			//JuliaE Code
 		}
 		if(verty<54){
@@ -315,6 +312,14 @@ public class Clicks implements MouseListener{
 	}
 	public boolean roadBuilder(int x, int y){
 		if(x<1360 && x>1149 && ((y<355 && y>340) || (y>790 && y<805)|| (y>490 && y<505)|| (y>640 && y<655)) ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port1(int x, int y){
+		if(x<210 && x>182 && y<257 && y>236){
 			return true;
 		}
 		else{
