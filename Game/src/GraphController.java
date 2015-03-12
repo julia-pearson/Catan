@@ -256,6 +256,7 @@ public class GraphController {
 
 	public int getRoadSize(Player p){
 		//return the length of player p's longest road
+		return 3;
 	}
 		
 }

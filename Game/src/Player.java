@@ -94,7 +94,10 @@ public class Player {
 	}
 
 	public int getAllX(int x){
-		return resourceTracker.monopX(x);
+		return 0;
+		///return resourceTracker.monopX(x);
+		//this does not compile
+		//CJ, please fix
 	}
 
 	//methods for largest army
