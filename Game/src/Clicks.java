@@ -390,6 +390,15 @@ public class Clicks implements MouseListener{
 			return false;
 		}
 	}
+	public boolean port4(int x, int y){
+		if(x<770 && x>742 && y<340 && y>295){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
 
 	public void mousePressed(MouseEvent e) {}
 
