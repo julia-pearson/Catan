@@ -68,13 +68,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphMaker.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="197" selectionTopPixel="22"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Hexanew.java" partName="Hexanew.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Hexanew.java" title="Hexanew.java" tooltip="Game/src/Hexanew.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Hexanew.java" partName="Hexanew.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Hexanew.java" title="Hexanew.java" tooltip="Game/src/Hexanew.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Hexanew.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13582" selectionTopPixel="7920"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Clicks.java" partName="Clicks.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Clicks.java" title="Clicks.java" tooltip="Game/src/Clicks.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Clicks.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1044" selectionTopPixel="71"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" partName="DevCards.java" path="/Users/juliaedholm/Documents/Catan/Game/src/DevCards.java" title="DevCards.java" tooltip="Game/src/DevCards.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/DevCards.java"/>
@@ -84,7 +84,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Tile.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="424" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" partName="ResourceCards.java" path="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java" title="ResourceCards.java" tooltip="Game/src/ResourceCards.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResourceCards.java" partName="ResourceCards.java" path="/Users/juliaedholm/Documents/Catan/Game/src/ResourceCards.java" title="ResourceCards.java" tooltip="Game/src/ResourceCards.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/ResourceCards.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2215" selectionTopPixel="1793"/>
 </editor>
@@ -262,13 +262,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Tile.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/ResourceCards.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/ResourceCards.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Clicks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Hexanew.java"/>
 </editors>
-<item historyLabel="RunGame.java" index="0">
-<position info="not_deleted" x="8875" y="0"/>
-</item>
-<item historyLabel="RunGame.java" index="0">
-<position info="not_deleted" x="9060" y="0"/>
-</item>
 <item historyLabel="RunGame.java" index="0">
 <position info="not_deleted" x="9245" y="0"/>
 </item>
@@ -410,8 +406,14 @@
 <item historyLabel="Player.java" index="4">
 <position info="not_deleted" x="2231" y="0"/>
 </item>
-<item active="true" historyLabel="ResourceCards.java" index="8">
+<item historyLabel="ResourceCards.java" index="8">
 <position info="not_deleted" x="2215" y="0"/>
+</item>
+<item historyLabel="Clicks.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="Hexanew.java" index="10">
+<position info="not_deleted" x="13582" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

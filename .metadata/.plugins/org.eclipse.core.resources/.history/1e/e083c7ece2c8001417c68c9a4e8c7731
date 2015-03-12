@@ -50,14 +50,11 @@ public class RunGame {
 		//int[][] testBoard = new Board().getTestBoard();
 		//pass this to gl 
 		gl = new GameLogic(board, players);
-		int[] ports = new int[8];
-		for (int i=0; i< ports.length; i++){
-			ports[i] = board[2][i];
-		}
+;
 	
 		if (usingGraphics){
 			//FEI will draw the graph
-			fei = new FrontEndInterface (this, board, numPlayers, ports);
+			fei = new FrontEndInterface (this, board, numPlayers);
 			fei.currentPlayerID = currentPlayerID;
 			inFirstRound = true;
 			firstRoundSET = true;
