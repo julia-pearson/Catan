@@ -119,7 +119,7 @@ public class FrontEndInterface {
 	}
 	
 	public void updateResources(int playerID, int[] resources){
-		h.addStatistics(resources, playerID);
+		h.addResources(playerID, resources);
 	}
 
 	public void nullClick(){

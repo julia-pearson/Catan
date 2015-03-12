@@ -131,7 +131,7 @@ public class RunGame {
 			sevenRolled = true; 
 		}
 		gl.diceRoll(r1+r2);
-		updateAllStats();
+		updateAllResources();
 		return new int[] {r1,r2};
 	}
 	
@@ -236,7 +236,7 @@ public class RunGame {
 	}
 	
 	public void buyDevCard(){
-		gl.buildDevCard(currentPlayerID);
+		gl.buildD
 		updateAllStats();
 	}
 	

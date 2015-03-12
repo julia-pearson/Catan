@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="245" key="DIALOG_WIDTH"/>
-		<item value="149" key="DIALOG_Y_ORIGIN"/>
-		<item value="598" key="DIALOG_X_ORIGIN"/>
+		<item value="166" key="DIALOG_Y_ORIGIN"/>
+		<item value="699" key="DIALOG_X_ORIGIN"/>
 		<item value="379" key="DIALOG_HEIGHT"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="addSta" key="selection"/>
+		<item value="buyD" key="selection"/>
 		<list key="findhistory">
+			<item value="buyD"/>
+			<item value="dev"/>
+			<item value="drawRe"/>
+			<item value="addSt"/>
 			<item value="addSta"/>
 			<item value="move"/>
 			<item value="&lt;&lt;&lt;"/>
 			<item value="robber"/>
-			<item value="victory"/>
-			<item value="vict"/>
-			<item value="addCi"/>
-			<item value="repaint"/>
 		</list>
 		<list key="replacehistory">
 		</list>

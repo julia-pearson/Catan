@@ -131,7 +131,7 @@ public class RunGame {
 			sevenRolled = true; 
 		}
 		gl.diceRoll(r1+r2);
-		updateAllStats();
+		updateAllResources();
 		return new int[] {r1,r2};
 	}
 	
@@ -154,9 +154,9 @@ public class RunGame {
 			System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
 			if (gl.placeSettlement(players[currentPlayerID], vertex)){
 				fei.drawSettlement(vertex);
-				if(players[currentPlayerID].numberOfSettlements == 1){
+				if(players[currentPlayerID].numberOfSettlements ==2){
 					gl.giveResourcesStartGame(vertex);
-					updateAllStats();
+					updateAllResources();
 				}	
 				if (!order.firstRoundSettlementDone()){
 					currentPlayerID = order.getNextPlayerGameStart();// switch players
@@ -201,7 +201,7 @@ public class RunGame {
 	public void robberAction(int tile, int playerID){
 		gl.moveRobber(tile, playerID);
 		fei.updateRobberPosition(tile);
-		updateAllStats();
+		updateAllResources();
 	}
 	
 	public void setActionType (int t){
@@ -232,12 +232,13 @@ public class RunGame {
 		} else if (actionType == 9){
 			useRoadBuilder();
 		}
-		updateAllStats();
+		updateSinglePlayerResources();
+		updateStats();
 	}
 	
 	public void buyDevCard(){
-		gl.buildDevCard(currentPlayerID);
-		updateAllStats();
+		updateStats();
+		updateSinglePlayerResources();
 	}
 	
 	private void tryToBuildSettlement(){
@@ -301,7 +302,7 @@ public class RunGame {
 		System.out.println("Calling trade in game logic with type  "+actionType);
 		//both elements have been filled in, pass to game logic 
 		gl.trade(tradeResources);
-		updateAllStats();
+		updateAllResources();
 	}
 	
 	//fills the array with type of resources and quantity
@@ -345,7 +346,7 @@ public class RunGame {
 		if(allowed){
 			gl.useMonopoly(currentPlayerID, resource);
 		}
-		updateAllStats();
+		updateAllResources();
 	}
 	
 	public void useYearOfPlenty(){
@@ -355,7 +356,7 @@ public class RunGame {
 		if(allowed){
 			gl.useYearOfPlenty(currentPlayerID, yopResources[0], yopResources[1]);
 		}
-		updateAllStats();
+		updateAllResources();
 	}
 
 	public void useRoadBuilder(){
@@ -367,7 +368,7 @@ public class RunGame {
 			if (success){
 				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
 			}
-			updateAllStats();
+			updateAllResources();
 			clearVerticesAndAction();
 		}
 		//update stats (because this may have affected longest road)
@@ -379,15 +380,22 @@ public class RunGame {
 		if(allowed){
 			robberAction(tile, currentPlayerID);
 		}
-		updateAllStats();
+		updateAllResources();
 	}
 	
-	private void updateSinglePlayerStats(){
-		int [] r = players[currentPlayerID].getPlayerStats();
-		fei.updateVP(currentPlayerID, r);
+	private void updateSinglePlayerResources(){
+		int [] r = players[currentPlayerID].getResourceArray();
+		fei.updateResources(currentPlayerID, r);
 	}
 	
-	private void updateAllStats(){
+	private void updateAllResources(){
+		for (int i = 1; i< players.length; i++){
+			int [] r = players[i].getResourceArray();
+			fei.updateResources(i, r);
+		}
+	}
+	
+	private void updateStats(){
 		for (int i = 1; i< players.length; i++){
 			int [] r = players[i].getPlayerStats();
 			fei.updateVP(i, r);
