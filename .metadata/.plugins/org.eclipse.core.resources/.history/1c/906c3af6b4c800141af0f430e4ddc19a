@@ -171,7 +171,7 @@ public class GameLogic {
 		//longest road check
 	}
 
-	//used at beginning
+	//used at beginning + for roadbuilder dev card
 	public boolean placeRoad(int p, int v1, int v2){
 		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
 		if (build == false){
@@ -189,15 +189,16 @@ public class GameLogic {
 
 	public boolean buildDevCard(int p){
 		boolean build = players[p].buildDevCheck();
-		System.out.println(build);
+
 		if (build == false)
 			return false;
 		int i = devDeck.drawDevCard();
+		
 		if(i ==10){
 			System.out.println("There are no development cards left.");
 			return false;
 		}
-		System.out.println("used dev resources");
+
 		players[p].buildDev(i);
 		return true;
 	}

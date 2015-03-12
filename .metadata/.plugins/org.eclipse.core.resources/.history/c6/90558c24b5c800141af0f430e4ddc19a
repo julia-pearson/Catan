@@ -193,11 +193,12 @@ public class GameLogic {
 		if (build == false)
 			return false;
 		int i = devDeck.drawDevCard();
+		
 		if(i ==10){
 			System.out.println("There are no development cards left.");
 			return false;
 		}
-		System.out.println("used dev resources");
+
 		players[p].buildDev(i);
 		return true;
 	}

@@ -205,7 +205,8 @@ public class RunGame {
 		if (t == 4 ){
 			System.out.println("Trade started. Click num of resources you want. Num of resources you'll give up.");
 		}
-		if (actionType == 4 && t == 4){//player already clicked the trade button once
+		if (actionType == 5 && t == 4){//player already clicked the trade button once
+			actionType = 4; //now player wants to trade 4:1
 			tradeResourceButton();
 		} else if (t == 8){
 			yopResources = new int[2];
@@ -234,8 +235,10 @@ public class RunGame {
 	}
 	
 	public void buyDevCard(){
+		if (!gl.buildDevCard(currentPlayerID)){
+			System.out.println("Not enough resources to buy dev. card");
+		}
 		updateStats();
-		updateSinglePlayerResources();
 	}
 	
 	private void tryToBuildSettlement(){

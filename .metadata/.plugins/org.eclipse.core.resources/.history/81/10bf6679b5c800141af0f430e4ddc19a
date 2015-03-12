@@ -234,6 +234,9 @@ public class RunGame {
 	}
 	
 	public void buyDevCard(){
+		if (!gl.buildDevCard(currentPlayerID)){
+			System.out.println("Not enough resources to buy dev. card");
+		}
 		updateStats();
 		updateSinglePlayerResources();
 	}
