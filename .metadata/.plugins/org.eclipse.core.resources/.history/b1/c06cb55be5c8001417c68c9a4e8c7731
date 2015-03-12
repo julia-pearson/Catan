@@ -278,18 +278,17 @@ public class RunGame {
 	}
 	
 	public void playerClicked(int playerID){
-		System.out.println("Trade with another player");
+		System.out.println("Player clicked: Action Type is curently: "+actionType);
 		if (actionType == 4){
 			actionType = 5;
 			tradeResources[0][2] = playerID; //want to trade with the player clicked
 			tradeResources[1][2] = currentPlayerID;
 		}
-		System.out.println("Traading resource of type: "+tradeResources[0][0]+ " for resource of type: "+tradeResources[1][0]);
 		trade();
 	}
 	
 	public void tradeResourceButton(){
-		System.out.println("Trade with bank");
+		System.out.println("Trade button clicked: Action Type is curently: "+actionType);
 		if (actionType == 4){ //clicked trade but did not click player
 			//4 to one trade
 			tradeResources[0][2] = 0;//trading with computer

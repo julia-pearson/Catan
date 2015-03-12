@@ -22,7 +22,7 @@ public class FrontEndInterface {
 			newBoard[i][1]= board[1][i];
 		}
 		h = new Hexanew( this, newBoard, n);
-		//h.addPorts(ports);
+		h.addPorts(ports);
 	}
 	
 	public void updateCurrentPlayer (int cp){
@@ -79,10 +79,6 @@ public class FrontEndInterface {
 	
 	public void yearOfPlentyClicked(){
 		rg.setActionType(8);
-	}
-	
-	public void knightClicked(){
-		rg.setActionType(10);
 	}
 	
 	public void roadBuilderClicked(){
