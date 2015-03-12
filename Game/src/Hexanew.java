@@ -513,7 +513,6 @@ public class Hexanew extends JFrame{
     }
   }*/
   public void addStatistics(int[] statistics, int currentPlayer){
-    for(int i=5;i<11;i++){
     for(int i=0;i<statistics.length;i++){
       if (currentPlayer==1) {
         player1[i]=statistics[i];        
