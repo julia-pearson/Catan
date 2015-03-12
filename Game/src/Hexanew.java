@@ -191,7 +191,7 @@ public class Hexanew extends JFrame{
   };
   //array of bottom left corners of Hexagons, third is robber
   int[][] start = new int[][]{
-    {x,y-12*a,1},
+    {x,y-12*a,0},
     {x+2*w, y-12*a,0},
     {x+4*w, y-12*a,0},
     {x-w, y-9*a,0},
@@ -239,7 +239,7 @@ public class Hexanew extends JFrame{
   int[] player3 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
   int[] player4 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
 
-  int[] ports = new int[]{1,0,0,0,0,0,0,0};
+  int[] port = new int[]{0,0,0,0,0,0,0,0};
 
 
   //sets up screen and size
@@ -311,6 +311,11 @@ public class Hexanew extends JFrame{
       tradeButton(1300,252);
       for (int i=0; i<9;i++){
         drawPorts(i);
+      }
+      for (int i=0; i<19; i++){
+        if(res[i][1]==0){
+          drawRobber(start[i][0],start[i][1]);
+        }
       }
   }
   public void updateBoard(){
@@ -532,7 +537,11 @@ public class Hexanew extends JFrame{
     start[h][2]=1;
     repaint();
   }
-
+  public void addPorts(int[] ports){
+    for (int i=0; i<10;i++){
+      port[i]=ports[i];
+    }
+  }
 
 
 
