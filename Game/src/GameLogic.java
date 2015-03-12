@@ -165,14 +165,14 @@ public class GameLogic {
 
 		else{
 			players[p].buildRoad();
+			longRoadChecker(p);
 			return true;
 		}
 		//longest road check
 	}
 
-	//used at beginning!
+	//used at beginning + for roadbuilder dev card
 	public boolean placeRoad(int p, int v1, int v2){
-		//check that the player has resources to build a road and has roads left
 		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
@@ -181,6 +181,7 @@ public class GameLogic {
 
 		else{
 			players[p].placeRoad();
+			longRoadChecker(p);
 			System.out.println("Road placed successfully");
 			return true;
 		}
@@ -206,7 +207,41 @@ public class GameLogic {
 	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
 	//this will return whether they can play that d card and then julia needs to handle the rest 
 	public boolean useDevCard(int p, int i){
-		return players[p].useDevCard(i);
+		boolean build;
+		build = players[p].useDevCard(i);
+
+		//for largest army
+		if(i==0 && build){
+			if(players[p].getArmySize()>=3 && players[p].checkLgArmy()==false){
+				for(int m=0; m<players.length; m++){
+					if(players[m].checkLgArmy() == true){
+						if(players[p].getArmySize() > players[m].getArmySize()){
+							players[p].changeLgArmy();
+							players[m].changeLgArmy();
+						}
+						break;
+					}
+				}
+			}
+		}
+
+		return build;
+
+	}
+
+	//this should be called after any instance of someone building a road (placeRoad and buildRoad)
+	public void longRoadChecker(int p){
+		if(graph.getRoadSize(players[p])>=5 && players[p].checkLongRoad()==false){
+				for(int m=0; m<players.length; m++){
+					if(players[m].checkLongRoad() == true){
+						if(graph.getRoadSize(players[p]) > graph.getRoadSize(players[m])){
+							players[p].changeLongRoad();
+							players[m].changeLongRoad();
+						}
+						break;
+					}
+				}
+		}
 	}
 
 	public void useMonopoly(int p, int r){

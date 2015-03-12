@@ -97,6 +97,43 @@ public class Player {
 		return resourceTracker.monopX(x);
 	}
 
+	//methods for largest army
+	public int getArmySize(){
+		return dCardTracker.armySize();
+	}
+
+	public boolean checkLgArmy(){
+		return largestArmy;
+	}
+
+	public void changeLgArmy(){
+		if(largestArmy==true){
+			largestArmy=false;
+			victoryPoints = victoryPoints-2;
+		}
+		else{
+			largestArmy=true;
+			victoryPoints = victoryPoints+2;
+		}
+	}
+
+	//methods for longest road
+
+	public boolean checkLongRoad(){
+		return longestRoad;
+	}
+
+	public void changeLongRoad(){
+		if(longestRoad==true){
+			longestRoad=false;
+			victoryPoints = victoryPoints-2;
+		}
+		else{
+			longestRoad=true;
+			victoryPoints = victoryPoints+2;
+		}
+	}
+
 	public boolean buildSetCheck(){
 		if(resourceTracker.getSheep()<1 || resourceTracker.getWheat()<1 || resourceTracker.getWood()<1 || resourceTracker.getBrick()<1){
 			System.out.println("You do not have enough resources to build a settlement.");
