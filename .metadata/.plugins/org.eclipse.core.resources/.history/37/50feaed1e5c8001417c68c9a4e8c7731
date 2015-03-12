@@ -284,7 +284,7 @@ public class RunGame {
 			tradeResources[0][2] = playerID; //want to trade with the player clicked
 			tradeResources[1][2] = currentPlayerID;
 		}
-		System.out.println("Traading resource of type: "+tradeResources[0][0]+ " for resource of type: "+tradeResources[1][0]);
+		System.out.println("Traading resource of type: "+tradeResources[0]+ " for resource of type: "+tradeResources[1][0]);
 		trade();
 	}
 	

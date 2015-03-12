@@ -70,35 +70,35 @@ public class Clicks implements MouseListener{
 		}
 		boolean player1=player1(x,y);
 		if(player1){
-			interaction.playerClicked(1);
+			//JuliaE Code
 		}
 		boolean player2=player2(x,y);
 		if(player2){
-			interaction.playerClicked(2);
+			//JuliaE Code
 		}
 		boolean player3=player3(x,y);
 		if(player3){
-			interaction.playerClicked(3);
+			//JuliaE Code
 		}
 		boolean player4=player4(x,y);
 		if(player4){
-			interaction.playerClicked(4);
+			//JuliaE Code
 		}
 		boolean knights=knights(x,y);
 		if(knights){
-			interaction.knightClicked();
+			//JuliaE Code
 		}
 		boolean yearOfPlenty=yearOfPlenty(x,y);
 		if(yearOfPlenty){
-			interaction.yearOfPlentyClicked();
+			//JuliaE Code
 		}
 		boolean monopoly=monopoly(x,y);
 		if(monopoly){
-			interaction.monopolyClicked();
+			//JuliaE Code
 		}
 		boolean roadBuilder=roadBuilder(x,y);
 		if(roadBuilder){
-			interaction.roadBuilderClicked();
+			//JuliaE Code
 		}
 		boolean port1=port1(x,y);
 		if(port1){
