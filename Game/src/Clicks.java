@@ -290,7 +290,7 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean knights(int x, int y){
-		if(x<1360 && x>1149 && ((y<341 && y>327) || (y>773 && y<789)) ){
+		if(x<1360 && x>1149 && ((y<341 && y>327) || (y>773 && y<789)|| (y>474 && y<490)|| (y>624 && y<641)) ){
 			return true;
 		}
 		else{
@@ -298,7 +298,7 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean yearOfPlenty(int x, int y){
-		if(x<995 && x>897 && y<603 && y>581){
+		if(x<1360 && x>1149 && ((y<385 && y>400) || (y>820 && y<835)|| (y>520 && y<535)|| (y>670 && y<685)) ){
 			return true;
 		}
 		else{
@@ -306,7 +306,7 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean monopoly(int x, int y){
-		if(x<995 && x>897 && y<753 && y>731){
+		if(x<1360 && x>1149 && ((y<370 && y>355) || (y>805 && y<820)|| (y>505 && y<520)|| (y>655 && y<670)) ){
 			return true;
 		}
 		else{
@@ -314,7 +314,7 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean roadBuilder(int x, int y){
-		if(x<995 && x>897 && y<753 && y>731){
+		if(x<1360 && x>1149 && ((y<355 && y>340) || (y>790 && y<805)|| (y>490 && y<505)|| (y>640 && y<655)) ){
 			return true;
 		}
 		else{
