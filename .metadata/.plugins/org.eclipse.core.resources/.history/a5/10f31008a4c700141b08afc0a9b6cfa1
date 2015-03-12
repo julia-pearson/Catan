@@ -34,10 +34,6 @@ public class FrontEndInterface {
 		rg.setActionType(4);
 	}
 	
-	public void playerCliced(int playerID){
-		rg.playerClicked(playerID);
-	}
-	
 	public void resourceClicked (int resourceNum){
 		rg.resourceClicked(resourceNum);
 	}

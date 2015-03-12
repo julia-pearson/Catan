@@ -211,7 +211,6 @@ public class Hexanew extends JFrame{
     {x+2*w, y,0},
     {x+4*w, y,0}
   };
-
   //fake board
   int[][] res = new int[][]{
     {0,0},
@@ -235,10 +234,12 @@ public class Hexanew extends JFrame{
     {0,0},
   };
 
-  int[] player1 = new int[]{0,0,0,0,0,2,0,0,0,0,0};
-  int[] player2 = new int[]{0,0,0,0,0,0,5,0,0,0,0};
-  int[] player3 = new int[]{0,0,0,0,0,0,0,6,0,0,0};
-  int[] player4 = new int[]{0,0,0,0,0,8,0,0,0,0,0};
+  int[] player1 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
+  int[] player2 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
+  int[] player3 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
+  int[] player4 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
+
+  int[] ports = new int[]{1,0,0,0,0,0,0,0};
 
 
   //sets up screen and size
@@ -308,6 +309,9 @@ public class Hexanew extends JFrame{
       //Setting players, should be from Julia
       drawPlayers(g2, 900, 300, totalPlayers);
       tradeButton(1300,252);
+      for (int i=0; i<9;i++){
+        drawPorts(i);
+      }
   }
   public void updateBoard(){
       for (int i=0; i<71;i++){
@@ -910,7 +914,6 @@ public class Hexanew extends JFrame{
       g2.drawString(monopoly, x, y+70+i*150);
       g2.drawString(yearOfPlenty, x, y+85+i*150);
   }
-
   public void tradeButton(int x, int y){
       g.setColor(Color.white);
       int radius=22;
@@ -924,6 +927,126 @@ public class Hexanew extends JFrame{
       g2.setFont(font);
       g.setColor(Color.white);
       g2.drawString("Trade", x-10, y-20);
+  }
+  public void drawPorts(int port){
+      double three=(((3)^(1/2))*a)/2;
+      int sqrthree= (int) three;
+      double two=a/(4*(2^(1/2)));
+      int sqrtwo= (int) two; 
+      g.setColor(circles);
+      //forward slant
+      int x1=0;
+      int y1=0;
+      int x2=0;
+      int y2=0;
+      if(port==0){
+        x1=vertex[7][0];
+        y1=vertex[7][1];
+        x2=vertex[8][0];
+        y2=vertex[8][1];
+        int xpoints[] = {x1, x2-5, x1};
+        int ypoints[] = {y1-7, y2-5, y2-5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==1){
+        x1=vertex[2][0];
+        y1=vertex[2][1];
+        x2=vertex[3][0];
+        y2=vertex[3][1];
+        int xpoints[] = {x1, x2-5, x1};
+        int ypoints[] = {y1-7, y2-5, y2-5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==2){
+        x1=vertex[5][0];
+        y1=vertex[5][1];
+        x2=vertex[6][0];
+        y2=vertex[6][1];
+        int xpoints[] = {x1+5, x2, x2};
+        int ypoints[] = {y1-5, y1-5, y2-7};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==3){
+        x1=vertex[15][0];
+        y1=vertex[15][1];
+        x2=vertex[25][0];
+        y2=vertex[25][1];
+        int xpoints[] = {x1+5, x1+a, x1+5};
+        int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==4){
+        x1=vertex[36][0];
+        y1=vertex[36][1];
+        x2=vertex[46][0];
+        y2=vertex[46][1];
+        int xpoints[] = {x1+5, x1+a, x1+5};
+        int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==5){
+        x1=vertex[52][0];
+        y1=vertex[52][1];
+        x2=vertex[53][0];
+        y2=vertex[53][1];
+        int xpoints[] = {x1+5, x2, x2};
+        int ypoints[] = {y1+7, y2+7, y1+7};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==6){
+        x1=vertex[49][0];
+        y1=vertex[49][1];
+        x2=vertex[50][0];
+        y2=vertex[50][1];
+        int xpoints[] = {x1, x2-5, x1};
+        int ypoints[] = {y1+7, y2+5, y2+5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==7){
+        x1=vertex[38][0];
+        y1=vertex[38][1];
+        x2=vertex[39][0];
+        y2=vertex[39][1];
+        int xpoints[] = {x1, x2-5, x1};
+        int ypoints[] = {y1+7, y2+5, y2+5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
+      if (port==8){
+        x1=vertex[16][0];
+        y1=vertex[16][1];
+        x2=vertex[27][0];
+        y2=vertex[27][1];
+        int xpoints[] = {x1-5, x1-a, x1-5};
+        int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
+        int npoints = 3;
+        g.fillPolygon(xpoints, ypoints, npoints);
+        g.setColor(circles);
+        g.drawPolygon(xpoints, ypoints, npoints);
+      }
   }
   private void drawCircle(int x, int y, int radius) {
     g.fillOval(x-radius, y-radius, radius*2, radius*2);

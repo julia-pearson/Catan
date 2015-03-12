@@ -31,11 +31,7 @@ public class FrontEndInterface {
 	}
 	
 	public void tradeClicked(){
-		rg.setActionType(4);
-	}
-	
-	public void playerCliced(int playerID){
-		rg.playerClicked(playerID);
+		rg.setActionType(5);
 	}
 	
 	public void resourceClicked (int resourceNum){

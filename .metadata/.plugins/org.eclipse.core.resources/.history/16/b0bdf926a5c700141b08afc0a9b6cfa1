@@ -306,26 +306,6 @@ public class RunGame {
 			}
 	}
 	
-	//dev card methods
-	
-
-	public void useMonopoly(){
-		
-		//logic
-	}
-	
-	public void useYearOfPlenty(){
-		//logic
-	}
-
-	public void useRoadBuilder(){
-		//JULIA WILL HANDLE
-	}
-	
-	public void useKnight(){
-		//JULIA will handle
-	}
-	
 	private void updateSinglePlayerResources(){
 		int [] r = players[currentPlayerID].getResourceArray();
 		fei.updateResources(currentPlayerID, r);

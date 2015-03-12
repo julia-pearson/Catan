@@ -264,29 +264,23 @@ public class RunGame {
 		}
 	}
 	
-	public void playerClicked(int playerID){
+	public void tradeResource(int resourceType){
 		if (actionType == 4){
-			actionType = 5;
-			tradeResources[0][2] = playerID; //want to trade with the player clicked
-			tradeResources[1][2] = currentPlayerID;
-		}
-		trade();
-	}
-	
-	public void tradeResourceButton(){
-		if (actionType == 4){ //clicked trade but did not click player
 			//4 to one trade
-			tradeResources[0][2] = 0;//trading with computer
-			tradeResources[1][2] = currentPlayerID;
+			if (tradeResources[0][0]== 0){
+				//nothing has been asked for
+				tradeResources[0][2] = 0;//trading with computer
+			} else {
+				tradeResources[1][2] = currentPlayerID;
+			}
 		}
-		trade();
-	}
-	
-	public void trade(){
-		System.out.println("Calling trade in game logic ");
-		//both elements have been filled in, pass to game logic 
-		gl.trade(tradeResources);
-		updateAllResources();
+		if (tradeResources [1][1] != 0){
+			System.out.println("Calling trade in game logic ");
+			//both elements have been filled in, pass to game logic 
+			gl.trade(tradeResources);
+			updateAllResources();
+		}
+		//trade with other people
 	}
 	
 	//fills the array with type of resources and quantity
@@ -304,26 +298,6 @@ public class RunGame {
 			} else if (tradeResources[1][0]== resourceType) {
 				tradeResources[1][1]++;
 			}
-	}
-	
-	//dev card methods
-	
-
-	public void useMonopoly(){
-		
-		//logic
-	}
-	
-	public void useYearOfPlenty(){
-		//logic
-	}
-
-	public void useRoadBuilder(){
-		//JULIA WILL HANDLE
-	}
-	
-	public void useKnight(){
-		//JULIA will handle
 	}
 	
 	private void updateSinglePlayerResources(){
