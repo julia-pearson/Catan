@@ -239,7 +239,7 @@ public class Hexanew extends JFrame{
   int[] player3 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
   int[] player4 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
 
-  int[] ports = new int[]{0,0,0,0,0,0,0,0};
+  int[] ports = new int[]{0,0,0,0,0,0,0,0,0};
 
 
   //sets up screen and size
@@ -538,8 +538,9 @@ public class Hexanew extends JFrame{
     repaint();
   }
   public void addPorts(int[] port){
-    for (int i=0; i<8;i++){
+    for (int i=0; i<9;i++){
       ports[i]=port[i];
+      System.out.println("port="+i+" "+ports[i]);
     }
   }
 
