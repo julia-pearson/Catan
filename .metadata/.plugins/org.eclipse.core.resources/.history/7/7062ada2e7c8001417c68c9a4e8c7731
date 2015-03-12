@@ -39,7 +39,6 @@ public class FrontEndInterface {
 	}
 	
 	public void resourceClicked (int resourceNum){
-		System.out.println("resource clicked "+resourceNum);
 		rg.resourceClicked(resourceNum);
 	}
 
