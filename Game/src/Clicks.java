@@ -68,6 +68,26 @@ public class Clicks implements MouseListener{
 		if(wheat){
 			interaction.resourceClicked(2);
 		}
+		boolean player1=player1(x,y);
+		if(player1){
+			System.out.println("player1clicked");
+			//JuliaE Code
+		}
+		boolean player2=player2(x,y);
+		if(player2){
+			System.out.println("player2clicked");
+			//JuliaE Code
+		}
+		boolean player3=player3(x,y);
+		if(player3){
+			System.out.println("player3clicked");
+			//JuliaE Code
+		}
+		boolean player4=player4(x,y);
+		if(player4){
+			System.out.println("player4clicked");
+			//JuliaE Code
+		}
 		if(verty<54){
 			interaction.vertexClicked(verty);
 		}
@@ -216,6 +236,38 @@ public class Clicks implements MouseListener{
 			newX=(-1)*x;
 		}
 		return newX;
+	}
+	public boolean player1(int x, int y){
+		if(x<995 && x>897 && y<303 && y>280){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player2(int x, int y){
+		if(x<995 && x>897 && y<453 && y>431){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player3(int x, int y){
+		if(x<995 && x>897 && y<603 && y>581){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player4(int x, int y){
+		if(x<995 && x>897 && y<753 && y>731){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public void mousePressed(MouseEvent e) {}
 
