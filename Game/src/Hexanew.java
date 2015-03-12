@@ -239,7 +239,7 @@ public class Hexanew extends JFrame{
   int[] player3 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
   int[] player4 = new int[]{0,0,0,0,0,0,0,0,0,0,0};
 
-  int[] port = new int[]{0,0,0,0,0,0,0,0};
+  int[] ports = new int[]{0,0,0,0,0,0,0,0,0};
 
 
   //sets up screen and size
@@ -537,9 +537,10 @@ public class Hexanew extends JFrame{
     start[h][2]=1;
     repaint();
   }
-  public void addPorts(int[] ports){
-    for (int i=0; i<10;i++){
-      port[i]=ports[i];
+  public void addPorts(int[] port){
+    for (int i=0; i<9;i++){
+      ports[i]=port[i];
+      System.out.println("port="+i+" "+ports[i]);
     }
   }
 
@@ -873,12 +874,12 @@ public class Hexanew extends JFrame{
       Font font = new Font("Gill Sans", Font.PLAIN, 15);
       g2.setFont(font);
       g2.setColor(stone);
-      String vp="0";
-      String knight="0";
-      String unplayed="0";
-      String roadBuilder="0";
-      String monopoly="0";
-      String yearOfPlenty="0";
+      String vp=" ";
+      String knight=" ";
+      String unplayed=" ";
+      String roadBuilder=" ";
+      String monopoly=" ";
+      String yearOfPlenty=" ";
 
       if(currentPlayer==1){
         vp = Integer.toString(player1[5]);   
@@ -953,108 +954,225 @@ public class Hexanew extends JFrame{
         y1=vertex[7][1];
         x2=vertex[8][0];
         y2=vertex[8][1];
+        if(ports[0]==1){
+          g.setColor(stone);
+        }    
+        if(ports[0]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[0]==3){
+          g.setColor(brick);
+        } 
+        if(ports[0]==4){
+          g.setColor(wood);
+        }  
+        if(ports[0]==5){
+          g.setColor(sheep);
+        }       
         int xpoints[] = {x1, x2-5, x1};
         int ypoints[] = {y1-7, y2-5, y2-5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==1){
         x1=vertex[2][0];
         y1=vertex[2][1];
         x2=vertex[3][0];
         y2=vertex[3][1];
+        if(ports[1]==1){
+          g.setColor(stone);
+        }    
+        if(ports[1]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[1]==3){
+          g.setColor(brick);
+        } 
+        if(ports[1]==4){
+          g.setColor(wood);
+        }  
+        if(ports[1]==5){
+          g.setColor(sheep);
+        }  
         int xpoints[] = {x1, x2-5, x1};
         int ypoints[] = {y1-7, y2-5, y2-5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==2){
         x1=vertex[5][0];
         y1=vertex[5][1];
         x2=vertex[6][0];
         y2=vertex[6][1];
+        if(ports[2]==1){
+          g.setColor(stone);
+        }    
+        if(ports[2]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[2]==3){
+          g.setColor(brick);
+        } 
+        if(ports[2]==4){
+          g.setColor(wood);
+        }  
+        if(ports[2]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1+5, x2, x2};
         int ypoints[] = {y1-5, y1-5, y2-7};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==3){
         x1=vertex[15][0];
         y1=vertex[15][1];
         x2=vertex[25][0];
         y2=vertex[25][1];
+        if(ports[3]==1){
+          g.setColor(stone);
+        }    
+        if(ports[3]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[3]==3){
+          g.setColor(brick);
+        } 
+        if(ports[3]==4){
+          g.setColor(wood);
+        }  
+        if(ports[3]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1+5, x1+a, x1+5};
         int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==4){
         x1=vertex[36][0];
         y1=vertex[36][1];
         x2=vertex[46][0];
         y2=vertex[46][1];
+        if(ports[4]==1){
+          g.setColor(stone);
+        }    
+        if(ports[4]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[4]==3){
+          g.setColor(brick);
+        } 
+        if(ports[4]==4){
+          g.setColor(wood);
+        }  
+        if(ports[4]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1+5, x1+a, x1+5};
         int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==5){
         x1=vertex[52][0];
         y1=vertex[52][1];
         x2=vertex[53][0];
         y2=vertex[53][1];
+        if(ports[5]==1){
+          g.setColor(stone);
+        }    
+        if(ports[5]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[5]==3){
+          g.setColor(brick);
+        } 
+        if(ports[5]==4){
+          g.setColor(wood);
+        }  
+        if(ports[5]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1+5, x2, x2};
         int ypoints[] = {y1+7, y2+7, y1+7};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==6){
         x1=vertex[49][0];
         y1=vertex[49][1];
         x2=vertex[50][0];
         y2=vertex[50][1];
+        if(ports[6]==1){
+          g.setColor(stone);
+        }    
+        if(ports[6]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[6]==3){
+          g.setColor(brick);
+        } 
+        if(ports[6]==4){
+          g.setColor(wood);
+        }  
+        if(ports[6]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1, x2-5, x1};
         int ypoints[] = {y1+7, y2+5, y2+5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==7){
         x1=vertex[38][0];
         y1=vertex[38][1];
         x2=vertex[39][0];
         y2=vertex[39][1];
+        if(ports[7]==1){
+          g.setColor(stone);
+        }    
+        if(ports[7]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[7]==3){
+          g.setColor(brick);
+        } 
+        if(ports[7]==4){
+          g.setColor(wood);
+        }  
+        if(ports[7]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1, x2-5, x1};
         int ypoints[] = {y1+7, y2+5, y2+5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
       if (port==8){
         x1=vertex[16][0];
         y1=vertex[16][1];
         x2=vertex[27][0];
         y2=vertex[27][1];
+        if(ports[8]==1){
+          g.setColor(stone);
+        }    
+        if(ports[8]==2){
+          g.setColor(wheat);
+        } 
+        if(ports[8]==3){
+          g.setColor(brick);
+        } 
+        if(ports[8]==4){
+          g.setColor(wood);
+        }  
+        if(ports[8]==5){
+          g.setColor(sheep);
+        } 
         int xpoints[] = {x1-5, x1-a, x1-5};
         int ypoints[] = {y1+5, (y1+y2)/2, y2-5};
         int npoints = 3;
         g.fillPolygon(xpoints, ypoints, npoints);
-        g.setColor(circles);
-        g.drawPolygon(xpoints, ypoints, npoints);
       }
   }
   private void drawCircle(int x, int y, int radius) {

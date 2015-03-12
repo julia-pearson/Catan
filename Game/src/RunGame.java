@@ -50,8 +50,10 @@ public class RunGame {
 		//int[][] testBoard = new Board().getTestBoard();
 		//pass this to gl 
 		gl = new GameLogic(board, players);
-		int[] ports = new int[8];
+		int[] ports = new int[9];
 		for (int i=0; i< ports.length; i++){
+			System.out.println("Board building");
+			System.out.println(board[2][i]);
 			ports[i] = board[2][i];
 		}
 	

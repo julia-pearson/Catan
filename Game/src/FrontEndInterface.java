@@ -22,7 +22,7 @@ public class FrontEndInterface {
 			newBoard[i][1]= board[1][i];
 		}
 		h = new Hexanew( this, newBoard, n);
-		//h.addPorts(ports);
+		h.addPorts(ports);
 	}
 	
 	public void updateCurrentPlayer (int cp){
