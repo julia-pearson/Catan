@@ -191,14 +191,14 @@ public class Hexanew extends JFrame{
   };
   //array of bottom left corners of Hexagons, third is robber
   int[][] start = new int[][]{
-    {x,y-12*a,0},
+    {x,y-12*a,1},
     {x+2*w, y-12*a,0},
     {x+4*w, y-12*a,0},
     {x-w, y-9*a,0},
     {x+w, y-9*a,0},
     {x+3*w, y-9*a,0},
     {x+5*w, y-9*a,0},
-    {x-2*w, y-6*a,1},
+    {x-2*w, y-6*a,0},
     {x, y-6*a,0},
     {x+2*w, y-6*a,0},
     {x+4*w, y-6*a,0},
