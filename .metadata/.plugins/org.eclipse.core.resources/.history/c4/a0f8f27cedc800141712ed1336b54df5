@@ -544,6 +544,8 @@ public class Hexanew extends JFrame{
     }
   }
 
+
+
   //all draw methods
   public void drawHexalex(int x, int y, int resource){
       //array of coordinates, starting at lower left corner of the hexagon
@@ -835,25 +837,25 @@ public class Hexanew extends JFrame{
       //draws cards
       g2.setColor(stone);
 
-      String sheep = Integer.toString(resourceCount[0]);
-      if(sheep.equals("0")){
-        sheep=" ";
+      String stone = Integer.toString(resourceCount[0]);
+      if(stone.equals("0")){
+        stone=" ";
       }
-      String rock = Integer.toString(resourceCount[1]);
-      if(rock.equals("0")){
-        rock=" ";
-      }
-      String wheat = Integer.toString(resourceCount[2]);
+      String wheat = Integer.toString(resourceCount[1]);
       if(wheat.equals("0")){
         wheat=" ";
       }
-      String brick = Integer.toString(resourceCount[3]);
+      String brick = Integer.toString(resourceCount[2]);
       if(brick.equals("0")){
         brick=" ";
       }
-      String wood = Integer.toString(resourceCount[4]);
+      String wood = Integer.toString(resourceCount[3]);
       if(wood.equals("0")){
         wood=" ";
+      }
+      String sheep = Integer.toString(resourceCount[4]);
+      if(sheep.equals("0")){
+        sheep=" ";
       }
 
       int x=950;
@@ -864,7 +866,7 @@ public class Hexanew extends JFrame{
       g2.drawString(wood, x, y+40+i*150); 
       g2.drawString(brick, x, y+55+i*150);
       g2.drawString(wheat, x, y+70+i*150);
-      g2.drawString(rock, x, y+85+i*150);
+      g2.drawString(stone, x, y+85+i*150);
 
       repaint(); 
   }
@@ -904,7 +906,7 @@ public class Hexanew extends JFrame{
         yearOfPlenty=Integer.toString(player3[10]);         
       }
       if(currentPlayer==4){
-        vp = Integer.toString(player4[5]);   
+        vp = Integer.toString(player1[5]);   
         knight=Integer.toString(player4[6]); 
         unplayed=Integer.toString(player4[7]); 
         roadBuilder=Integer.toString(player4[8]); 

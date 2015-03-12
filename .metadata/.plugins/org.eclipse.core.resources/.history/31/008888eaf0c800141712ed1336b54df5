@@ -904,7 +904,7 @@ public class Hexanew extends JFrame{
         yearOfPlenty=Integer.toString(player3[10]);         
       }
       if(currentPlayer==4){
-        vp = Integer.toString(player4[5]);   
+        vp = Integer.toString(player1[5]);   
         knight=Integer.toString(player4[6]); 
         unplayed=Integer.toString(player4[7]); 
         roadBuilder=Integer.toString(player4[8]); 

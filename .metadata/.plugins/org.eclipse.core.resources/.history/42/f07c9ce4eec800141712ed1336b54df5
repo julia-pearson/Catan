@@ -837,23 +837,23 @@ public class Hexanew extends JFrame{
 
       String sheep = Integer.toString(resourceCount[0]);
       if(sheep.equals("0")){
-        sheep=" ";
+        stone=" ";
       }
       String rock = Integer.toString(resourceCount[1]);
       if(rock.equals("0")){
-        rock=" ";
+        wheat=" ";
       }
       String wheat = Integer.toString(resourceCount[2]);
       if(wheat.equals("0")){
-        wheat=" ";
+        brick=" ";
       }
       String brick = Integer.toString(resourceCount[3]);
       if(brick.equals("0")){
-        brick=" ";
+        wood=" ";
       }
       String wood = Integer.toString(resourceCount[4]);
       if(wood.equals("0")){
-        wood=" ";
+        sheep=" ";
       }
 
       int x=950;
@@ -864,7 +864,7 @@ public class Hexanew extends JFrame{
       g2.drawString(wood, x, y+40+i*150); 
       g2.drawString(brick, x, y+55+i*150);
       g2.drawString(wheat, x, y+70+i*150);
-      g2.drawString(rock, x, y+85+i*150);
+      g2.drawString(stone, x, y+85+i*150);
 
       repaint(); 
   }
@@ -904,7 +904,7 @@ public class Hexanew extends JFrame{
         yearOfPlenty=Integer.toString(player3[10]);         
       }
       if(currentPlayer==4){
-        vp = Integer.toString(player4[5]);   
+        vp = Integer.toString(player1[5]);   
         knight=Integer.toString(player4[6]); 
         unplayed=Integer.toString(player4[7]); 
         roadBuilder=Integer.toString(player4[8]); 

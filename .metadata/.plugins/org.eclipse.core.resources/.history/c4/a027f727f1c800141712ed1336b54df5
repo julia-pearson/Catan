@@ -320,6 +320,13 @@ public class Player {
 		System.out.println("Number of Cities: " +numberOfCities);
 		System.out.println("Number of Roads: " +numberOfRoads);
 		System.out.println("Victory Points: " +victoryPoints);
+		System.out.println("Resources:");
+		int[] resources = getResourceArray();
+		System.out.println("Num Rock: "+resources[1]);
+		System.out.println("Num Wheat: "+resources[2]);
+		System.out.println("Num Brick: "+resources[3]);
+		System.out.println("Num Wood: "+resources[4]);
+		System.out.println("Num Sheep: "+resources[5]);
 	}
 	
 	//method for testing

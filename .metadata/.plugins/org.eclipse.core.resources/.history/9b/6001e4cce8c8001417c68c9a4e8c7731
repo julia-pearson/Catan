@@ -278,16 +278,12 @@ public class GameLogic {
 		// if playerID to give is 0, the player initiating trade is trading with bank
 		if (tradeStats[0][2]!=0){ //not trading with computer
 			Player a = players[tradeStats[0][2]];
-			System.out.println("Player a: "+a.getID() +"gaining: "+tradeStats[1][0]);
-			a.printStats();
 			//player a gives away resources and gains some
 			a.looseResource(tradeStats[0][0], tradeStats[0][1]);
 			a.addResource(tradeStats[1][0], tradeStats[1][1]);
 		}
 		Player b = players[tradeStats[1][2]];	
-		b.printStats();
 		//player b gives away resources and gains some
-		System.out.println("Player b: "+b.getID()+ "gaining: "+tradeStats[0][0]);
 		b.addResource(tradeStats[0][0], tradeStats[0][1]);
 		b.looseResource(tradeStats[1][0], tradeStats[1][1]);
 	}
