@@ -55,7 +55,8 @@ public class Hexanew extends JFrame{
   //initializing String that will be numbers on circles
   int rollOne = 6;
   int rollTwo = 6;
-  boolean robberClick=false;
+  //boolean robberClick=false;
+  boolean play = true;
 
   //v1,v2,road?,player
   int[][] roadSide = new int[][]{
@@ -243,7 +244,6 @@ public class Hexanew extends JFrame{
 
 
   //sets up screen and size
-  //pass the list of tiles to draw and the first player
   public Hexanew(FrontEndInterface f, int[][] board, int numPlayers){
       setTitle("Hexanew");
       setSize(1500, 1000);
@@ -258,43 +258,58 @@ public class Hexanew extends JFrame{
       g = graphics;
       //allows me to print text!
       g2 = (Graphics2D)g;
-      g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-      drawBoard(interaction.currentPlayerID);       
+      g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); 
+      drawBoard(interaction.currentPlayerID);   
       updateBoard();
   }
   public void drawBoard(int currentPlayer){
-      //background
-      g.setColor(circles);
-      int xpoints[]={0,1500,1500,0};
-      int ypoints[]={0,0,1000,1000};
-      g.fillPolygon(xpoints,ypoints,4);
+    if(play){
+        //background
+        g.setColor(circles);
+        int xpoints[]={0,1500,1500,0};
+        int ypoints[]={0,0,1000,1000};
+        g.fillPolygon(xpoints,ypoints,4);
 
-      //drawing border
-      drawBorderHex(a1, x, y+2*a);
+        //drawing border
+        drawBorderHex(a1, x, y+2*a);
 
-      String value ="0";
-      //Filling in Board
-      for (int i=0; i<19; i++){
-        //Draw each small hexagon
-        drawHexalex(start[i][0],start[i][1], res[i][0]);
-        //Makes sure it's not the dessert
-        if(res[i][0] != 0){
-          g.setColor(circles);
-         //circle radius is simply shifted from the left lower coordinates in start[][]
-          drawCircle(start[i][0]+w, start[i][1]-a, 20);
-          //Getting number for circle
-          value = Integer.toString(res[i][1]);
-          g.setColor(Color.black);
-          //making 8 and 6 red
-          if (value.equals("6") || value.equals("8")){
-            g.setColor(Color.red);
+        String value ="0";
+        //Filling in Board
+        for (int i=0; i<19; i++){
+          //Draw each small hexagon
+          drawHexalex(start[i][0],start[i][1], res[i][0]);
+          //Makes sure it's not the dessert
+          if(res[i][0] != 0){
+            g.setColor(circles);
+           //circle radius is simply shifted from the left lower coordinates in start[][]
+            drawCircle(start[i][0]+w, start[i][1]-a, 20);
+            //Getting number for circle
+            value = Integer.toString(res[i][1]);
+            g.setColor(Color.black);
+            //making 8 and 6 red
+            if (value.equals("6") || value.equals("8")){
+              g.setColor(Color.red);
+            }
+            //6 and five are centering text
+            g2.drawString(value, start[i][0]+w-6, start[i][1]-a+5);
           }
-          //6 and five are centering text
-          g2.drawString(value, start[i][0]+w-6, start[i][1]-a+5);
         }
-      }
 
+        drawDevelopement(3*a, x+780+4*a, y-560);
+        drawCards(890, 260);
+        //Setting players, should be from Julia
+        drawPlayers(g2, 900, 300, totalPlayers);
+        tradeButton(1300,252);
+        for (int i=0; i<9;i++){
+          drawPorts(i);
+        }
+        for (int i=0; i<19; i++){
+          if(res[i][1]==0){
+            drawRobber(start[i][0],start[i][1]);
+          }
+        }
+        play=false;
+      }
       //Setting Dice
       drawDice(25, 800, rollOne, false);
       drawDice(110, 800, rollTwo, true);
@@ -304,19 +319,6 @@ public class Hexanew extends JFrame{
       drawCity(x+750-3*a, y-560, currentPlayer);
       drawSetty(x+750, y-560, currentPlayer);
       drawRoad(x+750+2*a, y-560, currentPlayer);
-      drawDevelopement(3*a, x+780+4*a, y-560);
-      drawCards(890, 260);
-      //Setting players, should be from Julia
-      drawPlayers(g2, 900, 300, totalPlayers);
-      tradeButton(1300,252);
-      for (int i=0; i<9;i++){
-        drawPorts(i);
-      }
-      for (int i=0; i<19; i++){
-        if(res[i][1]==0){
-          drawRobber(start[i][0],start[i][1]);
-        }
-      }
   }
   public void updateBoard(){
       for (int i=0; i<71;i++){
