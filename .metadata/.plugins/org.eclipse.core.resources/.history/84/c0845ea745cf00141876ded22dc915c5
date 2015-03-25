@@ -1,0 +1,66 @@
+import java.util.Random;
+
+
+public class NoPeople {
+	private RunGame rg;
+	
+	public NoPeople(RunGame r){
+		rg = r;
+	}
+	
+	public void doFirstRound(){
+		boolean settlementPlaced = false;
+		while (!settlementPlaced){
+			settlementPlaced = 	rg.placeSettlementFirstRound(firstRoundChoice());
+		}
+	}
+	
+	public int firstRoundChoice(){
+		Random generator =  new Random();
+		int vertexToBuild = generator.nextInt(34);
+		return vertexToBuild;
+	}
+	/*
+	public void startGame(){
+		System.out.println("Let's start playing!");
+		for (int i=0; i<turnOrder.length; i++){
+			currentPlayerID = turnOrder[i];
+			Player currentPlayer = players[currentPlayerID];
+			System.out.println("Player who will go is: " +currentPlayerID);
+			firstRound(currentPlayer);
+		} 
+		for (int i=turnOrder.length-1; i>=0; i--){
+			currentPlayerID = turnOrder[i];
+			Player currentPlayer = players[currentPlayerID];
+			System.out.println("Player who will go is: " +currentPlayerID);
+			firstRound(currentPlayer);
+		}
+	}
+
+	private void turn(){
+		int r = roll();
+		System.out.println("roll was "+r);
+		if(r == 7){
+			sevenRolled();
+		} else {
+			gl.diceRoll(r);
+		}
+		System.out.println("New turn for");
+		players[currentPlayerID].printStats();
+		actionType = 0;
+		System.out.println("Enter your action Type");
+		int actionType = sc.nextInt();
+		if (actionType == 1){
+			System.out.println("Where would you like to place your settlement?");
+			vertexToAct = sc.nextInt();
+			gl.placeSettlement(currentPlayerID, vertexToAct);
+		} else if(actionType == 2){
+			System.out.println("What are vertexes you would ilke to place your road between?");
+			int v1= sc.nextInt();
+			int v2 = sc.nextInt();
+			//gl.buildRoad();
+		}
+	}
+	*/
+	
+}

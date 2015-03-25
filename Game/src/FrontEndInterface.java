@@ -12,7 +12,7 @@ public class FrontEndInterface {
 	private Hexanew h;
 	public int currentPlayerID;
 	
-	public FrontEndInterface (RunGame r, int[][] board, int n, int[] ports){
+	public FrontEndInterface (RunGame r, int[][] board, int n, int[] ports, boolean mouseListener){
 		rg = r;
 		//must convert board (4X19) to the correct shape for hexanew (19x2)
 		
@@ -21,7 +21,7 @@ public class FrontEndInterface {
 			newBoard[i][0]= board[0][i];
 			newBoard[i][1]= board[1][i];
 		}
-		h = new Hexanew( this, newBoard, n);
+		h = new Hexanew( this, newBoard, n, mouseListener);
 		h.addPorts(ports);
 	}
 	
@@ -71,7 +71,7 @@ public class FrontEndInterface {
 	}
 	
 	public void devCardClicked(){
-		rg.buyDevCard();
+		rg.setActionType(11);
 	}
 	
 	public void monopolyClicked(){

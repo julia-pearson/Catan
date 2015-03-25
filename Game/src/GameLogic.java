@@ -75,14 +75,15 @@ public class GameLogic {
 	}
 	
 	//method to be called at start of game. will not check that player has enough resources
-	public boolean placeSettlement(Player p, int vertexNumber){
-		boolean build = graph.placeSettlement(vertexNumber, p, debugSet);
+	public boolean placeSettlement(int p, int vertexNumber){
+		boolean build = graph.checkPlaceSettlement(vertexNumber, players[p], debugSet);
 		if (debugSet){
 			System.out.println("Place settlement at "+vertexNumber+" " + build);
 		}
 		if (build == true){
 			//update stats in player class
-			p.placeSettlement();
+			players[p].placeSettlement();
+			graph.addSettlementToGraph(vertexNumber, players[p]);
 			return true;
 		}
 		else{
@@ -96,22 +97,25 @@ public class GameLogic {
 		graph.firstRoundResource(vertexNumber);
 	}
 	
+	public boolean buildSetCheck(int p, int vertexNumber){
+		//check player resources and the graph
+		boolean toReturn = players[p].buildSetCheck();
+		if(toReturn == false)
+			return false;
+		return  graph.checkBuildSettlement(vertexNumber, players[p], debugSet);
+	}
+	
 	//method to be called during game play when player wants to build settlement
 	public boolean buildSettlement(int p, int vertexNumber){
-		//check that the player has resources to build a settlement and has settlements left
-		boolean build = players[p].buildSetCheck();
-		if(build == false)
-			return false;
-
-		build = graph.buildSettlement(vertexNumber, players[p], debugSet);
-
+		boolean build = buildSetCheck(p, vertexNumber);
 		if (debugSet){
-			System.out.println("Place settlement at "+vertexNumber+" " + build);
+			System.out.println("Trying to build settlement at "+vertexNumber+" " + build);
 		}
 
 		if (build == true){
 			//update stats in player class
 			players[p].buildSettlement();
+			graph.addSettlementToGraph(vertexNumber, players[p]);
 			return true;
 		}
 
@@ -121,16 +125,19 @@ public class GameLogic {
 		}
 
 	}
-
-	public boolean buildCity(int p, int vertexNumber){
+	
+	public boolean buildCityCheck(int p, int v){
 		//check that the player has resources to build a city and has cities left
-		boolean build = players[p].buildCityCheck();
-
-		if (build == false)
+		if (players[p].buildCityCheck() == false)
 			return false;
 
-		build = graph.buildCity(vertexNumber, players[p], debugSet);
-
+		return graph.checkBuildCity(v, players[p], debugSet);
+		
+	}
+	
+	public boolean buildCity(int p, int vertexNumber){
+		boolean build = buildCityCheck(p, vertexNumber);
+		
 		if (build == false){
 			System.out.println("You cannot build a city on this location.");
 			return false;
@@ -138,6 +145,7 @@ public class GameLogic {
 
 		else{
 			players[p].buildCity();
+			graph.addCityToGraph(vertexNumber, players[p]);
 			return true;
 		}
 
@@ -149,23 +157,23 @@ public class GameLogic {
 		players[playerMovingRobber].addResource(resourceGained, 1);
 	} 
 	
-	public boolean buildRoad(int p, int v1, int v2){
+	public boolean buildRoadCheck(int p, int v1, int v2){
 		//check that the player has resources to build a road and has roads left
-		boolean build = players[p].buildRoadCheck();
-
-		if(build == false)
+		if(players[p].buildRoadCheck() == false)
 			return false;
 
-		build = graph.buildRoad(v1,v2, players[p], debugSet); 
-
+		return graph.checkBuildRoad(v1,v2, players[p], debugSet); 
+	}
+	
+	public boolean buildRoad(int p, int v1, int v2){
+		boolean build = buildRoadCheck(p, v1, v2);
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
-		} 
-
-		else{
+		} else{
 			players[p].buildRoad();
 			longRoadChecker(p);
+			graph.addRoadToGraph(v1, v2, players[p]);
 			return true;
 		}
 		//longest road check
@@ -173,7 +181,7 @@ public class GameLogic {
 
 	//used at beginning
 	public boolean placeRoad(int p, int v1, int v2){
-		boolean build = graph.placeRound1Road(v1,v2, players[p], debugSet); 
+		boolean build = graph.checkPlaceRound1Road(v1,v2, players[p], debugSet); 
 		if (build == false){
 			System.out.println("You cannot build a road on this location.");
 			return false;
@@ -183,23 +191,34 @@ public class GameLogic {
 			players[p].placeRoad();
 			longRoadChecker(p);
 			System.out.println("Road placed successfully");
+			graph.addRoadToGraph(v1,v2,players[p]);
 			return true;
 		}
 	}
 
-	public boolean buildDevCard(int p){
-		boolean build = players[p].buildDevCheck();
-		System.out.println(build);
-		if (build == false)
+	public boolean buildDevCheck(int p ){
+		boolean hasResources = players[p].buildDevCheck();
+		if (hasResources == false){
 			return false;
+		}
 		int i = devDeck.drawDevCard();
 		if(i ==10){
 			System.out.println("There are no development cards left.");
 			return false;
 		}
-		System.out.println("used dev resources");
-		players[p].buildDev(i);
 		return true;
+	}
+	
+	public boolean buildDevCard(int p){
+		boolean build = buildDevCheck(p);
+		if (build == false){
+			return false;
+		} else {
+			int i = devDeck.drawDevCard();
+//			System.out.println("used dev resources");
+			players[p].buildDev(i);
+			return true;	
+		}
 	}
 
 	//i is which dev card! 0 knight, 3 rb, 4 monopoly, 5 yop
