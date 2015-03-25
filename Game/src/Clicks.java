@@ -120,7 +120,7 @@ public class Clicks implements MouseListener{
 			System.out.println("port3");
 			//JuliaE Code
 		}
-/*		boolean port4=port4(x,y);
+		boolean port4=port4(x,y);
 		if(port4){
 			System.out.println("port4");
 			//JuliaE Code
@@ -144,7 +144,7 @@ public class Clicks implements MouseListener{
 		if(port8){
 			System.out.println("port8");
 			//JuliaE Code
-		}*/
+		}
 		if(verty<54){
 			interaction.vertexClicked(verty);
 		}
@@ -367,7 +367,7 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean port1(int x, int y){
-		if(x<138 && x>118 && y<415 && y>390){
+		if(x<424 && x>391 && y<132 && y>117){
 			return true;
 		}
 		else{
@@ -391,14 +391,45 @@ public class Clicks implements MouseListener{
 		}
 	}
 	public boolean port4(int x, int y){
-		if(x<770 && x>742 && y<340 && y>295){
+		if(x<770 && x>742 && y<576 && y>545){
 			return true;
 		}
 		else{
 			return false;
 		}
 	}
-
+	public boolean port5(int x, int y){
+		if(x<664 && x>632 && y<769 && y>749){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port6(int x, int y){
+		if(x<418 && x>389 && y<765 && y>740){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port7(int x, int y){
+		if(x<210 && x>182 && y<646 && y>623){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port8(int x, int y){
+		if(x<107 && x>78 && y<455 && y>439){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 	public void mousePressed(MouseEvent e) {}
 
