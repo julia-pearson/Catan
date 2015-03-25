@@ -16,10 +16,10 @@ public class GraphController {
 	
 	/*check if it is legal to build a settlement here (ie- no other settlements at a neighbor vertex 
 	 * and no settlement already at this vertex)
-	 * If so, place settlement and return true
-	 * if not, make no change to the graph and return false
+	 * If so return true
+	 * if not return false
 	 */
-	public boolean placeSettlement(int v, Player p, boolean printError){
+	public boolean checkPlaceSettlement(int v, Player p, boolean printError){
 		Vertex vert = vertices[v];
 		if (vert.getSettlementType() != 0) { 
 			//ensure vertex is empty
@@ -30,7 +30,12 @@ public class GraphController {
 		} else {
 			//check that position is legal
 			Edge[] es = vert.getEdges();
-			for (int i=0; i< es.length; i++){
+			for (int i=0; i<vert.getNumEdges(); i++){
+				/*
+				System.out.println("Going thru edges of vertex "+v+" at index: "+i);
+				System.out.println(es[i].v1.getSettlementType());
+				System.out.println(es[i].v2.getSettlementType());
+				*/
 				if (es[i].v1.getSettlementType() != 0  || es[i].v2.getSettlementType() != 0){
 					//there is another settlement one edge away(neighbor vertex)
 					if(printError){
@@ -40,18 +45,22 @@ public class GraphController {
 				}
 			}
 			//position is legal, so build settlement
-			vert.buildSettlement(p);
 			return true;
 		}
+	}
+	
+	public void addSettlementToGraph(int v, Player p){
+		Vertex vert = vertices[v];
+		vert.buildSettlement(p);
 	}
 	
 	/*
 	 * will first check that the player has roads on an edge leading to this settlement,
 	 * then will call placeSettlement
 	 */
-	public boolean buildSettlement(int v, Player p, boolean printError){
+	public boolean checkBuildSettlement(int v, Player p, boolean printError){
 		if (connectedRoads(v,p)){
-			return placeSettlement(v,p, printError);
+			return checkPlaceSettlement(v,p, printError);
 		} else{
 			if(printError){
 				System.out.println("You need roads connected to this vertex");
@@ -64,10 +73,9 @@ public class GraphController {
 	 * If so, place city and return true
 	 * if not, make no change to the graph and return false
 	 */
-	public boolean buildCity(int v, Player p, boolean printError){
+	public boolean checkBuildCity(int v, Player p, boolean printError){
 		Vertex settlement = vertices[v];
 		if (settlement.getSettlementType() == 1 && settlement.getOwner() == p){
-			settlement.buildCity();
 			return true;
 		} else{
 			if(printError){
@@ -77,11 +85,16 @@ public class GraphController {
 		}
 	}
 	
+	public void addCityToGraph(int v, Player p ){
+		Vertex settlement = vertices[v];
+		settlement.buildCity();
+	}
+	
 	/*check if it is legal to place a road between given vertices
 	 * If so, place road and return true
 	 * if not, make no change to the graph and return false	
 	*/
-	public boolean placeRoad(int a, int b, Player p, boolean printError){
+	public boolean checkPlaceRoad(int a, int b, Player p, boolean printError){
 		//find edge object that links v1 and v2, then check if edge is free
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
@@ -113,30 +126,41 @@ public class GraphController {
 				 }
 				 return false;
 			 } else {
-				 toConsider.buildRoad(p);
 				 return true;
 			 }
 		}
+	}
+	
+	public void addRoadToGraph(int a, int b, Player p){
+		Edge toConsider = null;
+		Edge[] e1 = vertices[a].getEdges();
+		for (int i = 0; i<e1.length; i++ ){
+			if (e1[i].v1 == vertices[a] && e1[i].v2 == vertices[b] || 
+					e1[i].v1 == vertices[b] && e1[i].v2 == vertices[a]){
+				toConsider = e1[i];
+			}
+		}
+		 toConsider.buildRoad(p);
 	}
 	
 	/*
 	 * will check that player has road connecting to either v1 or v2, then will call placeRoad
 	 *TODO: incorporate longest road
 	 */
-	public boolean buildRoad(int v1, int v2, Player p, boolean printErrors){
+	public boolean checkBuildRoad(int v1, int v2, Player p, boolean printErrors){
 		if (connectedRoads(v1,p) || connectedRoads(v2,p)){
-			return placeRoad (v1, v2, p, printErrors);
+			return checkPlaceRoad (v1, v2, p, printErrors);
 		} else{
 			return false;
 		}
 	}
 	
 	 //must check for settlement at one edge - if in first round
-	 public boolean placeRound1Road(int v1, int v2, Player p, boolean printErrors){
+	 public boolean checkPlaceRound1Road(int v1, int v2, Player p, boolean printErrors){
 			Vertex vert1 = vertices[v1];
 			Vertex vert2 = vertices[v2];
 			if (vert1.getOwner()== p || vert2.getOwner() ==p ) {
-				return placeRoad(v1,v2,p, printErrors);
+				return checkPlaceRoad(v1,v2,p, printErrors);
 			} else {
 				if (printErrors){
 					System.out.println("You must have a settlement at one end of this road");
