@@ -24,3 +24,28 @@ java.vm.info,sysinfo,,,"mixed mode",1427246507191
 java.vm.name,sysinfo,,,"Java HotSpot(TM) 64-Bit Server VM",1427246507191
 java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1427246507191
 java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1427246507191
+java.vm.specification.version,sysinfo,,,"1.0",1427246507191
+java.vm.vendor,sysinfo,,,"Apple Inc.",1427246507191
+java.vm.version,sysinfo,,,"20.65-b04-466.1",1427246507191
+started,bundle,org.eclipse.m2e.usagedata,1.0.200.20111228-1245,"org.eclipse.m2e.usagedata",1427246507197
+started,bundle,org.eclipse.wb.discovery.ui,1.3.0.r37x201202052340,"org.eclipse.wb.discovery.ui",1427246508179
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246509613
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246509741
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1427246511511
+started,bundle,org.eclipse.wb.core.lib,1.3.0.r37x201202052311,"org.eclipse.wb.core.lib",1427246511613
+started,bundle,org.eclipse.wb.core,1.3.0.r37x201202052311,"org.eclipse.wb.core",1427246511647
+started,bundle,org.eclipse.jdt.junit,3.7.0.v20110928-1453,"org.eclipse.jdt.junit",1427246514000
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246520075
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1427246521349
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246524731
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246529265
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.findReplace",1427246529336
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246531895
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246533619
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246561289
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1427246563486
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246568844
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246568916
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1427246569872
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246574636
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1427246613327
