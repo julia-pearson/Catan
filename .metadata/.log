@@ -3953,6 +3953,7 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.core.net 1 0 2015-03-24 20:58:10.907
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.jdt.core 4 4 2015-03-24 21:07:14.859
 !MESSAGE Background Indexer Crash Recovery
@@ -3989,3 +3990,5 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.core.net 1 0 2015-03-24 21:21:39.867
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+=======
+>>>>>>> juliaedholm/julia-pearson-With-Robber
