@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
 org.eclipse.epp.usagedata.recording.filter-eclipse-only=true
-org.eclipse.epp.usagedata.recording.last-upload=1425736817311
+<<<<<<< HEAD
+org.eclipse.epp.usagedata.recording.last-upload=1427245098551
+=======
+org.eclipse.epp.usagedata.recording.last-upload=1426872643497
+>>>>>>> master

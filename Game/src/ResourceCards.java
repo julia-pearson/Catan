@@ -28,6 +28,8 @@ public class ResourceCards{
 		return num;
 	}
 
+
+
 	public int randomDelete(){
 		//returns the int of the resource deleted as referenced in the Resource class dictionary
 
@@ -129,6 +131,18 @@ public class ResourceCards{
 			return true;
 		}
 		return false;
+	}
+
+	public int getx(int x){
+		return cardKey[x];
+	}
+
+	public int monopX(int x){
+		int getrid = cardKey[x];
+		while(cardKey[x]>0){
+			cardKey[x]--;
+		}
+		return getrid;
 	}
 
 }

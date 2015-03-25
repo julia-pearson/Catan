@@ -15,21 +15,22 @@ public class Clicks implements MouseListener{
 
 		int x = e.getX();
 		int y = e.getY();
+		System.out.println(x);
+		System.out.println(y);
 		//identifying the Vertex and Hexagon
 		int verty= searchVert(x,y);
 		int hexy= searchHex(x,y);
 		boolean roll=rolledDice(x, y);
+
 		if(roll){
 			int [] rolls= interaction.diceClicked();
 			hex.rollOne=rolls[0];//random from Julia
 			hex.rollTwo=rolls[1];
-/*			if(hex.currentPlayer<4){
-				hex.currentPlayer=hex.currentPlayer+1;				
-			}
-			else {
-				hex.currentPlayer=1;
-			}*/
 			hex.repaint();
+		}
+		boolean trade = triedTrade(x,y);
+		if(trade){
+			interaction.tradeClicked();
 		}
 		boolean city = askCity(x,y);
 		if(city){
@@ -45,85 +46,112 @@ public class Clicks implements MouseListener{
 		}
 		boolean dev = askDev(x,y);
 		if(dev){
-			System.out.println("dev");
+			interaction.devCardClicked();
 		}
 		boolean sheep = sheep(x,y);
 		if(sheep){
-			System.out.println("sheep");
+			interaction.resourceClicked(5);
 		}
 		boolean wood = wood(x,y); 
 		if(wood){
-			System.out.println("wood");
+			interaction.resourceClicked(4);
 		}
 		boolean stone = stone(x,y);
 		if(stone){
-			System.out.println("stone");
+			interaction.resourceClicked(1);
 		}
 		boolean brick = brick(x,y);
 		if(brick){
-			System.out.println("brick");
+			interaction.resourceClicked(3);
 		}
 		boolean wheat = wheat(x,y);
 		if(wheat){
-			System.out.println("wheat");
+			interaction.resourceClicked(2);
 		}
+		boolean player1=player1(x,y);
+		if(player1){
+			interaction.playerClicked(1);
+		}
+		boolean player2=player2(x,y);
+		if(player2){
+			interaction.playerClicked(2);
+		}
+		boolean player3=player3(x,y);
+		if(player3){
+			interaction.playerClicked(3);
+		}
+		boolean player4=player4(x,y);
+		if(player4){
+			interaction.playerClicked(4);
+		}
+		boolean knights=knights(x,y);
+		if(knights){
+			interaction.knightClicked();
+		}
+		boolean yearOfPlenty=yearOfPlenty(x,y);
+		if(yearOfPlenty){
+			interaction.yearOfPlentyClicked();
+		}
+		boolean monopoly=monopoly(x,y);
+		if(monopoly){
+			interaction.monopolyClicked();
+		}
+		boolean roadBuilder=roadBuilder(x,y);
+		if(roadBuilder){
+			interaction.roadBuilderClicked();
+		}
+		boolean port0=port0(x,y);
+		if(port0){
+			System.out.println("port0");
+			//JuliaE Code
+		}
+		boolean port1=port1(x,y);
+		if(port1){
+			System.out.println("port1");
+			//JuliaE Code
+		}
+		boolean port2=port2(x,y);
+		if(port2){
+			System.out.println("port2");
+			//JuliaE Code
+		}
+		boolean port3=port3(x,y);
+		if(port3){
+			System.out.println("port3");
+			//JuliaE Code
+		}
+/*		boolean port4=port4(x,y);
+		if(port4){
+			System.out.println("port4");
+			//JuliaE Code
+		}
+		boolean port5=port5(x,y);
+		if(port5){
+			System.out.println("port5");
+			//JuliaE Code
+		}
+		boolean port6=port6(x,y);
+		if(port6){
+			System.out.println("port6");
+			//JuliaE Code
+		}
+		boolean port7=port7(x,y);
+		if(port7){
+			System.out.println("port7");
+			//JuliaE Code
+		}
+		boolean port8=port8(x,y);
+		if(port8){
+			System.out.println("port8");
+			//JuliaE Code
+		}*/
 		if(verty<54){
 			interaction.vertexClicked(verty);
-			/*
-			if(hex.buildSettlement){
-				hex.vertex[verty][2]=1;
-				hex.vertex[verty][5]=hex.currentPlayer;
-				hex.buildSettlement=false;
-			}
-
-
-			if(hex.buildCity){
-				hex.vertex[verty][2]=2;
-				hex.vertex[verty][5]=hex.currentPlayer;
-				hex.buildCity=false;
-			}
-			if(hex.buildRoad){
-				if(hex.road1==0){
-					hex.road1=verty;
-					hex.vertex[hex.road1][5]=hex.currentPlayer;
-				}
-				else if(hex.road1!=0 && hex.road2==0) {
-					hex.road2=verty;
-					hex.vertex[hex.road1][2]=3;
-					//checks if there is another road on vertex
-					if (hex.vertex[hex.road1][0]<hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=2;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=2;							
-						}
-					}
-					else if (hex.vertex[hex.road1][0]>hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=1;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=1;							
-						}				
-					}
-					else if (hex.vertex[hex.road1][0]==hex.vertex[hex.road2][0]){
-						if(hex.vertex[hex.road1][3]>0){
-							hex.vertex[hex.road1][4]=3;								
-						}
-						else{
-							hex.vertex[hex.road1][3]=3;							
-						}					
-					}					
-				}
-				hex.buildRoad=false;
-				hex.road1=0;
-				hex.road2=0;
-			}
-		hex.repaint();	
-		*/
 		}
-
+		if(hexy<19){
+			interaction.robberClicked();
+			interaction.tileClicked(hexy);
+		}
 	}
 
 	public int searchVert(int x, int y){
@@ -145,7 +173,6 @@ public class Clicks implements MouseListener{
 				vert=i;
 			}
       	}
-      	System.out.println(vert);
       	return vert;
 	}
 	public int searchHex(int x, int y){
@@ -167,8 +194,15 @@ public class Clicks implements MouseListener{
 				hexy=i;
 			}
       	}
-      	System.out.println(hexy);
       	return hexy;
+	}
+	public boolean triedTrade(int x, int y){
+		if(x<1370 && x>1285 && y<254 && y>177){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public boolean rolledDice(int x, int y){
 		if(x<175 && x>25 && y<810 && y>745){
@@ -260,6 +294,112 @@ public class Clicks implements MouseListener{
 		}
 		return newX;
 	}
+	public boolean player1(int x, int y){
+		if(x<995 && x>897 && y<303 && y>280){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player2(int x, int y){
+		if(x<995 && x>897 && y<453 && y>431){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player3(int x, int y){
+		if(x<995 && x>897 && y<603 && y>581){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean player4(int x, int y){
+		if(x<995 && x>897 && y<753 && y>731){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean knights(int x, int y){
+		if(x<1360 && x>1149 && ((y<341 && y>327) || (y>773 && y<789)|| (y>474 && y<490)|| (y>624 && y<641)) ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean yearOfPlenty(int x, int y){
+		if(x<1360 && x>1149 && ((y<385 && y>400) || (y>820 && y<835)|| (y>520 && y<535)|| (y>670 && y<685)) ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean monopoly(int x, int y){
+		if(x<1360 && x>1149 && ((y<370 && y>355) || (y>805 && y<820)|| (y>505 && y<520)|| (y>655 && y<670)) ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean roadBuilder(int x, int y){
+		if(x<1360 && x>1149 && ((y<355 && y>340) || (y>790 && y<805)|| (y>490 && y<505)|| (y>640 && y<655)) ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port0(int x, int y){
+		if(x<210 && x>182 && y<257 && y>236){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port1(int x, int y){
+		if(x<138 && x>118 && y<415 && y>390){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port2(int x, int y){
+		if(x<664 && x>639 && y<137 && y>116){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port3(int x, int y){
+		if(x<770 && x>742 && y<340 && y>295){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean port4(int x, int y){
+		if(x<770 && x>742 && y<340 && y>295){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+
 	public void mousePressed(MouseEvent e) {}
 
     public void mouseEntered(MouseEvent e) {}

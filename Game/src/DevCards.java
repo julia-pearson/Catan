@@ -79,4 +79,21 @@ public class DevCards{
 		return false;
 	}
 
+	public int getK(){
+		return cardKey[0];
+	}
+
+	public int getRB(){
+		return cardKey[3];
+	}
+
+	public int getM(){
+		return cardKey[4];
+	}
+
+	public int getYoP(){
+		return cardKey[5];
+	}
+
+
 }

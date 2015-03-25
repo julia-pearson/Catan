@@ -12,7 +12,7 @@ public class FrontEndInterface {
 	private Hexanew h;
 	public int currentPlayerID;
 	
-	public FrontEndInterface (RunGame r, int[][] board){
+	public FrontEndInterface (RunGame r, int[][] board, int n, int[] ports, boolean mouseListener){
 		rg = r;
 		//must convert board (4X19) to the correct shape for hexanew (19x2)
 		
@@ -21,18 +21,26 @@ public class FrontEndInterface {
 			newBoard[i][0]= board[0][i];
 			newBoard[i][1]= board[1][i];
 		}
-	
-		h = new Hexanew( this, newBoard);
-	}
-	
-	public FrontEndInterface (){
-		//h = new Hexanew( this);
-		currentPlayerID = 1;
+		h = new Hexanew( this, newBoard, n, mouseListener);
+		h.addPorts(ports);
 	}
 	
 	public void updateCurrentPlayer (int cp){
 		currentPlayerID = cp;
 		h.updateBoard();
+	}
+	
+	public void tradeClicked(){
+		rg.setActionType(4);
+	}
+	
+	public void playerClicked(int playerID){
+		rg.playerClicked(playerID);
+	}
+	
+	public void resourceClicked (int resourceNum){
+		System.out.println("resource clicked "+resourceNum);
+		rg.resourceClicked(resourceNum);
 	}
 
 	public void settyClicked (){
@@ -61,20 +69,57 @@ public class FrontEndInterface {
 	public int[] diceClicked (){
 		return rg.rollDice();
 	}
+	
+	public void devCardClicked(){
+		rg.setActionType(11);
+	}
+	
+	public void monopolyClicked(){
+		rg.setActionType(7);
+	}
+	
+	public void yearOfPlentyClicked(){
+		rg.setActionType(8);
+	}
+	
+	public void knightClicked(){
+		rg.setActionType(10);
+	}
+	
+	public void roadBuilderClicked(){
+		rg.setActionType(9);
+	}
+	
+	public void robberClicked(){
+		rg.setActionType(6);
+	}
+	
+	public void tileClicked(int t){
+		rg.setTileClicked(t);
+	}
 
 	public void drawSettlement(int v){
-		h.buildSettlement(v);
+		h.addSettlement(v);
 	}
 	
 	public void drawRoad (int v1, int v2){
-		System.out.println("Draw Road method in FEI called");
-		h.drawRoad(v1,v2, currentPlayerID);
-		h.repaint();
+		h.addRoad(v1,v2, currentPlayerID);
 	}
 	
 	public void drawCity(int v){
-	//	h.buildCity(v);
-		System.out.println("Tried to draw city on vertex: "+v);
+		h.addCity(v);
+	}
+	
+	public void updateRobberPosition (int t){
+		h.addRobber(t);
+	}
+	
+	public void updateVP (int playerID, int[] stats){
+		h.addStatistics(stats, playerID);
+	}
+	
+	public void updateResources(int playerID, int[] resources){
+		h.addStatistics(resources, playerID);
 	}
 
 	public void nullClick(){
