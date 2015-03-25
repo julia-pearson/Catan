@@ -20,7 +20,7 @@ public class RunGame {
 	
 	private  int actionType; //0= nothing, 1 = settlement, 2 = city, 3 = road,
 	//4 = trade 4 to 1, 5 = trade other player, 6 = move robber, 7 = monopoly 8 = year of plenty
-	//9 = road builder, 10 = knight
+	//9 = road builder, 10 = knight, 11 = buy dev card
 	private  int[] verticesToAct; //at most 2 vertices
 	private int vertexCounter;
 	private boolean sevenRolled;
@@ -55,61 +55,26 @@ public class RunGame {
 			ports[i] = board[2][i];
 		}
 	
+		inFirstRound = true;
+		firstRoundSET = true;
 		if (usingGraphics){
 			//FEI will draw the graph
-			fei = new FrontEndInterface (this, board, numPlayers, ports);
+			fei = new FrontEndInterface (this, board, numPlayers, ports, true);
 			fei.currentPlayerID = currentPlayerID;
-			inFirstRound = true;
-			firstRoundSET = true;
 		} else{
-			for (int i=0; i<4; i++){
-				currentPlayerID = order.getNextPlayer();
-				//turn();
+			// run the game without graphics and with a random AI making all choices
+		//	fei = new FrontEndInterface (this, board, numPlayers, ports, false);
+			//fei.currentPlayerID = currentPlayerID;
+			NoPeople np = new NoPeople(this, gl);
+			for (int i=0; i<playerCount*2; i++){
+				np.doFirstRound();
 			}
-		//	startGame();
+			for (int i=0; i<16; i++){
+				rollDice();
+				np.turn(currentPlayerID);
+			}
 		}
 	}
-	/* void startGame(){
-		System.out.println("Let's start playing!");
-		for (int i=0; i<turnOrder.length; i++){
-			currentPlayerID = turnOrder[i];
-			Player currentPlayer = players[currentPlayerID];
-			System.out.println("Player who will go is: " +currentPlayerID);
-			firstRound(currentPlayer);
-		} 
-		for (int i=turnOrder.length-1; i>=0; i--){
-			currentPlayerID = turnOrder[i];
-			Player currentPlayer = players[currentPlayerID];
-			System.out.println("Player who will go is: " +currentPlayerID);
-			firstRound(currentPlayer);
-		}
-	}
-
-	private void turn(){
-		int r = roll();
-		System.out.println("roll was "+r);
-		if(r == 7){
-			sevenRolled();
-		} else {
-			gl.diceRoll(r);
-		}
-		System.out.println("New turn for");
-		players[currentPlayerID].printStats();
-		actionType = 0;
-		System.out.println("Enter your action Type");
-		int actionType = sc.nextInt();
-		if (actionType == 1){
-			System.out.println("Where would you like to place your settlement?");
-			vertexToAct = sc.nextInt();
-			gl.placeSettlement(currentPlayerID, vertexToAct);
-		} else if(actionType == 2){
-			System.out.println("What are vertexes you would ilke to place your road between?");
-			int v1= sc.nextInt();
-			int v2 = sc.nextInt();
-			//gl.buildRoad();
-		}
-	}
-	*/
 	
 	private int roll(){
 		//pick a random int between 1 and 6
@@ -124,7 +89,9 @@ public class RunGame {
 			return new int[] {6,6};
 		}
 		currentPlayerID = order.getNextPlayer();
-		fei.updateCurrentPlayer(currentPlayerID);
+		if (usingGraphics){
+			fei.updateCurrentPlayer(currentPlayerID);
+		}
 		int r1 = roll();
 		int r2 = roll();
 		if ((r1+r2) == 7){
@@ -135,59 +102,70 @@ public class RunGame {
 		return new int[] {r1,r2};
 	}
 	
-	private void firstRound(Player p){
-		System.out.println("Player "+ currentPlayerID + "'s turn");
-		if (!usingGraphics){
-			System.out.println("Where would you like to place your settlement?");
-			int vertexNum = sc.nextInt();
-			gl.placeSettlement(p, vertexNum);
-			System.out.println("What are vertexes you would ilke to place your road between?");
-			int v1= sc.nextInt();
-			int v2 = sc.nextInt();
-		} 
-		//gl.buildRoad();
-	}
-	
 	public void vertexClickedFirstRound( int vertex){
 		if (firstRoundSET){
-			//settlement building part of first round
-			System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
-			if (gl.placeSettlement(players[currentPlayerID], vertex)){
-				fei.drawSettlement(vertex);
-				if(players[currentPlayerID].numberOfSettlements == 1){
-					gl.giveResourcesStartGame(vertex);
-					updateAllStats();
-				}	
-				if (!order.firstRoundSettlementDone()){
-					currentPlayerID = order.getNextPlayerGameStart();// switch players
-					fei.updateCurrentPlayer(currentPlayerID);
-				} else {
-					firstRoundSET = false;
-					firstRoundRoadCounter = 0;
-					System.out.println("Click vertexes for Roads");
-				}
-			}
+			placeSettlementFirstRound(vertex);
 		} else {
-			//road placement part of Round 1
-			System.out.println("vertex: "+vertex+" clicked in first round. Trying to place road for player: "+currentPlayerID);
-			verticesToAct[vertexCounter] = vertex;
-			vertexCounter ++;
-			if (vertexCounter == 2){
-				if (gl.placeRoad(currentPlayerID, verticesToAct[0], verticesToAct[1])){
+			placeRoadFirstRound(vertex);
+		}
+	}
+	
+	public boolean placeSettlementFirstRound (int vertex){
+		//settlement building part of first round
+		System.out.println("vertex: "+vertex+" clicked in first round. Trying to place settlement for player: "+currentPlayerID);
+		if (gl.placeSettlement(currentPlayerID, vertex)){
+			if (usingGraphics){
+				fei.drawSettlement(vertex);
+			}
+			if(players[currentPlayerID].numberOfSettlements == 1){
+				gl.giveResourcesStartGame(vertex);
+				updateAllStats();
+			}	
+			if (!order.firstRoundSettlementDone()){
+				currentPlayerID = order.getNextPlayerGameStart();// switch players
+				if (usingGraphics){
+					fei.updateCurrentPlayer(currentPlayerID);
+				}
+			} else {
+				firstRoundSET = false;
+				firstRoundRoadCounter = 0;
+				System.out.println("Click vertexes for Roads");
+			}
+			return true;
+		}
+		else{
+			//was not able to place a settlement for some reason
+			return false;
+		}
+	}
+	
+	public boolean placeRoadFirstRound(int vertex){
+		//road placement part of Round 1
+		System.out.println("vertex: "+vertex+" clicked in first round. Trying to place road for player: "+currentPlayerID);
+		verticesToAct[vertexCounter] = vertex;
+		vertexCounter ++;
+		boolean toReturn = false;
+		if (vertexCounter == 2){
+			if (gl.placeRoad(currentPlayerID, verticesToAct[0], verticesToAct[1])){
+				if (usingGraphics){
 					fei.drawRoad(verticesToAct[0], verticesToAct[1]);
-					currentPlayerID = order.getNextPlayer();
-					firstRoundRoadCounter ++;
+				}
+				currentPlayerID = order.getNextPlayer();
+				firstRoundRoadCounter ++;
+				if (usingGraphics){
 					fei.updateCurrentPlayer(currentPlayerID); //switch players
-				} else{
-					System.out.println("Road placement didn't work, try again");
 				}
-				vertexCounter = 0;
-				if (firstRoundRoadCounter == 2*playerCount){
-					inFirstRound = false;
-					System.out.println("Initial Settlement and Road Placement is done");
-				}
+				toReturn = true;
+			} else{
+				System.out.println("Road placement didn't work, try again");
+			}
+			vertexCounter = 0;
+			if (firstRoundRoadCounter == 2*playerCount){
+				inFirstRound = false;
+				System.out.println("Initial Settlement and Road Placement is done");
 			}
 		}
+		return toReturn;
 	}
 	
 	public void setTileClicked(int t){
@@ -212,6 +190,8 @@ public class RunGame {
 			tradeResourceButton();
 		} else if (t == 8){
 			yopResources = new int[2];
+		} else if (t == 11){
+			buyDevCard();
 		}
 		actionType = t;
 	}
@@ -231,7 +211,7 @@ public class RunGame {
 			tryToBuildRoad();
 		} else if (actionType == 9){
 			useRoadBuilder();
-		}
+		} 
 		updateAllStats();
 	}
 	
@@ -388,6 +368,9 @@ public class RunGame {
 	}
 	
 	private void updateAllStats(){
+		if (!usingGraphics){
+			return;
+		}
 		for (int i = 1; i< players.length; i++){
 			int [] r = players[i].getPlayerStats();
 			fei.updateVP(i, r);

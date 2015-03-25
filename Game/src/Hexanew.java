@@ -244,15 +244,18 @@ public class Hexanew extends JFrame{
 
 
   //sets up screen and size
-  public Hexanew(FrontEndInterface f, int[][] board, int numPlayers){
+  public Hexanew(FrontEndInterface f, int[][] board, int numPlayers, boolean mouseListener){
       setTitle("Hexanew");
       setSize(1500, 1000);
       setVisible(true);
-      addMouseListener(new Clicks(this, f));
+      if (mouseListener){
+    	  addMouseListener(new Clicks(this, f));
+      }
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       interaction = f;
       res = board;
       totalPlayers = numPlayers;
+      repaint();
   } 
   public void paint(Graphics graphics){
       g = graphics;
@@ -263,6 +266,7 @@ public class Hexanew extends JFrame{
       updateBoard();
   }
   public void drawBoard(int currentPlayer){
+    if(play){
         //background
         g.setColor(circles);
         int xpoints[]={0,1500,1500,0};
@@ -307,7 +311,8 @@ public class Hexanew extends JFrame{
             drawRobber(start[i][0],start[i][1]);
           }
         }
-
+        play=false;
+      }
       //Setting Dice
       drawDice(25, 800, rollOne, false);
       drawDice(110, 800, rollTwo, true);
@@ -415,6 +420,9 @@ public class Hexanew extends JFrame{
   public void buildSetty(int x, int y, int currentPlayer){
       x=x-15;
       y=y+15;
+      if (g == null){
+    	  System.out.println("Can't find g in build setty method");
+      }
       if(currentPlayer==1){
         g.setColor(blue);
       }
@@ -492,6 +500,24 @@ public class Hexanew extends JFrame{
     vertex[v][3]=interaction.currentPlayerID;
     repaint();
   }
+  //will pass player and an int array with resource count 
+/*  public void addResources(int currentPlayer, int[] resourceCount){
+    //all the interaction happens here
+    for(int i=1;i<6;i++){
+      if (currentPlayer==1) {
+        player1[i]=resourceCount[i];        
+      }
+      if (currentPlayer==2) {
+        player2[i]=resourceCount[i];        
+      }
+      if (currentPlayer==3) {
+        player3[i]=resourceCount[i];        
+      }
+      if (currentPlayer==4) {
+        player4[i]=resourceCount[i];        
+      }
+    }
+  }*/
   public void addStatistics(int[] statistics, int currentPlayer){
     for(int i=0;i<statistics.length;i++){
       if (currentPlayer==1) {
