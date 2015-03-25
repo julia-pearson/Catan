@@ -36,10 +36,6 @@ public class Vertex {
 		return edges;
 	}
 	
-	public int getNumEdges(){
-		return numEdgesSet;
-	}
-	
 	public void printResources(){
 		for (int i=0; i<adjacentTiles.length; i++){
 			adjacentTiles[i].printTile();

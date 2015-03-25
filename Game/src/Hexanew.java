@@ -244,18 +244,15 @@ public class Hexanew extends JFrame{
 
 
   //sets up screen and size
-  public Hexanew(FrontEndInterface f, int[][] board, int numPlayers, boolean mouseListener){
+  public Hexanew(FrontEndInterface f, int[][] board, int numPlayers){
       setTitle("Hexanew");
       setSize(1500, 1000);
       setVisible(true);
-      if (mouseListener){
-    	  addMouseListener(new Clicks(this, f));
-      }
+      addMouseListener(new Clicks(this, f));
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       interaction = f;
       res = board;
       totalPlayers = numPlayers;
-      repaint();
   } 
   public void paint(Graphics graphics){
       g = graphics;
@@ -418,9 +415,6 @@ public class Hexanew extends JFrame{
   public void buildSetty(int x, int y, int currentPlayer){
       x=x-15;
       y=y+15;
-      if (g == null){
-    	  System.out.println("Can't find g in build setty method");
-      }
       if(currentPlayer==1){
         g.setColor(blue);
       }
