@@ -1,9 +1,0 @@
-import java.awt.event.*;
-
-public class clicks implements MouseListener{
-
-	public void mouseClicked(MouseEvent e){
-		System.out.println("mouseClicked");
-	}
-
-}
