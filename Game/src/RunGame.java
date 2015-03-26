@@ -32,6 +32,8 @@ public class RunGame {
 	private int[][] tradeResources; //tradeResources[0]= {type you want, amount, playerID}, tradeResouces[1] = {type you'll give away, amount, playerID}
 	private int[] yopResources;
 	
+	private boolean printRunningMessage = true;
+	
 	public RunGame(int numPlayers, boolean useGraphics){
 		players = new Player[numPlayers+1];
 		
@@ -67,10 +69,19 @@ public class RunGame {
 			//fei.currentPlayerID = currentPlayerID;
 			NoPeople np = new NoPeople(this, gl);
 			for (int i=0; i<playerCount*2; i++){
-				np.doFirstRound();
+				np.firstRoundPlaceSettlement();
 			}
-			for (int i=0; i<16; i++){
-				rollDice();
+			for (int i=0; i<playerCount*2; i++){
+				np.firstRoundRoad(currentPlayerID);
+			}
+			while(!gameEnd()){
+				int[] r = rollDice();
+				/*
+				if (printRunningMessage){
+				 
+					System.out.println("Next Round. Roll is: "+(r[0]+r[1]));
+				}
+				 */
 				np.turn(currentPlayerID);
 			}
 		}
@@ -155,6 +166,7 @@ public class RunGame {
 				if (usingGraphics){
 					fei.updateCurrentPlayer(currentPlayerID); //switch players
 				}
+				
 				toReturn = true;
 			} else{
 				System.out.println("Road placement didn't work, try again");
@@ -249,7 +261,7 @@ public class RunGame {
 			//TEST:
 			//players[currentPlayerID].giveRoadResources();
 			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
-			if (success){
+			if (success && usingGraphics){
 				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
 			}
 			clearVerticesAndAction();

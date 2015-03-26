@@ -1,7 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=master
 eclipse.preferences.version=1
 org.eclipse.epp.usagedata.recording.filter-eclipse-only=true
-<<<<<<< HEAD
-org.eclipse.epp.usagedata.recording.last-upload=1427245098551
-=======
-org.eclipse.epp.usagedata.recording.last-upload=1426872643497
->>>>>>> master
+org.eclipse.epp.usagedata.recording.last-upload=1427316121262

@@ -69,6 +69,13 @@ public class GraphController {
 		}
 	}
 	
+	/* 
+	 * will return an array of edges that player can build a road to
+	 */
+	public Edge[] getPossibleEdges(Player p){
+		return new Edge[2];
+	}
+	
 	/*check if it is legal to build a city here (ie- Player p already has a settlement at this vertex)
 	 * If so, place city and return true
 	 * if not, make no change to the graph and return false
@@ -98,9 +105,9 @@ public class GraphController {
 		//find edge object that links v1 and v2, then check if edge is free
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
-		for (int i = 0; i<e1.length; i++ ){
+		for (int i = 0; i<vertices[a].getNumEdges(); i++ ){
 			/*
-			System.out.println("Building road betwen: "+a+" and "+b);
+			System.out.println("Building road between: "+a+" and "+b);
 			System.out.println("vertex1 of edge: ");
 			e1[i].v1.printResources();
 			System.out.println(" vertex 2 of edge ");
@@ -134,7 +141,7 @@ public class GraphController {
 	public void addRoadToGraph(int a, int b, Player p){
 		Edge toConsider = null;
 		Edge[] e1 = vertices[a].getEdges();
-		for (int i = 0; i<e1.length; i++ ){
+		for (int i = 0; i<vertices[a].getNumEdges(); i++ ){
 			if (e1[i].v1 == vertices[a] && e1[i].v2 == vertices[b] || 
 					e1[i].v1 == vertices[b] && e1[i].v2 == vertices[a]){
 				toConsider = e1[i];
@@ -175,7 +182,7 @@ public class GraphController {
 	 */
 	private boolean connectedRoads(int v, Player p){
 		Edge[] edges = vertices[v].getEdges();
-			for (int i = 0; i<edges.length; i++){
+			for (int i = 0; i<vertices[v].getNumEdges(); i++){
 				if (edges[i].owner == p ){
 					return true;
 				}
