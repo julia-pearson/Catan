@@ -5,51 +5,64 @@ public class NoPeople {
 	private RunGame rg;
 	private GameLogic gl;
 	int[] possibleActions;
+	Random generator;
 	//will store int that corresponds to action type used in RunGame  
 	//0= nothing, 1 = settlement, 2 = city, 3 = road,
 	//4 = trade 4 to 1, 5 = trade other player, 6 = move robber, 7 = monopoly 8 = year of plenty
 	//9 = road builder, 10 = knight
 	int actionCount;
 	int[] settlementVertices;
-	int settlementVerticesCount = 0;
-	
+	int settlementVerticesCount;
+	int[] cityVertices;
+	int cityVerticesCount;
+	int[][] roadVertices;
+	int roadVerticesCount;
 	boolean debug = true;
+	boolean printActions = true;
 	
 	public NoPeople(RunGame r, GameLogic g){
 		rg = r;
 		gl = g;
 		possibleActions = new int[10];
+		generator =  new Random();
 	}
 	
-	public void doFirstRound(){
+	public void firstRoundPlaceSettlement(){
 		boolean settlementPlaced = false;
 		while (!settlementPlaced){
-			settlementPlaced = 	rg.placeSettlementFirstRound(firstRoundChoice());
+			settlementPlaced = 	rg.placeSettlementFirstRound(firstRoundSettlementChoice());
 		}
 	}
 	
-	public int firstRoundChoice(){
+	public int firstRoundSettlementChoice(){
 		Random generator =  new Random();
 		int vertexToBuild = generator.nextInt(54);
 		return vertexToBuild;
 	}
 	
-	/*
-	public void startGame(){
-		System.out.println("Let's start playing!");
-		for (int i=0; i<turnOrder.length; i++){
-			currentPlayerID = turnOrder[i];
-			Player currentPlayer = players[currentPlayerID];
-			System.out.println("Player who will go is: " +currentPlayerID);
-			firstRound(currentPlayer);
-		} 
-		for (int i=turnOrder.length-1; i>=0; i--){
-			currentPlayerID = turnOrder[i];
-			Player currentPlayer = players[currentPlayerID];
-			System.out.println("Player who will go is: " +currentPlayerID);
-			firstRound(currentPlayer);
+	public void firstRoundRoad(int p){
+		findLegalRound1Road(p);
+		int randIndex = generator.nextInt(roadVerticesCount);
+		int v1 = roadVertices[randIndex][0];
+		int v2 =  roadVertices[randIndex][1];
+		rg.placeRoadFirstRound(v1);
+		rg.placeRoadFirstRound(v2);
+		
+	}
+	
+	private void findLegalRound1Road(int p){
+		roadVertices = new int[54*54][2];
+		roadVerticesCount = 0;
+		for (int i = 0; i<54; i++){
+			for (int j=0; j<54; j++){
+				if (gl.round1RoadCheck(i,j,p)){
+					roadVertices[roadVerticesCount][0] = i;
+					roadVertices[roadVerticesCount][1] = j;
+					roadVerticesCount ++;
+				}
+			}
 		}
-	}*/
+	}
 
 	public void turn(int p){
 		// check available actions
@@ -59,9 +72,12 @@ public class NoPeople {
 		if (actionCount == 0){
 			return;
 		}
-		Random generator =  new Random();
+		
 		int randIndex = generator.nextInt(actionCount);
 		int actionToTake = possibleActions[randIndex];
+		if (printActions){
+			System.out.println("Taking action "+actionToTake);
+		}
 		
 		switch (actionToTake) {
 			case (1):
@@ -70,11 +86,24 @@ public class NoPeople {
 				int vertexToBuild = settlementVertices[randIndex];
 				rg.setVertex(vertexToBuild);
 				break;
+			case (2):
+				rg.setActionType(2);
+				int cityIndex = generator.nextInt(cityVerticesCount);
+				int cityToBuild = cityVertices[cityIndex];
+				rg.setVertex(cityToBuild);
+				break;
+			case (3):
+				rg.setActionType(3);
+				int roadIndex = generator.nextInt(roadVerticesCount);
+				int v1 = roadVertices[roadIndex][0];
+				int v2 =  roadVertices[roadIndex][1];
+				rg.setVertex(v1);
+				rg.setVertex(v2);
+				break;
+			case(11):
+				rg.setActionType(11);
+				break;
 		}
-				
-			
-			
-			
 				
 	//	int actionType = pickAction();
 
@@ -89,8 +118,16 @@ public class NoPeople {
 			possibleActions[actionCount] = 1;
 			actionCount ++;
 		}
+		if (cityPossible(p)){
+			possibleActions[actionCount] = 2;
+			actionCount ++;
+		}
 		if (devCardPossible(p)){
 			possibleActions[actionCount] = 11;
+			actionCount ++;
+		}
+		if (roadPossible(p)){
+			possibleActions[actionCount] = 3;
 			actionCount ++;
 		}
 	}
@@ -112,12 +149,46 @@ public class NoPeople {
 		return toReturn;
 	}
 	
+	private boolean cityPossible(int p){
+		cityVertices = new int[10];
+		cityVerticesCount = 0;
+		int[] settlements = gl.getVerticesWithSettlements(p);
+		boolean toReturn = false;
+		for (int i=0; i<settlements.length; i++){
+			toReturn = gl.buildCityCheck(p, settlements[i]);
+			if (toReturn){
+				cityVertices[cityVerticesCount] = settlements[i];
+				cityVerticesCount ++;
+			}
+		}
+		return  toReturn;
+	}
+	
 	private boolean devCardPossible(int p){
 		boolean toReturn = gl.buildDevCheck(p);
 			if (toReturn && debug ){
 				System.out.println("Possible to buy a dev card for player "+p);
 			}
 		return toReturn;
+	}
+	
+	private boolean roadPossible(int p){
+		roadVertices = new int[54*54][2];
+		roadVerticesCount = 0;
+		for (int i = 0; i<54; i++){
+			for (int j=0; j<54; j++){
+				if (gl.buildRoadCheck(p,i,j)){
+					roadVertices[roadVerticesCount][0] = i;
+					roadVertices[roadVerticesCount][1] = j;
+					roadVerticesCount ++;
+				}
+			}
+		}
+		if (roadVerticesCount > 0){
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	
