@@ -1,15 +1,15 @@
 //JE +CJ
 
 public class GameLogic {
-	/*
-	-Tasks:
+	/*	-Tasks:
 	1.initialize the board
-	2. Handle all logic for changing state of board/player hands
+	2. create GUI
+	3. create FrontEndInterface to communicate with GUI and pass instructions
 	*/
 	private GraphController graph;
 	private DevCardDeck devDeck;
 
-	private boolean debugSet = false;
+	private boolean debugSet = true;
 
 	private Player[] players;
 
@@ -19,6 +19,48 @@ public class GameLogic {
 		devDeck = new DevCardDeck();
 		players = pArray;
 	}
+	
+	/*public void testGraphFeatures(){
+		System.out.println("Testing Graph Features");
+		Player test = new Player(0);
+		Player testb = new Player(1);
+		
+		System.out.println("Testing Place Settlement");
+		int i = 30;
+		System.out.println("Place settlement at "+i+graph.placeSettlement(i, test, true));
+		i = 19;
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true));
+		i = 18;
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true) );
+	
+		System.out.println("Testing Build City");
+		i = 17;
+		System.out.println("Place settlement at "+i+ graph.placeSettlement(i, test, true) );
+		System.out.println("Build city for testb at "+i+ graph.buildCity(i, test, true) );
+		
+		System.out.println("Testing Resource Distribution:");
+		int roll = 4;
+		graph.distributeResources(roll);
+		/*
+		System.out.println("Testing Road Placement:");
+		int v1 = 17;
+		int v2 = 18;
+		System.out.println("Place road for test between ("+v1+","+v2+") "+ graph.placeRoad(v1,v2, testb, true) );
+	}
+	
+	public void testCombinedFeatures(){
+		System.out.println("Testing Place Settlement");
+		int i = 1;
+		int v= 17;
+		placeSettlement(i, v);
+		players[i].printStats();
+		v = 19;
+		placeSettlement(i, v);
+		players[i].printStats();
+		v = 18;
+		placeSettlement(i, v);
+		players[i].printStats();
+	}*/
 
 	public void diceRoll(int numRoll){
 		if(numRoll == 7){
@@ -40,7 +82,7 @@ public class GameLogic {
 		}
 		if (build == true){
 			//update stats in player class
-			players[p].placeSettlement(vertexNumber);
+			players[p].placeSettlement();
 			graph.addSettlementToGraph(vertexNumber, players[p]);
 			return true;
 		}
@@ -72,7 +114,7 @@ public class GameLogic {
 
 		if (build == true){
 			//update stats in player class
-			players[p].buildSettlement(vertexNumber);
+			players[p].buildSettlement();
 			graph.addSettlementToGraph(vertexNumber, players[p]);
 			return true;
 		}
@@ -136,14 +178,6 @@ public class GameLogic {
 		}
 		//longest road check
 	}
-	
-	public boolean legalRoadCheck(int p, int v1, int v2){
-		return graph.checkPlaceRoad(v1,v2, players[p], debugSet); 
-	}
-	
-	public boolean round1RoadCheck(int v1, int v2, int p){
-		return graph.checkPlaceRound1Road(v1,v2, players[p], debugSet); 
-	}
 
 	//used at beginning
 	public boolean placeRoad(int p, int v1, int v2){
@@ -160,10 +194,6 @@ public class GameLogic {
 			graph.addRoadToGraph(v1,v2,players[p]);
 			return true;
 		}
-	}
-	
-	public int[] getVerticesWithSettlements(int p){
-		return players[p].getSettlementVertices();
 	}
 
 	public boolean buildDevCheck(int p ){
