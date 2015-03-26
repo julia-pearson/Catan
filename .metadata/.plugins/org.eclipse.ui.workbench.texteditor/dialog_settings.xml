@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="cityInd" key="selection"/>
 		<list key="findhistory">
+			<item value="cityInd"/>
+			<item value="getNu"/>
+			<item value="numEdgesS"/>
 			<item value="&gt;&gt;&gt;"/>
 			<item value="buyD"/>
 			<item value="dev"/>
 			<item value="drawRe"/>
 			<item value="addSt"/>
-			<item value="addSta"/>
-			<item value="move"/>
-			<item value="&lt;&lt;&lt;"/>
 		</list>
 		<list key="replacehistory">
 		</list>
