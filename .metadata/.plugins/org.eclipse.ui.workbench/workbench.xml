@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="32" version="2.0">
 <workbenchAdvisor/>
-<window height="694" width="1017" x="56" y="58">
+<window height="694" width="1232" x="56" y="58">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -35,33 +35,48 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameLogic.java" partName="GameLogic.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GameLogic.java" title="GameLogic.java" tooltip="Game/src/GameLogic.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GameLogic.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3289" selectionTopPixel="1495"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RunGame.java" partName="RunGame.java" path="/Users/juliaedholm/Documents/Catan/Game/src/RunGame.java" title="RunGame.java" tooltip="Game/src/RunGame.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RunGame.java" partName="RunGame.java" path="/Users/juliaedholm/Documents/Catan/Game/src/RunGame.java" title="RunGame.java" tooltip="Game/src/RunGame.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/RunGame.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2606" selectionTopPixel="970"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3363" selectionTopPixel="1528"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphController.java" partName="GraphController.java" path="/Users/juliaedholm/Documents/Catan/Game/src/GraphController.java" title="GraphController.java" tooltip="Game/src/GraphController.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/GraphController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5732" selectionTopPixel="2369"/>
+<editorState selectionHorizontalPixel="42" selectionLength="0" selectionOffset="3486" selectionTopPixel="3462"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NoPeople.java" partName="NoPeople.java" title="NoPeople.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/NoPeople.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NoPeople.java" partName="NoPeople.java" title="NoPeople.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/NoPeople.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/NoPeople.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2099" selectionTopPixel="1016"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1830" selectionTopPixel="1003"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Player.java" title="Player.java" tooltip="Game/src/Player.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Player.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3875" selectionTopPixel="2427"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6254" selectionTopPixel="3966"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TurnOrderManager.java" partName="TurnOrderManager.java" path="/Users/juliaedholm/Documents/Catan/Game/src/TurnOrderManager.java" title="TurnOrderManager.java" tooltip="Game/src/TurnOrderManager.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/TurnOrderManager.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1393" selectionTopPixel="21"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1393" selectionTopPixel="677"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayCatan.java" partName="PlayCatan.java" path="/Users/juliaedholm/Documents/Catan/Game/src/PlayCatan.java" title="PlayCatan.java" tooltip="Game/src/PlayCatan.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/PlayCatan.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="530" selectionTopPixel="29"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Clicks.java" partName="Clicks.java" path="/Users/juliaedholm/Documents/Catan/Game/src/Clicks.java" title="Clicks.java" tooltip="Game/src/Clicks.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/Clicks.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="187"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FrontEndInterface.java" partName="FrontEndInterface.java" path="/Users/juliaedholm/Documents/Catan/Game/src/FrontEndInterface.java" title="FrontEndInterface.java" tooltip="Game/src/FrontEndInterface.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Game/src/FrontEndInterface.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1820" selectionTopPixel="766"/>
 </editor>
 </editors>
 <views>
@@ -76,7 +91,7 @@
 <element path="/Game/src"/>
 </expanded>
 <selection>
-<element path="/Game/src/TurnOrderManager.java"/>
+<element path="/Game/src/FrontEndInterface.java"/>
 </selection>
 </viewState>
 </view>
@@ -233,150 +248,51 @@
 <editors>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/Users/juliaedholm/Documents/Catan/Game/src/NoPeople.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/RunGame.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GameLogic.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/RunGame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Player.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GraphController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/TurnOrderManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/GameLogic.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/PlayCatan.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/Clicks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Game/src/FrontEndInterface.java"/>
 </editors>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="3875" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="4154" y="0"/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position info="not_deleted" x="4550" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="3875" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="4154" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="3968" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="4130" y="0"/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position info="not_deleted" x="4550" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="3875" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="3968" y="0"/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position info="not_deleted" x="513" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="4">
-<position info="not_deleted" x="3274" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="3968" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position info="not_deleted" x="513" y="0"/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position/>
-</item>
-<item historyLabel="TurnOrderManager.java" index="5">
-<position info="not_deleted" x="1393" y="0"/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="TurnOrderManager.java" index="5">
-<position info="not_deleted" x="1393" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position info="not_deleted" x="2667" y="0"/>
-</item>
-<item historyLabel="TurnOrderManager.java" index="5">
-<position info="not_deleted" x="1393" y="0"/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position/>
-</item>
-<item historyLabel="NoPeople.java" index="0">
-<position info="not_deleted" x="4014" y="0"/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position info="not_deleted" x="2549" y="0"/>
-</item>
-<item historyLabel="GraphController.java" index="4">
-<position info="not_deleted" x="3274" y="0"/>
-</item>
-<item historyLabel="RunGame.java" index="1">
-<position info="not_deleted" x="2549" y="0"/>
-</item>
-<item historyLabel="GameLogic.java" index="3">
-<position/>
-</item>
 <item historyLabel="RunGame.java" index="1">
 <position info="not_deleted" x="2549" y="0"/>
 </item>
 <item historyLabel="NoPeople.java" index="0">
 <position info="not_deleted" x="4549" y="0"/>
 </item>
-<item historyLabel="GameLogic.java" index="3">
+<item historyLabel="GameLogic.java" index="2">
 <position/>
 </item>
-<item historyLabel="GraphController.java" index="4">
+<item historyLabel="GraphController.java" index="3">
 <position info="not_deleted" x="3274" y="0"/>
 </item>
 <item historyLabel="NoPeople.java" index="0">
 <position info="not_deleted" x="4554" y="0"/>
 </item>
-<item historyLabel="GameLogic.java" index="3">
+<item historyLabel="GameLogic.java" index="2">
 <position info="not_deleted" x="3289" y="0"/>
 </item>
 <item historyLabel="NoPeople.java" index="0">
 <position info="not_deleted" x="3290" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="4">
+<item historyLabel="GraphController.java" index="3">
 <position info="not_deleted" x="3274" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="4">
+<item historyLabel="GraphController.java" index="3">
 <position info="not_deleted" x="5732" y="0"/>
 </item>
 <item historyLabel="RunGame.java" index="1">
 <position info="not_deleted" x="7296" y="0"/>
 </item>
-<item historyLabel="GameLogic.java" index="3">
+<item historyLabel="GameLogic.java" index="2">
 <position info="not_deleted" x="3289" y="0"/>
 </item>
-<item historyLabel="GraphController.java" index="4">
+<item historyLabel="GraphController.java" index="3">
 <position info="not_deleted" x="5732" y="0"/>
 </item>
 <item historyLabel="RunGame.java" index="1">
@@ -385,8 +301,113 @@
 <item historyLabel="RunGame.java" index="1">
 <position info="not_deleted" x="2606" y="0"/>
 </item>
-<item active="true" historyLabel="NoPeople.java" index="0">
+<item historyLabel="NoPeople.java" index="0">
 <position info="not_deleted" x="3290" y="0"/>
+</item>
+<item historyLabel="NoPeople.java" index="0">
+<position info="not_deleted" x="3895" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="2754" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="12006" y="0"/>
+</item>
+<item historyLabel="Player.java" index="5">
+<position info="not_deleted" x="3875" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="11995" y="10"/>
+</item>
+<item historyLabel="GraphController.java" index="6">
+<position info="not_deleted" x="5732" y="0"/>
+</item>
+<item historyLabel="NoPeople.java" index="0">
+<position info="not_deleted" x="3934" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="7196" y="0"/>
+</item>
+<item historyLabel="GraphController.java" index="6">
+<position info="not_deleted" x="3486" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="11886" y="0"/>
+</item>
+<item historyLabel="GraphController.java" index="6">
+<position info="not_deleted" x="3486" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="11886" y="0"/>
+</item>
+<item historyLabel="TurnOrderManager.java" index="7">
+<position info="not_deleted" x="1393" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="11886" y="0"/>
+</item>
+<item historyLabel="NoPeople.java" index="0">
+<position info="not_deleted" x="2051" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="6925" y="0"/>
+</item>
+<item historyLabel="GraphController.java" index="6">
+<position info="not_deleted" x="3486" y="0"/>
+</item>
+<item historyLabel="Player.java" index="5">
+<position info="not_deleted" x="3875" y="0"/>
+</item>
+<item historyLabel="Player.java" index="5">
+<position info="not_deleted" x="4898" y="0"/>
+</item>
+<item historyLabel="NoPeople.java" index="0">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item historyLabel="Player.java" index="5">
+<position info="not_deleted" x="4898" y="0"/>
+</item>
+<item historyLabel="GameLogic.java" index="8">
+<position info="not_deleted" x="8" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="PlayCatan.java" index="9">
+<position info="not_deleted" x="658" y="0"/>
+</item>
+<item historyLabel="PlayCatan.java" index="9">
+<position info="not_deleted" x="22" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="2460" y="0"/>
+</item>
+<item historyLabel="PlayCatan.java" index="9">
+<position info="not_deleted" x="530" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="2460" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="3381" y="0"/>
+</item>
+<item historyLabel="NoPeople.java" index="0">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1737" y="0"/>
+</item>
+<item historyLabel="Clicks.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="FrontEndInterface.java" index="11">
+<position info="not_deleted" x="1820" y="0"/>
+</item>
+<item active="true" historyLabel="RunGame.java" index="4">
+<position info="not_deleted" x="1737" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -406,6 +427,15 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FrontEndInterface.java" tooltip="Game/src/FrontEndInterface.java">
+<persistable path="/Game/src/FrontEndInterface.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Clicks.java" tooltip="Game/src/Clicks.java">
+<persistable path="/Game/src/Clicks.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayCatan.java" tooltip="Game/src/PlayCatan.java">
+<persistable path="/Game/src/PlayCatan.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TurnOrderManager.java" tooltip="Game/src/TurnOrderManager.java">
 <persistable path="/Game/src/TurnOrderManager.java"/>
 </file>
@@ -430,9 +460,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DevCards.java" tooltip="Game/src/DevCards.java">
 <persistable path="/Game/src/DevCards.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Clicks.java" tooltip="Game/src/Clicks.java">
-<persistable path="/Game/src/Clicks.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" tooltip="Game/src/Board.java">
 <persistable path="/Game/src/Board.java"/>
 </file>
@@ -442,14 +469,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GraphMaker.java" tooltip="Game/src/GraphMaker.java">
 <persistable path="/Game/src/GraphMaker.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayCatan.java" tooltip="Game/src/PlayCatan.java">
-<persistable path="/Game/src/PlayCatan.java"/>
-</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Clicks.java" tooltip="/Users/juliaedholm/Documents/Catan/Game/src/Clicks.java">
 <persistable uri="file:/Users/juliaedholm/Documents/Catan/Game/src/Clicks.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FrontEndInterface.java" tooltip="Game/src/FrontEndInterface.java">
-<persistable path="/Game/src/FrontEndInterface.java"/>
 </file>
 </mruList>
 </workbench>

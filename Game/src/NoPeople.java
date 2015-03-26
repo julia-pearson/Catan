@@ -140,6 +140,7 @@ public class NoPeople {
 		for (int i = 0; i<settlementVertices.length; i++){
 			if (gl.buildSetCheck(p, i)){
 				settlementVertices[settlementVerticesCount] = i;
+				settlementVerticesCount ++;
 				toReturn = true;
 				if (debug){
 					System.out.println("Possible to build a settlment on vertex: "+i+ " for player "+p);

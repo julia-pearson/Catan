@@ -213,6 +213,7 @@ public class Player {
 
 		if(i == 1){
 			victoryPoints++;
+			System.out.println("Dev card gave you a victory point!");
 			dCardTracker.addVictory();
 		}
 
@@ -279,6 +280,7 @@ public class Player {
 		resourceTracker.useRock(3);
 		resourceTracker.useWheat(2);
 		numberOfCities++;
+		numberOfSettlements--;
 		victoryPoints++;
 	}
 
