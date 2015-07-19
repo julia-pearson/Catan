@@ -15,6 +15,14 @@ public class PlayCatan {
 		if (input == 1){
 			graphics = true;
 		}
-		RunGame gameRunner = new RunGame(numPlayers, graphics);
+		
+		boolean AI = false;
+		System.out.println("Enter 1 if using AI: ");
+		input = sc.nextInt();
+		if (input == 1){
+			AI = true;
+		}
+		
+		RunGame gameRunner = new RunGame(numPlayers, graphics,AI);
 	}
 }

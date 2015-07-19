@@ -56,7 +56,7 @@ public class Hexanew extends JFrame{
   int rollOne = 6;
   int rollTwo = 6;
   //boolean robberClick=false;
-  boolean play = true;
+
 
   //v1,v2,road?,player
   int[][] roadSide = new int[][]{
@@ -266,6 +266,7 @@ public class Hexanew extends JFrame{
       updateBoard();
   }
   public void drawBoard(int currentPlayer){
+
         //background
         g.setColor(circles);
         int xpoints[]={0,1500,1500,0};

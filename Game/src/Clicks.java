@@ -145,6 +145,8 @@ public class Clicks implements MouseListener{
 			System.out.println("port8");
 			//JuliaE Code
 		}
+
+
 		if(verty<54){
 			interaction.vertexClicked(verty);
 		}
@@ -430,6 +432,8 @@ public class Clicks implements MouseListener{
 			return false;
 		}
 	}
+
+
 
 	public void mousePressed(MouseEvent e) {}
 

@@ -32,7 +32,13 @@ public class RunGame {
 	private int[][] tradeResources; //tradeResources[0]= {type you want, amount, playerID}, tradeResouces[1] = {type you'll give away, amount, playerID}
 	private int[] yopResources;
 	
-	public RunGame(int numPlayers, boolean useGraphics){
+	boolean AI;//how to mimic one player as AI
+	NoPeople np;
+	private boolean printRunningMessage = true;
+	
+	public RunGame(int numPlayers, boolean useGraphics, boolean ai){
+		AI = ai;
+		System.out.println("AI "+AI);
 		players = new Player[numPlayers+1];
 		
 		for(int i=1; i<(numPlayers+1); i++)
@@ -61,16 +67,27 @@ public class RunGame {
 			//FEI will draw the graph
 			fei = new FrontEndInterface (this, board, numPlayers, ports, true);
 			fei.currentPlayerID = currentPlayerID;
+			if (AI){
+				np = new NoPeople(this, gl);
+			}
 		} else{
 			// run the game without graphics and with a random AI making all choices
 		//	fei = new FrontEndInterface (this, board, numPlayers, ports, false);
 			//fei.currentPlayerID = currentPlayerID;
-			NoPeople np = new NoPeople(this, gl);
+			np = new NoPeople(this, gl);
 			for (int i=0; i<playerCount*2; i++){
-				np.doFirstRound();
+				np.firstRoundPlaceSettlement();
 			}
-			for (int i=0; i<16; i++){
-				rollDice();
+			for (int i=0; i<playerCount*2; i++){
+				np.firstRoundRoad(currentPlayerID);
+			}
+			while(!gameEnd()){
+				int[] r = rollDice();
+				/*
+				if (printRunningMessage){
+					System.out.println("Next Round. Roll is: "+(r[0]+r[1]));
+				}
+				 */
 				np.turn(currentPlayerID);
 			}
 		}
@@ -99,6 +116,9 @@ public class RunGame {
 		}
 		gl.diceRoll(r1+r2);
 		updateAllStats();
+		if (AI){
+			np.turn(currentPlayerID);
+		}
 		return new int[] {r1,r2};
 	}
 	
@@ -155,6 +175,7 @@ public class RunGame {
 				if (usingGraphics){
 					fei.updateCurrentPlayer(currentPlayerID); //switch players
 				}
+				
 				toReturn = true;
 			} else{
 				System.out.println("Road placement didn't work, try again");
@@ -225,7 +246,7 @@ public class RunGame {
 		//TEST:
 		//players[currentPlayerID].giveSettlementResources();
 		boolean success = 	gl.buildSettlement(currentPlayerID, v);
-		if (success){
+		if (success && usingGraphics){
 			fei.drawSettlement(v);
 		}
 		clearVerticesAndAction();
@@ -236,7 +257,7 @@ public class RunGame {
 		//TEST:
 		//players[currentPlayerID].giveCityResources();
 		boolean success = 	gl.buildCity(currentPlayerID, v);
-		if (success){
+		if (success && usingGraphics){
 			fei.drawCity(v);
 		}
 		clearVerticesAndAction();
@@ -249,7 +270,7 @@ public class RunGame {
 			//TEST:
 			//players[currentPlayerID].giveRoadResources();
 			boolean success = gl.buildRoad(currentPlayerID, verticesToAct[0], verticesToAct[1]);
-			if (success){
+			if (success && usingGraphics){
 				fei.drawRoad(verticesToAct[0], verticesToAct[1]);
 			}
 			clearVerticesAndAction();
@@ -388,8 +409,11 @@ public class RunGame {
 	private boolean gameEnd(){
 		for (int i = 1; i< players.length; i++){
 			int vp = players[i].victoryPoints;
-			if (vp>= 3){
+			if (vp>= 4){
 				System.out.println("GAME OVER. Winner is Player " + i);
+				if (printRunningMessage){
+					players[i].printStats();
+				}
 				return true;
 			}
 		}

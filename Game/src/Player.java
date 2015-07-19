@@ -7,6 +7,7 @@ public class Player {
 	private boolean longestRoad;
 
 	public int numberOfSettlements; //max 5
+	public int[] settlementVertices;
 	private int numberOfCities; //max 4
 	private int numberOfRoads; //max 15
 	
@@ -23,6 +24,7 @@ public class Player {
 		victoryPoints = 0;
 
 		numberOfSettlements=0;
+		settlementVertices = new int[10];
 		numberOfRoads=0;
 		numberOfCities=0;
 
@@ -153,17 +155,27 @@ public class Player {
 		return true;
 	}
 
-	public void placeSettlement(){
+	public void placeSettlement(int v){
+		settlementVertices[numberOfSettlements] = v;
 		numberOfSettlements ++;
 		victoryPoints++;
+		
 	}
 	
-	public void buildSettlement(){
+	public void buildSettlement(int v){
 		resourceTracker.useSheep(1);
 		resourceTracker.useWheat(1);
 		resourceTracker.useWood(1);
 		resourceTracker.useBrick(1);
-		placeSettlement();
+		placeSettlement(v);
+	}
+	
+	public int[] getSettlementVertices(){
+		int[] toReturn = new int[numberOfSettlements];
+		for (int i=0; i<numberOfSettlements; i++){
+			toReturn[i] = settlementVertices[i];
+		}
+		return toReturn;
 	}
 
 	public void addPort(int i){
@@ -201,6 +213,7 @@ public class Player {
 
 		if(i == 1){
 			victoryPoints++;
+			System.out.println("Dev card gave you a victory point!");
 			dCardTracker.addVictory();
 		}
 
@@ -267,6 +280,7 @@ public class Player {
 		resourceTracker.useRock(3);
 		resourceTracker.useWheat(2);
 		numberOfCities++;
+		numberOfSettlements--;
 		victoryPoints++;
 	}
 
